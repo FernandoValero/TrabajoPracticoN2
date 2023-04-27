@@ -1,0 +1,104 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+body{
+	background: gray;
+	font-family: Arial, Helvetica, sans-serif (estilos de letras)
+}
+
+h1{                                              *(para un titulo o subtitulo en este caso h1)*
+	font-size: 60px (tamaño)
+	font-family: Times New Roman, Arial, Helvetica;
+	font-style: italic;
+	font-weight: bold;
+}
+Menú
+*{
+	margin: px;
+	padding: 0px;
+}
+
+
+header{
+	height: 75px;
+	position: relative;
+	margin: 50px;
+	top: 80px;
+	text-align: center;
+	background: rgba(82,82,82,0.75);
+	font-family: Arial, Helvetica, sans-serif;
+}
+/*MENÚ*/
+.imagen{
+	position: absolute;
+	z-index: 2;
+	top: 5px;
+	left: 80px;
+}
+img{	
+	width: 95px;
+}
+body {
+ background: #fdfdf1;
+ font-family: Arial, Helvetica, sans-serif;
+}
+nav{
+	position: relative;
+	top: -160px;
+	padding: 0px;
+	margin: 15px;
+	background-color: #313131;
+	z-index: 1;
+}
+nav ul{
+	padding-left: 40px;
+	list-style: none;
+	text-align: center;
+}
+nav ul li{
+	display: inline-block;
+	padding: 10px;
+}
+nav ul li a{
+	padding: 10px;
+	display: block;
+	color: white;
+	font-family: fantasy;
+	font-size: 30px;
+	text-decoration: none;
+	height: 40px;
+}
+nav ul li:hover {
+	background-color: #87a829;
+	border: 2px solid;
+	color: blank;
+}
+nav ul li a:hover {
+	text-decoration: underline;
+}
+nav ul li a:active{
+	font-size: -45px;
+	color: #ffffe9;
+}
+
+
+
+
+/*PÍE PÁGINA*/
+footer {
+	margin: 15px;
+	position: fixed;
+	background-color: #313131;
+	height: 50px;
+	margin: 15px;
+	width: 1820px;
+	bottom: -20px;
+}
+footer p {
+	text-align: center;
+	color: white;
+}
+
+
