@@ -1,21 +1,4 @@
 *{
-	margin: 0px;
-	padding: 0px;
-}
-
-body{
-	background: gray;
-	font-family: Arial, Helvetica, sans-serif (estilos de letras)
-}
-
-h1{                                              *(para un titulo o subtitulo en este caso h1)*
-	font-size: 60px (tamaño)
-	font-family: Times New Roman, Arial, Helvetica;
-	font-style: italic;
-	font-weight: bold;
-}
-Menú
-*{
 	margin: px;
 	padding: 0px;
 }
