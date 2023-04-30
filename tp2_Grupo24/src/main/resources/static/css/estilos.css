@@ -2,36 +2,50 @@
 	margin: px;
 	padding: 0px;
 }
-
-
+/*FONDO*/
+body {
+ background-image: url("../images/fondo.jpg");
+ font-family: Arial, Helvetica, sans-serif;
+}
+/*Encabezado*/
 header{
-	height: 75px;
+	
+	height: 70px;
 	position: relative;
 	margin: 50px;
-	top: 80px;
-	text-align: center;
-	background: rgba(82,82,82,0.75);
+	top: 45px;
+	padding-left: 30%;
+	padding-right: 30%;
+	background-image: url("../images/fondo_mascota.png");
+	border: 2px solid #313131;
 	font-family: Arial, Helvetica, sans-serif;
+}
+h1{
+	margin: 0px;
+	height: 70px;
+	text-align: center;
+	font-family: monospace;
+	font-size: 48px;
+	color: white;
+	background: #313131;
 }
 /*MENÚ*/
 .imagen{
-	position: absolute;
+	position: fixed;
 	z-index: 2;
-	top: 5px;
+	top: -15px;
 	left: 80px;
 }
-img{	
+.imagen img{	
 	width: 95px;
 }
-body {
- background: #fdfdf1;
- font-family: Arial, Helvetica, sans-serif;
-}
 nav{
-	position: relative;
-	top: -160px;
+	position: fixed;
+	top: -40px;
 	padding: 0px;
 	margin: 15px;
+	width: 1820px;
+	height: 100px;
 	background-color: #313131;
 	z-index: 1;
 }
@@ -65,10 +79,6 @@ nav ul li a:active{
 	font-size: -45px;
 	color: #ffffe9;
 }
-
-
-
-
 /*PÍE PÁGINA*/
 footer {
 	margin: 15px;
@@ -83,5 +93,198 @@ footer p {
 	text-align: center;
 	color: white;
 }
+section {
+	margin: 75px;
+	background: rgba(82,82,82,0.5);
+}
 
+
+/*PAGINA CONTACTANOS*/
+
+/*Estilo del Banner*/
+#banner {
+	background-color: #f3f3f3;
+	padding: 80px 20px;
+	text-align: center;
+	border-radius: 20px;
+	border-bottom: 5px solid #dadada;
+  	height: 50px;
+}
+#banner p {
+	font-size: 24px;
+}
+
+/* Estilo para todos los campos de entrada de texto */
+input[type="text"],
+textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 3px solid #dadada;
+  font-size: 18px;
+  padding: 15px 0;
+  margin-bottom: 25px;
+  border-radius: 20px; 
+  width: 1000px;
+
+}
+
+/*Ubicacion campos de entrada*/
+.form-group{
+	position: relative;
+	left: 100px;
+}
+
+/* Estilo para el campo de entrada de texto del nombre, correo electrónico y ciudad */
+input[name="name"],
+input[name="email"],
+input[name="city"] {
+  background-position: 15px center;
+  background-repeat: no-repeat;
+  padding-left: 50px;
+}
+
+/* Estilo para el campo de entrada de texto del mensaje */
+textarea[name="message"] {
+  height: 200px;
+  resize: none;
+  position: relative;
+  left: 50px;
+}
+
+/* Estilo boton*/
+.boton{
+	position: relative;
+	left: 100px;
+	background-color: #4CAF50; 
+	border: none; 
+	color: white; 
+	padding: 15px 32px; 
+	text-align: center; 
+	text-decoration: none; 
+	display: inline-block; 
+	font-size: 16px;
+	margin: 20px; 
+	cursor: pointer; 
+	border-radius: 20px; 
+	box-shadow: 0px 5px 0px #4a7e4c; 
+}
+/*Estilo para la informacion de contacto, dirección y horarios*/
+.contact{
+	margin: 20px;
+}
+.hours{
+    float: left;
+	margin-bottom: 70px;
+	width: 30%;
+}
+.social_network {
+    float: left;
+	width: 35%;
+}
+
+.address {
+    float: left;
+}
+
+/*INICIO*/
+
+
+.fondo {
+    line-height: 24px;
+}
+.left {
+    display: table-cell;
+    width: 65%;
+    padding: 70px 80px 40px 170px;
+    position: relative;
+	
+}
+
+img {
+    border: 10;
+    max-width: 100%;
+    height: auto;
+}
+
+.right {
+    display: table-cell;
+    width: 29%;
+    padding: 70px 40px 40px;
+    vertical-align: middle;
+    font-size: 15px;
+    line-height: 24px;
+    font-style: italic;
+    color: #444444;
+    text-align: center;
+	border-radius: 20px; 
+	background: #8b8b8b;
+}
+.inf {
+    padding-bottom: 35px;
+    margin-bottom: 20px;
+	border: none;
+	border-bottom: 5px solid #dadada;
+	font-size: 18px;
+	padding: 15px 0;
+	margin-bottom: 5px;
+	border-radius: 20px; 
+	background: #f0f0f0;
+}
+
+h4 {
+    margin: 0 0 20px;
+    font-size: 19px;
+    line-height: 25px;
+    color: #232323;
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: aracnereg,Arial,Verdana,sans-serif;
+    font-weight: 400;
+}
+.obj1{
+  border: none;
+  border-bottom: 5px solid #dadada;
+  margin-bottom: 5px;
+  border-radius: 20px; 
+  background: #f0f0f0;
+}
+.obj2{
+	border: none;
+	border-bottom: 5px solid #dadada;
+	background: #f0f0f0;
+	margin-bottom: 5px;
+	border-radius: 20px; 
+  }
+.obj3{
+	border: none;
+	border-bottom: 5px solid #dadada;
+	background: #f0f0f0;
+	margin-bottom: 5px;
+	border-radius: 20px; 
+  }
+.welcome{
+	margin: 0 0 20px;
+    font-size: 25px;
+    line-height: 25px;
+    color: #232323;
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: aracnereg,Verdana,sans-serif;
+    font-weight: 400;
+	border: none;
+	border-bottom: 5px solid #dadada;
+	background: #f0f0f0;
+	margin-bottom: 5px;
+	border-radius: 20px; 
+
+}
+.present{
+	border-bottom: 5px solid #dadada;
+	background: #f0f0f0;
+	margin-bottom: 5px;
+	border-radius: 10px; 
+    text-align: center;
+}
 
