@@ -95,7 +95,7 @@ footer p {
 }
 section {
 	margin: 75px;
-	background: rgba(82,82,82,0.5);
+	background: rgba(82, 82, 82, 0);
 }
 
 
@@ -168,6 +168,10 @@ textarea[name="message"] {
 	border-radius: 20px; 
 	box-shadow: 0px 5px 0px #4a7e4c; 
 }
+.boton:hover{
+	transform:scale(0.9);
+	border-radius: 30px;
+}
 /*Estilo para la informacion de contacto, dirección y horarios*/
 .contact{
 	margin: 20px;
@@ -200,7 +204,7 @@ textarea[name="message"] {
 	
 }
 
-img {
+.cats_dogs {
     border: 10;
     max-width: 100%;
     height: auto;
@@ -249,6 +253,10 @@ h4 {
   border-radius: 20px; 
   background: #f0f0f0;
 }
+.obj1:hover{
+	border-radius: 30px;
+	transform:scale(0.9);
+}
 .obj2{
 	border: none;
 	border-bottom: 5px solid #dadada;
@@ -256,6 +264,10 @@ h4 {
 	margin-bottom: 5px;
 	border-radius: 20px; 
   }
+ .obj2:hover{
+	border-radius: 30px;
+	transform:scale(0.9);
+}
 .obj3{
 	border: none;
 	border-bottom: 5px solid #dadada;
@@ -263,6 +275,10 @@ h4 {
 	margin-bottom: 5px;
 	border-radius: 20px; 
   }
+ .obj3:hover{
+	border-radius: 30px;
+	transform:scale(0.9);
+}
 .welcome{
 	margin: 0 0 20px;
     font-size: 25px;
@@ -288,3 +304,187 @@ h4 {
     text-align: center;
 }
 
+/*CONSEJOS-PRODUCTOS*/
+
+/*Imagenes Centro*/
+.centro {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	border-style: solid;
+	transition: all 0.5s ease;
+	border-style: solid;
+	border-color: black;
+}
+img:hover{
+	transform:scale(0.9);
+	border-radius: 30px;
+}
+*{
+	box-sizing: border-box;
+}
+
+/*SERVICIO*/
+
+/*Tabla*/
+.tabla{
+	font-family: Arial;
+	margin: 150px auto;
+	width: 600px;
+	background-color: white;
+	text-align: left;
+	border-collapse: collapse;
+	width: 100%
+}
+th, td{
+	border: solid 1px black;
+	padding: 20px;
+}
+th{
+	background-color: #246355;
+	border-bottom: solid 5px #0F362D;
+	color: white;
+}
+tr:nth-child(odd){
+	background-color: #ddd;
+}
+tr:hover td{
+	background-color: #369681;
+	color: white;
+}
+
+/* CONSEJOS DE SALUD*/
+.bodyConsejos {
+    background-color: #87a829;
+}
+  .tituloConsejos {
+    text-align: center;
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:#313131;
+    color:#ffffe9;
+    width: 99%;
+    margin: 0;
+    padding: 10px;
+  }  
+.articulo{
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    color:#313131;
+    padding-top: 10px;
+    padding: 0%;
+    margin: 0%;
+    margin-bottom: 5%;
+    background-image: url("../images/FondoHuellas.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.tituloArticulo {
+    font-size: 35px;
+    text-align: center;
+}
+.consejo {
+    font-size: 30px;
+    text-align: center;
+}
+.contenidoArticulo {
+    font-size: 25px;
+}
+.imagenesArticulos {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*SUCURSALES*/
+.sedes{
+	margin: 80px;
+	height: 900px;
+}
+.sede{
+	float: left;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	width: 400px;
+	margin: 50px;
+	text-align: center;
+	background-color: rgba(167, 167, 167, 0.692);
+}
+.sede h3 {
+  color: grey;
+  font-size: 18px;
+}
+.sede p{
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+.sede img{
+	width:100%
+}
+
+/*PRODUCTOS*/
+
+.productos{
+	height: 900px;
+}
+.tarjetas {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  border-color: rgba(85, 85, 85, 0.623);
+  perspective: 1000px; 
+  border-radius: 30px;
+  float:left;  
+  margin: 100px;
+}
+
+.tarjeta {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  border-radius: 30px;
+}
+.tarjetas:hover .tarjeta {
+  transform: rotateY(180deg);
+}
+
+.tarjetas_frente, .tarjetas_dorso {
+  position: absolute;
+  width: 100%;
+  height: 150%;
+  -webkit-backface-visibility: hidden; 
+  backface-visibility: hidden;
+  border-radius: 30px; 	
+}
+
+.tarjetas_frente {
+  background-color: #bbbbbb00;
+  color: rgba(0, 0, 0, 0);
+  border-radius: 30px;
+}
+
+.tarjetas_dorso {
+  background-color: rgb(122, 122, 122);
+  color: white;
+  transform: rotateY(180deg);
+  border-radius: 30px;
+}
+.prod{
+	text-align: center;
+	text-decoration: none;
+	font-size: 22px;
+	background: rgb(92, 92, 92);
+}
+.img_tarjeta{
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	border-style: solid;
+	transition: all 0.5s ease;
+	border-style: solid;
+	border-color: rgba(85, 85, 85, 0.623);
+	border-radius: 30px;
+}
