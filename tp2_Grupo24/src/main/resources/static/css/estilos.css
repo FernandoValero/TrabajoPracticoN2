@@ -57,6 +57,7 @@ nav ul{
 nav ul li{
 	display: inline-block;
 	padding: 10px;
+	height: 84px;
 }
 nav ul li a{
 	padding: 10px;
@@ -487,4 +488,6 @@ tr:hover td{
 	border-style: solid;
 	border-color: rgba(85, 85, 85, 0.623);
 	border-radius: 30px;
+	width:300px;
+	height:300px;
 }
