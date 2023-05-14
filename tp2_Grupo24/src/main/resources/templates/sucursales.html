@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
 	<meta charset="UTF-8">
 	<title>Sucursales</title>
@@ -9,17 +9,7 @@
 	<header>
 		<h1>Sucursales</h1>
 	</header>
-	<nav>
-		<ul>
-			  <li><a href="index.html">Inicio</a></li>
-			  <li><a href="Productos.html">Productos</a></li>
-			  <li><a href="consejSos.html">Consejos de Salud</a></li>
-			  <li><a href="Servicio.html">Servicios de paseos</a></li>
-			  <li><a href="sucursales.html">Sucursales</a></li>
-			  <li><a href="contactanos.html">Contáctanos</a></li>
-		</ul>
-	</nav>
-	
+	<nav th:replace="layouts/nav :: nav"></nav>
 	<section class="sedes">
 				
 		<div class="sede">
@@ -52,8 +42,6 @@
 			<p>Calle Alverdi N°1400<br>342 147 8466<br>Lunes a sábado de 9 a 22hs  - Sábado y domingo 9 a 12:30hs</p><br>
 		</div>
 	</section>
-	<footer>
-     		<p> &copy; Copyright 2023 PetShop Diseñado por Grupo 24 – Jujuy – República Argentina</p>	
-    </footer>
+	<footer th:replace="layouts/footer :: footer"></footer>
 </body>
 </html>
