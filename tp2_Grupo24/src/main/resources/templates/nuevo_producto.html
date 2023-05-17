@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Formulario</title>
+		<link th:href="@{/css/estilos.css}" rel="stylesheet">
+	</head>
+	<body class="cuerpo">
+		<header>
+			<h1>Producto</h1>
+		</header>
+		<a href="index.html" class="imagen"><img src="../static/images/petshop_logo.png" alt="Dos perros en frente de una casa para mascotas" title="Logo tienda de mascotas"></a>
+		<nav th:replace="layouts/nav :: nav"></nav>
+		<section class="formulario">
+			<form action="" method="post">
+				<label>Nombre: </label>
+				<input type="text">
+				<label>Código: </label>
+				<input type="text">
+				<label>Precio: </label>
+				<input type="text">
+				<label>Descuento: </label>
+				<input type="text">
+				<input type="button" value="Guardar">
+			</form>
+		</section>
+		<footer th:replace="layouts/footer :: footer"></footer>
+	</body>
+</html>
