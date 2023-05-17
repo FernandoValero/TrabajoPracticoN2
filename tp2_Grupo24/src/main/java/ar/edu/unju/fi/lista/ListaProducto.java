@@ -13,5 +13,11 @@ public class ListaProducto {
 		productos.add(new Producto("Cepillo Autolimpiante",35,1825,"Peluquería",2));
 		productos.add(new Producto("Rascador 2 casitas",36,15800,"Rascador",10));
 	}
+	public List<Producto> getProductos() {
+		return productos;
+	}
+	public void setProductos(List<Producto> productos) {
+		this.productos = productos;
+	}
 }
 
