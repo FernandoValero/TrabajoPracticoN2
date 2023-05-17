@@ -6,11 +6,11 @@
 	<body>
 		<nav th:fragment="footer">
 			<ul>		
-				<li><a href="index">Inicio</a></li>
+				<li><a th:href="@{/index}">Inicio</a></li>
 				<li><a href="productos">Productos</a></li>
 				<li><a href="consejos">Consejos de Salud</a></li>
 				<li><a href="servicio">Servicios de paseos</a></li>
-				<li><a href="sucursales">Sucursales</a></li>
+				<li><a th:href="@{/sucursal/sucursales}">Sucursales</a></li>
 				<li><a href="contactanos">Contáctanos</a></li>
 			</ul>
 		</nav>
