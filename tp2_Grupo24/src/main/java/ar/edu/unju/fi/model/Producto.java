@@ -5,11 +5,11 @@ public class Producto {
 	int codigo;
 	double precio;
 	String categoria;
-	byte descuento;
+	int descuento;
 	public Producto() {
 		// TODO Auto-generated constructor stub
 	}
-	public Producto(String nombre, int codigo, double precio, String categoria, byte descuento) {
+	public Producto(String nombre, int codigo, double precio, String categoria, int descuento) {
 		this.nombre = nombre;
 		this.codigo = codigo;
 		this.precio = precio;
@@ -40,13 +40,13 @@ public class Producto {
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
-	public byte getDescuento() {
+	public int getDescuento() {
 		return descuento;
 	}
-	public void setDescuento(byte descuento) {
+	public void setDescuento(int descuento) {
 		this.descuento = descuento;
 	}
-	double calcularDescuento(double precio, byte descuento) {
+	double calcularDescuento(double precio, int descuento) {
 		return precio-(precio*descuento/100);
 	}
 }
