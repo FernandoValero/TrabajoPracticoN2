@@ -1,11 +1,11 @@
 package ar.edu.unju.fi.model;
 
 public class Producto {
-	String nombre;
-	int codigo;
-	double precio;
-	String categoria;
-	int descuento;
+	private String nombre;
+	private int codigo;
+	private double precio;
+	private String categoria;
+	private int descuento;
 	public Producto() {
 		// TODO Auto-generated constructor stub
 	}
@@ -46,7 +46,7 @@ public class Producto {
 	public void setDescuento(int descuento) {
 		this.descuento = descuento;
 	}
-	double calcularDescuento(double precio, int descuento) {
+	public double calcularDescuento() {
 		return precio-(precio*descuento/100);
 	}
 }
