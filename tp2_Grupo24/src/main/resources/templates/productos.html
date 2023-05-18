@@ -22,6 +22,8 @@
 				<p th:text="${producto.precio}"></p>
 				<p th:text="${producto.descuento}"></p>
 				<p th:text="${producto.calcularDescuento}"></p>
+				<a th:href="@{/producto/modificar/}+${producto.codigo}">Modificar</a>
+				<a th:href="@{/producto/eliminar/}+${producto.codigo}">Eliminar</a>
 			</div>
 		</div>
 	</section>
