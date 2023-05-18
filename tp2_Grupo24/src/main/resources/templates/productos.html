@@ -10,87 +10,24 @@
 		<h1>Productos</h1>
 	</header>
 	<a href="index.html" class="imagen"><img src="../static/images/petshop_logo.png" alt="Dos perros en frente de una casa para mascotas" title="Logo tienda de mascotas"></a>
-	<nav th:replace="layouts/nav :: nav"></nav>
-	<section class="productos">
-
-		<div class="tarjetas">
-			<div class="tarjeta">
-				<div class="tarjetas_frente">
-					<img class="img_tarjeta" th:src="@{/images/comedorbebedor.jpg.png}" alt="comedor y bebedor para mascotas" >
-				</div>
-				<div class="tarjetas_dorso">
-					<p class="prod">Comedor y Bebedor</p>
-					<p>Se usa para poner alimentos tantos liquidos como solidos.</p>
-				</div>
+	<nav th:replace="~{layouts/nav :: nav}"></nav>
+	<section th:if="!${#lists.isEmpty(productos)}" class="tarjetas">
+		<div th:each="producto : ${productos}"class="tarjeta">
+			<div class="tarjetas_frente">
+				<img class="img_tarjeta" th:src="@{/images/comedorbebedor.jpg.png}" alt="comedor y bebedor para mascotas" >
 			</div>
-		</div>
-		<div class="tarjetas">
-			<div class="tarjeta">
-				<div class="tarjetas_frente">
-					<img class="img_tarjeta" th:src="@{/images/peine.png}" alt="peine para mascotas">
-				</div>
-				<div class="tarjetas_dorso">
-					<p class="prod">Peine</p>
-					<p>Ideal para mascotas con mucho pelaje, para eliminar los nudos, y desenrredar el pelaje del animal. Y en otro caso quitar el exceso de pelaje.</p>
-				</div>
-			</div>
-		</div>
-		<div class="tarjetas">
-			<div class="tarjeta">
-				<div class="tarjetas_frente">
-					<img class="img_tarjeta" th:src="@{/images/rascador.jpg}" alt="rascador para mascotas">
-				</div>
-				<div class="tarjetas_dorso">
-					<p class="prod">Rascador</p>
-					<p>El Rascador para Gatos es ideal para ellos, para evitar las rasgaduras en sofas u colchones, adenas en ella pueden dormir y jugar por su amplia estructura.</p>
-				</div>
-			</div>
-		</div>
-		<div class="tarjetas">
-			<div class="tarjeta">
-				<div class="tarjetas_frente">
-					<img class="img_tarjeta" th:src="@{/images/transportador.jpg}" alt="Transportador para mascotas">
-				</div>
-				<div class="tarjetas_dorso">
-					<p class="prod">Transportadora</p>
-					<p>Sirve para transportar al animal, ya sea al veterinario u otros lugares, vienen de distintas formas, tamaños y colores.</p>
-				</div>
-			</div>
-		</div>
-		<div class="tarjetas">
-			<div class="tarjeta">
-				<div class="tarjetas_frente">
-					<img class="img_tarjeta" th:src="@{/images/collar.jpg}" alt="Collar para mascotas">
-				</div>
-				<div class="tarjetas_dorso">
-					<p class="prod">Collar</p>
-					<p>Viene de diferentes tamanos desde el Talle 1 hasta el Talle 5, para toda raza de animales, y en diferentes colores y estilos.</p>
-				</div>
-			</div>
-		</div>
-		<div class="tarjetas">
-			<div class="tarjeta">
-				<div class="tarjetas_frente">
-					<img class="img_tarjeta" th:src="@{/images/kitsanitario.jpg.png}" alt="Kit sanitario para mascotas">
-				</div>
-				<div class="tarjetas_dorso">
-					<p class="prod">Kit sanitario</p>
-					<p>Es un Kit muy util viene con la pala para levantar las heces del Felino, y para que el Felino no haga sus necesidades en cualquier lugar del hogar.</p>
-				</div>
-			</div>
-		</div>
-		<div class="tarjetas">
-			<div class="tarjeta">
-				<div class="tarjetas_frente">
-					<img class="img_tarjeta" th:src="@{/images/mochila_transportadora.jpg}" alt="Mochila transportadora para mascotas">
-				</div>
-				<div class="tarjetas_dorso">
-					<p class="prod">Mochila transportadora</p>
-					<p>Es una mochila muy util, ideal para pasear al Felino o Canino, para llevarlo al parque, o a pasear, tiene una ventana transparente para que el la animal vea, y muy buena ventilacion.</p>
-				</div>
+			<div class="tarjetas_dorso">
+				<h2 th:text="${producto.nombre}"></h2>
+				<p th:text="${producto.categoria}"></p>
+				<p th:text="${producto.precio}"></p>
+				<p th:text="${producto.descuento}"></p>
+				<p th:text="${producto.calcularDescuento}"></p>
+				<a th:href="@{/producto/modificar/}+${producto.codigo}">Modificar</a>
+				<a th:href="@{/producto/eliminar/}+${producto.codigo}">Eliminar</a>
 			</div>
 		</div>
 	</section>
-	<footer th:replace="layouts/footer :: footer"></footer>
+	<a th:href="@{/producto/nuevo}">Nuevo Producto</a>
+	<footer th:replace="~{layouts/footer :: footer}"></footer>
 </body>
 </html>
