@@ -4,30 +4,36 @@
 	<meta charset="UTF-8">
 	<title>Productos</title>
 	<link th:href="@{/css/estilos.css}" rel="stylesheet">
+
 </head>
 <body>
 	<header>
 		<h1>Productos</h1>
 	</header>
-	<a href="index.html" class="imagen"><img src="../static/images/petshop_logo.png" alt="Dos perros en frente de una casa para mascotas" title="Logo tienda de mascotas"></a>
+	
+	<a href="index.html" class="imagen"><img th:src="@{/images/petshop_logo.png}" alt="Dos perros en frente de una casa para mascotas" title="Logo tienda de mascotas"></a>
 	<nav th:replace="~{layouts/nav :: nav}"></nav>
-	<section th:if="!${#lists.isEmpty(productos)}" class="tarjetas">
-		<div th:each="producto : ${productos}"class="tarjeta">
-			<div class="tarjetas_frente">
-				<img class="img_tarjeta" th:src="@{/images/comedorbebedor.jpg.png}" alt="comedor y bebedor para mascotas" >
+	<div class="cuerpo">
+		<section th:if="!${#lists.isEmpty(productos)}" class="tarjetas">
+			<div th:each="producto : ${productos}"class="tarjeta">
+				
+				<div class="tarjeta_base">
+					<img class="img_tarjeta" th:src="@{/images/comedorbebedor.jpg.png}" alt="comedor y bebedor para mascotas" >
+					<h2 th:text="${producto.nombre}"></h2><hr>
+					<p><span th:text="${producto.categoria}"></span></p>
+					<p>$<span th:text="${producto.precio}"></span></p>
+					<p><span th:text="${producto.descuento}"></span>%</p>
+					<p>$<span th:text="${producto.calcularDescuento}"></span></p><br>
+					<a th:href="@{/producto/modificar/}+${producto.codigo}"><i class="editar-prod fa-regular fa-pen-to-square"></i></a>
+					<a th:href="@{/producto/eliminar/}+${producto.codigo}"><i class="eliminar-prod fa-solid fa-trash-can"></i></a>
+				</div>
 			</div>
-			<div class="tarjetas_dorso">
-				<h2 th:text="${producto.nombre}"></h2>
-				<p th:text="${producto.categoria}"></p>
-				<p th:text="${producto.precio}"></p>
-				<p th:text="${producto.descuento}"></p>
-				<p th:text="${producto.calcularDescuento}"></p>
-				<a th:href="@{/producto/modificar/}+${producto.codigo}">Modificar</a>
-				<a th:href="@{/producto/eliminar/}+${producto.codigo}">Eliminar</a>
-			</div>
-		</div>
-	</section>
-	<a th:href="@{/producto/nuevo}">Nuevo Producto</a>
+		</section>
+	</div>
+	<div class="guardar">
+		<a th:href="@{/producto/nuevo}" ><i class="agregar fa-solid fa-circle-plus"></i></a>
+	</div>
 	<footer th:replace="~{layouts/footer :: footer}"></footer>
+	 <script src="https://kit.fontawesome.com/f80946207f.js" crossorigin="anonymous"></script>
 </body>
 </html>
