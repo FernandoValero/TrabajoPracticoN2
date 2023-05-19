@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<header class="headerConsejos">
+		<h1 class="tituloConsejos">CONSEJOS DE SALUD</h1>
+	</header>
+	<a href="index.html" class="imagen"><img
+		src="../static/images/petshop_logo.png"
+		alt="Dos perros en frente de una casa para mascotas"
+		title="Logo tienda de mascotas"></a>
+	<nav th:replace="~{layouts/nav :: nav}"></nav>
+
+	<form action="">
+		<label>Titulo:</label> 
+		<input type="text"> 
+		<label>Descripción:</label>
+		<input type="text">
+		<input type="submit" value="Guardar">
+	</form>
+	<footer th:replace="~{layouts/footer :: footer}"></footer>
+</body>
+</html>
