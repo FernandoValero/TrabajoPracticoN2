@@ -9,39 +9,20 @@
 	<header>
 		<h1>Sucursales</h1>
 	</header>
-	<nav th:replace="layouts/nav :: nav"></nav>
+	<nav th:replace="~{layouts/nav :: nav}" ></nav>
+	<a class="boton_sucursal" th:href="@{/sucursal/nuevo}">Agregar Sucursal</a>
 	<section class="sedes">
-				
-		<div class="sede">
-			<img th:src="@{/images/PetShop2.jpg}" alt="Tienda de mascotas" style="width:400px;height:300px;">
-			<h3>SUCURSAL SALTA</h3>
-			<p>Av. Fuente Grande N°1088<br>387 154 8546<br>Lunes a sábado de 9 a 22hs  - Sábado y domingo 9 a 12:30hs</p><br>
+		
+		<div class="sede" th:each="lista_sucursales: ${sucursales}">
+			<img th:src="${lista_sucursales.imagen}" alt="Tienda de mascotas" style="width:400px;height:300px;">
+			<h3><td th:text="${lista_sucursales.nombre}"></td> </h3>
+			<p><td th:text="${lista_sucursales.direccion}"></td><br><td th:text="${lista_sucursales.telefono}"></td><br><td th:text="${lista_sucursales.horario}"></td></p><br>
+			<a th:href="@{/sucursal/editar/}+${lista_sucursales.nombre}">Editar</a>
+			<a th:href="@{/sucursal/eliminar/}+${lista_sucursales.nombre}">Eliminar</a>
 		</div>
 		
-		<div class="sede">
-			<img th:src="@{/images/PetShops.jpeg}" alt="Tienda de mascotas" style="width:400px;height:300px;">
-			<h3>SUCURSAL CENTRAL</h3>
-			<p>Av. General Belgrano N°3915<br>388 499 9999<br>Lunes a viernes de 9 a 20hs - Sábado y domingo 9 a 12:30hs</p><br>
-		</div>
-
-		<div class="sede">
-			<img th:src="@{/images/PetShop1.png}" alt="Tienda de mascotas" style="width:400px;height:300px;">
-			<h3>SUCURSAL JUJUY-Palpalá</h3>
-			<p>Calle ledesma N°376<br>388 456 4416<br>Lunes a sábado de 8 a 22hs  - Sábado y domingo 9 a 12:30hs</p><br>
-		</div>
-
-		<div class="sede">
-			<img th:src="@{/images/PetShop5.png}" alt="Tienda de mascotas" style="width:400px;height:300px;">
-			<h3>SUCURSAL CÓRDOBA</h3>
-			<p>Av. San Martín N°5080<br>351 486 9588<br>Lunes a sábado de 08 a 20hs  - Sábado y domingo 9 a 12:30hs</p><br>
-		</div>
-
-		<div class="sede">
-			<img th:src="@{/images/PetShop3.jpeg}" alt="Tienda de mascotas" style="width:400px;height:300px;">
-			<h3>SUCURSAL SANTA FE</h3>
-			<p>Calle Alverdi N°1400<br>342 147 8466<br>Lunes a sábado de 9 a 22hs  - Sábado y domingo 9 a 12:30hs</p><br>
-		</div>
 	</section>
-	<footer th:replace="layouts/footer :: footer"></footer>
+	
+	<footer th:replace="~{layouts/footer :: footer}"></footer>
 </body>
 </html>
