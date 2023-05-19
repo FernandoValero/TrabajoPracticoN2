@@ -12,7 +12,7 @@
 			<h1 class="tituloConsejos">CONSEJOS DE SALUD</h1>
 		</header>
 		<a href="index.html" class="imagen"><img src="../static/images/petshop_logo.png" alt="Dos perros en frente de una casa para mascotas" title="Logo tienda de mascotas"></a>
-		<nav th:replace="layouts/nav :: nav"></nav>
+		<nav th:replace="~{layouts/nav :: nav}"></nav>
 		<section class="articulo">
 			<h2 class="tituloArticulo">Prevención de obesidad</h2>
 			<figure>
@@ -245,6 +245,6 @@
 				calor en los perros.
 			</p>
 		</section>
-		<footer th:replace="layouts/footer :: footer"></footer>
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
 	</body>
 </html>
