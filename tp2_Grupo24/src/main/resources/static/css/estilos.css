@@ -4,12 +4,22 @@
 }
 /*FONDO*/
 body {
- background-image: url("../images/fondo.jpg");
+ background-image: url("../images/fondo2k.jpg"); 
  font-family: Arial, Helvetica, sans-serif;
+}
+/*CUERPO DE OBJETOS*/
+.cuerpo{
+	position: absolute;
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-top: 1%;
+	width: 90%;
+	border: 2px solid #313131;
+	border-radius: 10px;
+  	background: white;
 }
 /*Encabezado*/
 header{
-	
 	height: 70px;
 	position: relative;
 	margin: 50px;
@@ -29,7 +39,7 @@ h1{
 	color: white;
 	background: #313131;
 }
-/*MENÚ*/
+/*LOGO*/
 .imagen{
 	position: fixed;
 	z-index: 2;
@@ -39,6 +49,7 @@ h1{
 .imagen img{	
 	width: 95px;
 }
+/*MENÚ*/
 nav{
 	position: fixed;
 	top: -40px;
@@ -64,21 +75,21 @@ nav ul li a{
 	display: block;
 	color: white;
 	font-family: fantasy;
-	font-size: 30px;
+	font-size: 38px;
 	text-decoration: none;
 	height: 40px;
 }
 nav ul li:hover {
-	background-color: #87a829;
+	background-color: white;
 	border: 2px solid;
 	color: blank;
 }
 nav ul li a:hover {
+	color: black;
 	text-decoration: underline;
 }
 nav ul li a:active{
-	font-size: -45px;
-	color: #ffffe9;
+	font-size: 45px;
 }
 /*PÍE PÁGINA*/
 footer {
@@ -422,72 +433,95 @@ tr:hover td{
 .sede img{
 	width:100%
 }
-
-/*PRODUCTOS*/
-
-.productos{
-	height: 900px;
+.boton_sucursal{
+	position: absolute;
+    right: 0; 
+	background-color: #4CAF50; 
+	border: none; 
+	color: white; 
+	padding: 15px 32px; 
+	text-align: center; 
+	text-decoration: none; 
+	display: inline-block; 
+	font-size: 16px;
+	margin: 20px; 
+	cursor: pointer; 
+	border-radius: 20px; 
+	box-shadow: 0px 5px 0px #4a7e4c; 
 }
-.tarjetas {
-  background-color: transparent;
-  width: 300px;
-  height: 200px;
-  border-color: rgba(85, 85, 85, 0.623);
-  perspective: 1000px; 
-  border-radius: 30px;
-  float:left;  
-  margin: 100px;
-}
-
-.tarjeta {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-  border-radius: 30px;
-}
-.tarjetas:hover .tarjeta {
-  transform: rotateY(180deg);
-}
-
-.tarjetas_frente, .tarjetas_dorso {
-  position: absolute;
-  width: 100%;
-  height: 150%;
-  -webkit-backface-visibility: hidden; 
-  backface-visibility: hidden;
-  border-radius: 30px; 	
-}
-
-.tarjetas_frente {
-  background-color: #bbbbbb00;
-  color: rgba(0, 0, 0, 0);
-  border-radius: 30px;
-}
-
-.tarjetas_dorso {
-  background-color: rgb(122, 122, 122);
-  color: white;
-  transform: rotateY(180deg);
-  border-radius: 30px;
-}
-.prod{
-	text-align: center;
-	text-decoration: none;
-	font-size: 22px;
-	background: rgb(92, 92, 92);
-}
-.img_tarjeta{
-	margin-left: auto;
-	margin-right: auto;
-	display: block;
-	border-style: solid;
-	transition: all 0.5s ease;
-	border-style: solid;
-	border-color: rgba(85, 85, 85, 0.623);
+.boton_sucursal:hover{
+	transform:scale(0.9);
 	border-radius: 30px;
-	width:300px;
-	height:300px;
+}
+/*PRODUCTOS*/
+.tarjeta{
+	float: left;
+	margin-left: 43px;
+	width: 450px;
+  	height: 300px;
+  	margin-bottom: 50px;
+}
+.tarjeta_base{
+	margin-top: 10%;
+	width: 100%;
+  	height: 80%;
+  	background-color: #313131;
+  	border-radius: 15px;
+  	border: solid 2px black;
+  	box-shadow: 4px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.img_tarjeta{
+	position: relative;
+	top: -35px;
+	left: 15px;
+	float: left;
+	height: 200px;
+	width: 200px;
+	box-shadow: 4px 2px 4px rgba(0, 0, 0, 0.7);
+}
+.tarjeta_base h2{
+	margin-top: 5%;
+	margin-left: 50%;
+	font-size: 100%;
+	color: white;
+}
+.tarjeta_base p{
+	text-align: center;
+	margin-left: 40%;
+	font-size: 100%;
+	color: white;
+}
+.tarjeta_base a{
+	position: relative;
+	margin: 15px;
+	top: -50px;
+	left: 60px;
+}
+.editar-prod{
+	
+	color: white;
+	font-size: 35px;
+}
+.eliminar-prod{
+	color: white;
+	font-size: 35px;
+}
+.editar-prod:hover{
+	
+	color: orange;
+	font-size: 37px;
+}
+.eliminar-prod:hover{
+	color: red;
+	font-size: 37px;
+}
+.guardar{
+	position: fixed;
+	top: 83%;
+	right: 10%;
+}
+.agregar{
+	font-size: 100px;
+	color: #00fe37;
 }
