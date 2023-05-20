@@ -24,6 +24,16 @@
 				<input type="text" th:field="*{categoria}">
 				<label>Descuento: </label>
 				<input type="text" th:field="*{descuento}">
+				<label>Imagen: </label>
+				<select th:field="*{imagen}">
+				    <option value="comedorbebedor.png">Bebedero-Comedero</option>
+				    <option value="peine.png">Cepillo</option>
+				    <option value="rascador.jpg">Rascador</option>
+				    <option value="transportador.jpg">Caja Transporte</option>
+				    <option value="mochila_transportadora.jpg">Mochila Transporte</option>
+				    <option value="kitsanitario.png">Kit sanitario</option>
+				</select>
+				<input type="text" th:field="*{descuento}">
 				<input type="submit" th:value="${boton}">
 			</form>
 		</section>
