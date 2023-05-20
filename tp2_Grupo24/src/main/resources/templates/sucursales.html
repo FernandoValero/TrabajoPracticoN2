@@ -16,7 +16,7 @@
 	<section class="sedes">
 		
 		<div class="sede" th:each="lista_sucursales: ${sucursales}">
-			<img th:src="${lista_sucursales.imagen}" alt="Tienda de mascotas" style="width:400px;height:300px;">
+			<img th:src="@{/images/}+${lista_sucursales.imagen}" alt="Tienda de mascotas" >
 			<a th:href="@{/sucursal/editar/}+${lista_sucursales.nombre}"><i class="editar-sucu fa-regular fa-pen-to-square"></i></a>
 			<a th:href="@{/sucursal/eliminar/}+${lista_sucursales.nombre}"><i class="eliminar-sucu fa-solid fa-trash-can"></i></a>
 			<h3><td th:text="${lista_sucursales.nombre}"></td> </h3>
