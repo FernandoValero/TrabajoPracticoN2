@@ -9,8 +9,8 @@
 		<header>
 			<h1>Producto</h1>
 		</header>
+		<a th:replace="~{layouts/logo :: logo}"></a>
 		<nav th:replace="~{layouts/nav :: nav}"></nav>
-		
 		<form class="formulario" th:action="${edicion}?@{/producto/modificar}:@{/producto/guardar}" th:object="${producto}" method="post">
 			<label>Código:<i class="fa-solid fa-file-code"></i></label><br>
 			<input th:if="${edicion}" type="text" th:field="*{codigo}" readonly="readonly">

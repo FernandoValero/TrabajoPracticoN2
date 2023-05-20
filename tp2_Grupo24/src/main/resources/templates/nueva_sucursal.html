@@ -9,17 +9,18 @@
 	<header>
 		<h1 th:text="${edicion}?'Editar Sucursal':'Nueva Sucursal'"></h1>
 	</header>
+	<a th:replace="~{layouts/logo :: logo}"></a>
 	<nav th:replace="layouts/nav :: nav"></nav>
 	<form class="formulario" th:action="${edicion}?@{/sucursal/editar}:@{/sucursal/guardar}" th:object="${sucursal}" method="post">
 		<label for="nombre">Nombre:<i class="fa-solid fa-house"></i></label>
 		<input th:if="${edicion}" type="text" id="nombre" name="nombre_sucursal" th:field="*{nombre}" readonly="readonly">
 		<input th:if="!${edicion}" type="text" id="nombre" name="nombre_sucursal" th:field="*{nombre}" required="required" placeholder="Ingresa el nombre de la sucursal" >
 		<label for="direccion">Dirección:<i class="fa-solid fa-street-view"></i></label>
-		<input type="text" id="direccion" name="direccion_sucursal" th:field="*{direccion}" placeholder="Ingresa la direccion de la sucursal"><br><br>
+		<input type="text" id="direccion" name="direccion_sucursal" th:field="*{direccion}" required="required" placeholder="Ingresa la direccion de la sucursal"><br><br>
 		<label for="telefono">Teléfono:<i class="fa-solid fa-phone"></i></label>
-		<input type="text" id="telefono" name="telefono_sucursal" th:field="*{telefono}" placeholder="Ingresa el teléfono de la sucursal"><br><br>
+		<input type="text" id="telefono" name="telefono_sucursal" th:field="*{telefono}" required="required" placeholder="Ingresa el teléfono de la sucursal"><br><br>
 		<label for="telefono">Horario:<i class="fa-regular fa-clock"></i></label>
-		<input type="text" id="horario" name="horario_sucursal" th:field="*{horario}" placeholder="Ingresa el horario de la sucursal  Formato: Lunes a Viernes de 00:00 a 00:00hs - Sábado y Domingo de 00:00 a 00:00hs"><br><br>
+		<input type="text" id="horario" name="horario_sucursal" th:field="*{horario}" required="required" placeholder="Ingresa el horario de la sucursal  Formato: Lunes a Viernes de 00:00 a 00:00hs - Sábado y Domingo de 00:00 a 00:00hs"><br><br>
 		<label for="image">Imagen:<i class="fa-regular fa-image"></i></label>
 		<select th:field="*{imagen}" required="required">
 			    <option value="PetShop1.png">Sucursal 1</option>
