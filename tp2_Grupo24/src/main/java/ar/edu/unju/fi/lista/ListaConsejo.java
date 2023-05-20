@@ -24,5 +24,4 @@ public class ListaConsejo{
 	public void setConsejos(List<Consejo> consejos) {
 		this.consejos = consejos;
 	}
-	 
 }
