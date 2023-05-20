@@ -10,20 +10,22 @@
 		<h1 th:text="${edicion}?'Editar Sucursal':'Nueva Sucursal'"></h1>
 	</header>
 	<nav th:replace="layouts/nav :: nav"></nav>
-	
 	<form class="formulario" th:action="${edicion}?@{/sucursal/editar}:@{/sucursal/guardar}" th:object="${sucursal}" method="post">
-		<label for="nombre">Nombre</label>
+		<label for="nombre">Nombre:<i class="fa-solid fa-house"></i></label>
 		<input type="text" id="nombre" name="nombre_sucursal" th:field="*{nombre}" placeholder="Ingresa el nombre de la sucursal" ><br><br>
-		<label for="direccion">Direccion</label>
+		<label for="direccion">Dirección:<i class="fa-solid fa-street-view"></i></label>
 		<input type="text" id="direccion" name="direccion_sucursal" th:field="*{direccion}" placeholder="Ingresa la direccion de la sucursal"><br><br>
-		<label for="telefono">Telefono</label>
+		<label for="telefono">Teléfono:<i class="fa-solid fa-phone"></i></label>
 		<input type="text" id="telefono" name="telefono_sucursal" th:field="*{telefono}" placeholder="Ingresa el teléfono de la sucursal"><br><br>
-		<label for="telefono">Horario</label>
+		<label for="telefono">Horario:<i class="fa-regular fa-clock"></i></label>
 		<input type="text" id="horario" name="horario_sucursal" th:field="*{horario}" placeholder="Ingresa el horario de la sucursal  Formato: Lunes a Viernes de 00:00 a 00:00hs - Sábado y Domingo de 00:00 a 00:00hs"><br><br>
-		<label for="image">Imagen</label>
+		<label for="image">Imagen:<i class="fa-regular fa-image"></i></label>
 		<input type="file" id="imagen" name="imagen_sucursal" accept="/images/*" th:field="*{imagen}" ><br><br>
 		<a><input type="submit" th:value="${edicion}?'Guardar Cambios':'Guardar'"></a>
-		<a th:href="@{/sucursal/sucursales}">Cancelar</a>
+		<div class="cancel">
+		<a  th:href="@{/sucursal/sucursales}">Cancelar</a>
+		</div>
+		<script src="https://kit.fontawesome.com/f80946207f.js" crossorigin="anonymous"></script>
 	</form>
 	</body>
 </html>

@@ -11,13 +11,14 @@
 		</header>
 		<a href="index.html" class="imagen"><img src="../static/images/petshop_logo.png" alt="Dos perros en frente de una casa para mascotas" title="Logo tienda de mascotas"></a>
 		<nav th:replace="layouts/nav :: nav"></nav>
+		
 		<section class="formulario">
 		<form th:action="@{/contacto/mensaje}" th:object="${contacto}" method="post">
-			<label>Nombre:<i class="fa-solid fa-user"></i></label>
+			<label>Nombre:<i class="fa-solid fa-user"></i></label><br>
 			<input type="text" id="name" name="name" placeholder="Ingresa tu nombre"><br>
-			<label>Correo electrónico: <i class="fa-solid fa-envelope"></i></label>
+			<label>Correo electrónico: <i class="fa-solid fa-envelope"></i></label><br>
 			<input type="text" id="email" name="email" placeholder="Ingresa tu correo electrónico"><br>	
-			<label>Ciudad: <i class="fa-solid fa-city"></i></label>
+			<label>Ciudad: <i class="fa-solid fa-city"></i></label><br>
 			<input type="text" id="city" name="city" placeholder="Ingresa tu ciudad"><br>
 			<textarea id="message" name="message" placeholder="Escribe tu mensaje aquí"></textarea>
 		  </form>

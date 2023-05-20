@@ -113,93 +113,62 @@ section {
 
 /*PAGINA CONTACTANOS*/
 
-/*Estilo del Banner*/
-#banner {
-	background-color: #f3f3f3;
-	padding: 80px 20px;
-	text-align: center;
-	border-radius: 20px;
-	border-bottom: 5px solid #dadada;
-  	height: 50px;
-}
-#banner p {
-	font-size: 24px;
+/*FORMULARIO*/
+
+*{box-sizing:border-box;}
+
+.formulario{
+	
+	padding: 30px;
+	padding-left: 100px;
+	width:auto;
+	border-radius:10px;
+	margin:90px;
+	background-color: white;
 }
 
-/* Estilo para todos los campos de entrada de texto */
-input[type="text"],
-textarea {
-  width: 100%;
-  border: none;
-  border-bottom: 3px solid #dadada;
-  font-size: 18px;
-  padding: 15px 0;
-  margin-bottom: 25px;
-  border-radius: 20px; 
-  width: 1000px;
-
-}
-
-/*Ubicacion campos de entrada*/
-.form-group{
-	position: relative;
-	left: 100px;
-}
-
-/* Estilo para el campo de entrada de texto del nombre, correo electrónico y ciudad */
-input[name="name"],
-input[name="email"],
-input[name="city"] {
-  background-position: 15px center;
-  background-repeat: no-repeat;
-  padding-left: 50px;
-}
-
-/* Estilo para el campo de entrada de texto del mensaje */
-textarea[name="message"] {
-  height: 200px;
-  resize: none;
-  position: relative;
-  left: 50px;
-}
-
-/* Estilo boton*/
-.boton{
-	position: relative;
-	left: 100px;
-	background-color: #4CAF50; 
-	border: none; 
-	color: white; 
-	padding: 15px 32px; 
-	text-align: center; 
-	text-decoration: none; 
-	display: inline-block; 
-	font-size: 16px;
-	margin: 20px; 
-	cursor: pointer; 
-	border-radius: 20px; 
-	box-shadow: 0px 5px 0px #4a7e4c; 
-}
-.boton:hover{
-	transform:scale(0.9);
-	border-radius: 30px;
-}
-/*Estilo para la informacion de contacto, dirección y horarios*/
-.contact{
+.formulario label{
+	width: 90px;
+	font-weight:bold;
 	margin: 20px;
-}
-.hours{
-    float: left;
-	margin-bottom: 70px;
-	width: 30%;
-}
-.social_network {
-    float: left;
-	width: 35%;
+	font-size: 20px;
 }
 
-.address {
-    float: left;
+.formulario input[type="text"]{
+	width: 95%;
+	height: 45px;
+	padding:3px 10px;
+	border:1px solid gray;
+	background-color:#f6f6f6;
+	border-radius:5px;
+	margin:8px 0;
+	display:inline-block;
+	size:50;
+}
+
+.formulario input[type="submit"]{
+	width:90%;
+	padding:8px 16px;
+	margin-top:32px;
+	border:1px solid #000;
+	border-radius:5px;
+	color:#fff;
+	background-color:#808080;
+} 
+
+.formulario input[type="submit"]:hover{
+	cursor:pointer;
+}
+.formulario select{
+	width: 95%;
+	height: 45px;
+}
+.formulario textarea{
+	width: 95%;
+	height:200px;
+	border:1px solid #f6f6f6;
+	border-radius:3px;
+	background-color:#f6f6f6;			
 }
 
 /*INICIO*/
@@ -540,48 +509,63 @@ tr:hover td{
 }
 
 .formulario label{
-	width:90px;
+	width: 90px;
 	font-weight:bold;
-	display:inline-block;
 	margin: 20px;
 	font-size: 20px;
 }
 
 .formulario input[type="text"]{
-	width:1050px;
+	width: 95%;
+	height: 45px;
 	padding:3px 10px;
 	border:1px solid gray;
 	background-color:#f6f6f6;
 	border-radius:5px;
 	margin:8px 0;
 	display:inline-block;
-	size:50;
+	size:50px;
 }
 
 .formulario input[type="submit"]{
-	width:50%;
+	width:95%;
+	height: 45px;
 	padding:8px 16px;
 	margin-top:32px;
 	border:1px solid #000;
 	border-radius:5px;
-	color:#fff;
-	background-color:#808080;
+	color: white;
+	background-color:#313131;
+	font-size: 25px;
 } 
+.cancel{
+	width:95%;
+	height: 45px;
+	padding:8px 16px;
+	margin-top:10px;
+	border:1px solid #000;
+	border-radius:5px;
+	color: white;
+	background-color:#313131;
+	text-align: center;
+} 
+.cancel a{
+	font-size: 25px;
+	color: white;
+	font-family: Arial;
+	text-decoration: none;
+}
 
 .formulario input[type="submit"]:hover{
 	cursor:pointer;
 }
 
 textarea{
-	width:100%;
-	height:100px;
+	width: 95%;
+	height:200px;
 	border:1px solid #f6f6f6;
 	border-radius:3px;
 	background-color:#f6f6f6;			
-	margin:8px 0;
-	/*resize: vertical | horizontal | none | both*/
-	resize:none;
-	display:block;
 }
 .editar-sucu{
 	
