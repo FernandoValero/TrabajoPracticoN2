@@ -386,6 +386,7 @@ tr:hover td{
 	float: left;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	width: 400px;
+	height: 550px;
 	margin: 50px;
 	text-align: center;
 	background-color: rgba(167, 167, 167, 0.692);
@@ -400,28 +401,11 @@ tr:hover td{
   color: black;
 }
 .sede img{
-	width:100%
+	width:100%;
+	width:400px;
+	height:300px;
 }
-.boton_sucursal{
-	position: absolute;
-    right: 0; 
-	background-color: #4CAF50; 
-	border: none; 
-	color: white; 
-	padding: 15px 32px; 
-	text-align: center; 
-	text-decoration: none; 
-	display: inline-block; 
-	font-size: 16px;
-	margin: 20px; 
-	cursor: pointer; 
-	border-radius: 20px; 
-	box-shadow: 0px 5px 0px #4a7e4c; 
-}
-.boton_sucursal:hover{
-	transform:scale(0.9);
-	border-radius: 30px;
-}
+
 /*PRODUCTOS*/
 .tarjeta{
 	float: left;

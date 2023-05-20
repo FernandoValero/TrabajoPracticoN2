@@ -1,19 +1,17 @@
 package ar.edu.unju.fi.model;
 
-import javax.swing.ImageIcon;
-
 public class Sucursal {
 	private String nombre;
 	private String direccion;
 	private String telefono;
 	private String horario;
-	private ImageIcon imagen;
+	private String imagen;
 	
 	public Sucursal() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Sucursal(String nombre, String direccion, String telefono, String horario,ImageIcon imagen) {
+	public Sucursal(String nombre, String direccion, String telefono, String horario,String imagen) {
 		super();
 		this.nombre = nombre;
 		this.direccion = direccion;
@@ -54,11 +52,11 @@ public class Sucursal {
 		this.horario = horario;
 	}
 
-	public ImageIcon getImagen() {
+	public String getImagen() {
 		return imagen;
 	}
 
-	public void setImagen(ImageIcon imagen) {
+	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
 
