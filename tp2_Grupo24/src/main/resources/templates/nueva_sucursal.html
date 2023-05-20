@@ -10,7 +10,8 @@
 		<h1 th:text="${edicion}?'Editar Sucursal':'Nueva Sucursal'"></h1>
 	</header>
 	<nav th:replace="layouts/nav :: nav"></nav>
-	<form th:action="${edicion}?@{/sucursal/editar}:@{/sucursal/guardar}" th:object="${sucursal}" method="post">
+	
+	<form class="formulario" th:action="${edicion}?@{/sucursal/editar}:@{/sucursal/guardar}" th:object="${sucursal}" method="post">
 		<label for="nombre">Nombre</label>
 		<input type="text" id="nombre" name="nombre_sucursal" th:field="*{nombre}" placeholder="Ingresa el nombre de la sucursal" ><br><br>
 		<label for="direccion">Direccion</label>
