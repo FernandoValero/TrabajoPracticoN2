@@ -11,7 +11,7 @@
 		<h1>Productos</h1>
 	</header>
 	
-	<a href="index.html" class="imagen"><img th:src="@{/images/petshop_logo.png}" alt="logo mascota" title="Logo tienda de mascotas"></a>
+	<a th:replace="~{layouts/logo :: logo}"></a>
 	<nav th:replace="~{layouts/nav :: nav}"></nav>
 	<div class="cuerpo">
 		<section th:if="!${#lists.isEmpty(productos)}" class="tarjetas">

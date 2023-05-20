@@ -9,8 +9,8 @@
 			<header>
 				<h1>PetShop</h1>
 			</header>
-			<a href="index.html" class="imagen"><img src="../static/images/petshop_logo.png" alt="Dos perros en frente de una casa para mascotas" title="Logo tienda de mascotas"></a>
-			<nav th:replace="layouts/nav :: nav"></nav>
+			<a th:replace="~{layouts/logo :: logo}"></a>
+			<nav th:replace="~{layouts/nav :: nav}"></nav>
 			<div class="fondo">
 				<div class="left">
 					<div class="content">
@@ -35,6 +35,6 @@
 					</div>
 				</div>
 			</div>
-			<footer th:replace="layouts/footer :: footer"></footer>
+			<footer th:replace="~{layouts/footer :: footer}"></footer>
 		</body>
 </html>

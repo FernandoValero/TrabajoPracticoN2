@@ -10,19 +10,20 @@
 			<h1>Producto</h1>
 		</header>
 		<nav th:replace="~{layouts/nav :: nav}"></nav>
+		
 		<form class="formulario" th:action="${edicion}?@{/producto/modificar}:@{/producto/guardar}" th:object="${producto}" method="post">
-			<label>Código: </label>
+			<label>Código:<i class="fa-solid fa-file-code"></i></label><br>
 			<input th:if="${edicion}" type="text" th:field="*{codigo}" readonly="readonly">
 			<input th:if="!${edicion}" type="text" th:field="*{codigo}" required="required" placeholder="Ingrese Código Producto"><br>
-			<label>Nombre: </label>
+			<label>Nombre:<i class="fa-brands fa-product-hunt"></i> </label><br>
 			<input type="text" name="producto_nombre" th:field="*{nombre}" required="required" placeholder="Ingrese Nombre del Producto"><br>
-			<label>Precio: </label>
+			<label>Precio:<i class="fa-solid fa-money-bill"></i> </label><br>
 			<input type="text" th:field="*{precio}" required="required" placeholder="Ingrese Precio Producto"><br>
-			<label>Categoria: </label>
+			<label>Categoria:<i class="fa-regular fa-calendar"></i></label>
 			<input type="text" th:field="*{categoria}" required="required" placeholder="Ingrese Categoría del Producto"><br>
-			<label>Descuento: </label>
+			<label>Descuento:<i class="fa-solid fa-wallet"></i></label><br>
 			<input type="text" th:field="*{descuento}" required="required" placeholder="Ingrese Descuento del Producto"><br>
-			<label>Imagen: </label>
+			<label>Imagen:<i class="fa-regular fa-image"></i> </label><br>
 			<select th:field="*{imagen}" required="required">
 			    <option value="comedorbebedor.png">Bebedero-Comedero</option>
 			    <option value="peine.png">Cepillo</option>
@@ -31,8 +32,12 @@
 			    <option value="mochila_transportadora.jpg">Mochila Transporte</option>
 			    <option value="kitsanitario.png">Kit sanitario</option>
 			</select><br>
-			<input type="submit" th:value="${boton}">
+			<input class="boton-envio" type="submit" th:value="${boton}">
+			<div class="cancel">
+				<a  th:href="@{/producto/listado}">Cancelar</a>
+			</div>
 		</form>
 		<footer th:replace="~{layouts/footer :: footer}"></footer>
+		<script src="https://kit.fontawesome.com/f80946207f.js" crossorigin="anonymous"></script>
 	</body>
 </html>
