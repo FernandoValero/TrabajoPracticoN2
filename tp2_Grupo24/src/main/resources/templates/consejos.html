@@ -11,26 +11,31 @@
 	</header>
 	<a th:replace="~{layouts/logo :: logo}"></a>
 	<nav th:replace="~{layouts/nav :: nav}"></nav>
-	<a class="boton_consejo" th:href="@{/consejo/nuevo}">Agregar
-		Artículo</a>
+	
+	
+	
 	<section class="sedes">
 
 		<div class="sede" th:each="lista_consejos : ${consejos}">
 			<img th:src="@{/images/}+${lista_consejos.imagen}" alt="Imagen articulo" 
 				style="width: 400px; height: 300px;">
+				
 			<h3>
 				<td th:text="${lista_consejos.titulo}"></td>
 			</h3>
+			<a th:href="@{/consejo/editar/}+${lista_consejos.titulo}"><i class="editar-consejo fa-regular fa-pen-to-square"></i></a>
+			<a th:href="@{/consejo/eliminar/}+${lista_consejos.titulo}"><i class="eliminar-consejo fa-solid fa-trash-can"></i></a>
 			<p>
 				<td th:text="${lista_consejos.descripcion}"></td>
 				<br>
 			</p>
-			
-			<br> <a th:href="@{/consejo/editar/}+${lista_consejos.titulo}">Editar</a>
-			<a th:href="@{/consejo/eliminar/}+${lista_consejos.titulo}">Eliminar</a>
 		</div>
 
 	</section>
+	<div class="guardar">
+		<a th:href="@{/consejo/nuevo}"><i class="agregar fa-solid fa-circle-plus"></i></a>
+	</div>
 	<footer th:replace="~{layouts/footer :: footer}"></footer>
+	<script src="https://kit.fontawesome.com/f80946207f.js" crossorigin="anonymous"></script>
 </body>
 </html>
