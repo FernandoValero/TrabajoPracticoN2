@@ -11,14 +11,14 @@
 		<h1>Productos</h1>
 	</header>
 	
-	<a href="index.html" class="imagen"><img th:src="@{/images/petshop_logo.png}" alt="Dos perros en frente de una casa para mascotas" title="Logo tienda de mascotas"></a>
+	<a href="index.html" class="imagen"><img th:src="@{/images/petshop_logo.png}" alt="logo mascota" title="Logo tienda de mascotas"></a>
 	<nav th:replace="~{layouts/nav :: nav}"></nav>
 	<div class="cuerpo">
 		<section th:if="!${#lists.isEmpty(productos)}" class="tarjetas">
 			<div th:each="producto : ${productos}"class="tarjeta">
 				
 				<div class="tarjeta_base">
-					<img class="img_tarjeta" th:src="@{/images/comedorbebedor.jpg.png}" alt="comedor y bebedor para mascotas" >
+					<img class="img_tarjeta" th:src="@{/images/{imagen}(imagen=${producto.imagen})}">
 					<h2 th:text="${producto.nombre}"></h2><hr>
 					<p><span th:text="${producto.categoria}"></span></p>
 					<p>$<span th:text="${producto.precio}"></span></p>
