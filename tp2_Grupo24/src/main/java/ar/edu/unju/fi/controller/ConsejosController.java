@@ -54,8 +54,6 @@ public class ConsejosController {
 		return "nuevo_consejo";
 	}
 		
-	
-			
 	@PostMapping("/editar")
 	public String editarConsejo(@ModelAttribute("consejo")Consejo consejo) {
 		for(Consejo conse:listaConsejos.getConsejos()) {
