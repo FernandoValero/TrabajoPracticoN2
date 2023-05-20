@@ -1,26 +1,32 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="es">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-	<header class="headerConsejos">
-		<h1 class="tituloConsejos">CONSEJOS DE SALUD</h1>
+	<html xmlns:th="http://www.thymeleaf.org" lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Nueva Artículo</title>
+		<link th:href="@{/css/estilos.css}" rel="stylesheet">
+	</head>
+	<body>
+	<header>
+		<h1 th:text="${edicion}?'Editar Artículo':'Nuevo Artículo'"></h1>
 	</header>
-	<a href="index.html" class="imagen"><img
-		src="../static/images/petshop_logo.png"
-		alt="Dos perros en frente de una casa para mascotas"
-		title="Logo tienda de mascotas"></a>
-	<nav th:replace="~{layouts/nav :: nav}"></nav>
-
-	<form action="">
-		<label>Titulo:</label> 
-		<input type="text"> 
-		<label>Descripci�n:</label>
-		<input type="text">
-		<input type="submit" value="Guardar">
+	<nav th:replace="layouts/nav :: nav"></nav>
+	<form class="formulario" th:action="${edicion}?@{/consejo/editar}:@{/consejo/guardar}" th:object="${consejo}" method="post">
+		<label for="titulo">Titulo:<i class="fa-solid fa-house"></i></label>
+		<input th:if="${edicion}" type="text" id="titulo" name="titulo_consejo" th:field="*{titulo}" readonly="readonly">
+		<input th:if="!${edicion}" type="text" id="titulo" name="titulo_consejo" th:field="*{titulo}" required="required" placeholder="Ingresa titulo del articulo." >
+		<label for="descripcion">Descripción:<i class="fa-solid fa-street-view"></i></label>
+		<input type="text" id="descripcion" name="descripcion_consejo" th:field="*{descripcion}" required="required" placeholder="Ingrese una descripcion"><br><br>
+		<label for="image">Imagen:<i class="fa-regular fa-image"></i></label>
+		<select th:field="*{imagen}" required="required">
+			    <option value="obesidad-perros.jpg">Imagen 1</option>
+			    <option value="cat.jpg">Imagen 2</option>
+			    <option value="dog.png">Imagen 3</option>
+		</select><br>
+		<a><input type="submit" th:value="${edicion}?'Guardar Cambios':'Guardar'"></a>
+		<div class="cancel">
+		      <a  th:href="@{/consejo/consejos}">Cancelar</a>
+		</div>
+		<script src="https://kit.fontawesome.com/f80946207f.js" crossorigin="anonymous"></script>
 	</form>
-	<footer th:replace="~{layouts/footer ::�footer}"></footer>
-</body>
+	</body>
 </html>
