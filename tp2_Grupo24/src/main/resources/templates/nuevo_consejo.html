@@ -10,7 +10,7 @@
 		<h1 th:text="${edicion}?'Editar Artículo':'Nuevo Artículo'"></h1>
 	</header>
 	<a th:replace="~{layouts/logo :: logo}"></a>
-	<nav th:replace="layouts/nav :: nav"></nav>
+	<nav th:replace="~{layouts/nav :: nav}"></nav>
 	<form class="formulario" th:action="${edicion}?@{/consejo/editar}:@{/consejo/guardar}" th:object="${consejo}" method="post">
 		<label for="titulo">Titulo:<i class="fa-solid fa-house"></i></label>
 		<input th:if="${edicion}" type="text" id="titulo" name="titulo_consejo" th:field="*{titulo}" readonly="readonly">
@@ -27,6 +27,7 @@
 		<div class="cancel">
 		      <a  th:href="@{/consejo/consejos}">Cancelar</a>
 		</div>
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
 		<script src="https://kit.fontawesome.com/f80946207f.js" crossorigin="anonymous"></script>
 	</form>
 	</body>
