@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+	<head>
+	<meta charset="UTF-8">
+	<title>Servicio de Paseos</title>
+	<link th:href="@{/css/estilos.css}" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<h1 th:text="${edicion}?'Editar Servicio':'Nuevo Servicio'"></h1>
+	</header>
+	<a th:replace="~{layouts/logo :: logo}"></a>
+	<nav th:replace="layouts/nav :: nav"></nav>
+	<form class="formulario" th:action="${edicion}?@{/servicio/editar}:@{/servicio/guardar}" th:object="${servicio}" method="post">
+	
+						<div class="form-goup">
+						<label>Dia: </label>
+						<input type="text" name="dia" th:field="*{dia}" class="form-control" placeholder="Dia Laboral" required>
+					</div>
+					<div class="form-goup">
+						<label>Paseador: </label>
+						<input type="text" name="paseador" th:field="*{paseador}" class="form-control" placeholder="Ingrese Nombre del Paseador" required>
+					</div>
+					<div class="form-goup">
+						<label>Horario: </label>
+						<input type="text" name="horario" th:field="*{horario}" class="form-control" placeholder="Horario Laboral" required>
+					</div>
+					<div class="box-footer">
+						<a><input type="submit" th:value="${editar}?'Guardar Cambios':'Guardar'"></a>
+					</div>
+		</form>
+	<footer th:replace="~{layouts/footer :: footer}"></footer>
+	<script src="https://kit.fontawesome.com/f80946207f.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Servicios</title>
+	<link th:href="@{/css/estilos.css}" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<h1>Servicios de Paseos</h1>
+	</header>
+	<a th:replace="~{layouts/logo :: logo}"></a>
+	<nav th:replace="~{layouts/nav :: nav}"></nav>
+		<link th:href="@{/css/estilos.css}" rel="stylsheet">
+		<table class="tabla" style="width: 40%" border="1">
+		<tr>
+			<th>Dia</th>
+			<th>Paseador</th>
+			<th>Horario</th>
+			<th>Acciones</th>
+			
+		</tr>
+		<tr th:each="serv: ${servicios}">
+			
+			<td th:text="${serv.dia}"></td>
+			<td th:text="${serv.paseador}"></td>
+			<td th:text="${serv.horario}"></td>
+			<td><a th:href="@{/servicio/editar/}+${serv.paseador}"><i class="editar-consejo fa-regular fa-pen-to-square"></i></a>
+				<a th:href="@{/servicio/eliminar/}+${serv.paseador}"><i class="eliminar-consejo fa-solid fa-trash-can"></i></a></td>
+		</tr>
+	<section class="tabla">
+	
+	<div class="tabla" th:each="lista_servicios: ${servicio}">
+			<h3><td th:text="${lista_servicios.paseador}"></td> </h3>
+			
+	</div>
+	</section>
+	<div class="guardar">
+		<a th:href="@{/servicio/nuevo}"><i class="agregar fa-solid fa-circle-plus"></i></a>
+	</div>
+	<footer th:replace="~{layouts/footer :: footer}"></footer>
+	<script src="https://kit.fontawesome.com/f80946207f.js" crossorigin="anonymous"></script>
+</body>
+</html>
