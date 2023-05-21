@@ -348,7 +348,24 @@ tr:hover td{
 .eliminar-consejo:hover{
 	color: red;
 }
+/*BOTON SERVICIOS*/
+.editar-servicio{
+	
+	color: #313131;
+	font-size: 35px;
+}
+.eliminar-servicio{
+	color: #313131;
+	font-size: 35px;
 
+}
+.editar-servicio:hover{
+	
+	color: orange;
+}
+.eliminar-servicio:hover{
+	color: red;
+}
 /*SUCURSALES*/
 .sedes{
 	margin: 80px;
