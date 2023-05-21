@@ -10,8 +10,7 @@
 			<h1>Contáctenos</h1>
 		</header>
 		<a th:replace="~{layouts/logo :: logo}"></a>
-		<nav th:replace="layouts/nav :: nav"></nav>
-		
+		<nav th:replace="~{layouts/nav :: nav}"></nav>
 		<section class="formulario">
 		<form th:action="@{/contacto/mensaje}" th:object="${contacto}" method="post">
 			<label>Nombre:<i class="fa-solid fa-user"></i></label><br>

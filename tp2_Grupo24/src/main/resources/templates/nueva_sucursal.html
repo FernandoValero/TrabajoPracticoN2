@@ -10,7 +10,7 @@
 		<h1 th:text="${edicion}?'Editar Sucursal':'Nueva Sucursal'"></h1>
 	</header>
 	<a th:replace="~{layouts/logo :: logo}"></a>
-	<nav th:replace="layouts/nav :: nav"></nav>
+	<nav th:replace="~{layouts/nav :: nav}"></nav>
 	<form class="formulario" th:action="${edicion}?@{/sucursal/editar}:@{/sucursal/guardar}" th:object="${sucursal}" method="post">
 		<label for="nombre">Nombre:<i class="fa-solid fa-house"></i></label>
 		<input th:if="${edicion}" type="text" id="nombre" name="nombre_sucursal" th:field="*{nombre}" readonly="readonly">
@@ -33,6 +33,7 @@
 		<div class="cancel">
 		      <a  th:href="@{/sucursal/sucursales}">Cancelar</a>
 		</div>
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
 		<script src="https://kit.fontawesome.com/f80946207f.js" crossorigin="anonymous"></script>
 	</form>
 	</body>
