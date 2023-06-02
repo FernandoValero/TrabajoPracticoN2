@@ -9,11 +9,13 @@ body {
 }
 /*CUERPO DE OBJETOS*/
 .cuerpo{
-	position: absolute;
+	/*position: absolute;
 	margin-left: 5%;
 	margin-right: 5%;
 	margin-top: 1%;
-	width: 90%;
+	padding: 5%;
+	width: 90%;*/
+	padding: 1%;
 	border: 2px solid #313131;
 	border-radius: 10px;
   	background: white;
@@ -396,13 +398,6 @@ tr:hover td{
 }
 
 /*PRODUCTOS*/
-.tarjeta{
-	float: left;
-	margin-left: 43px;
-	width: 450px;
-  	height: 300px;
-  	margin-bottom: 50px;
-}
 .tarjeta_base{
 	margin-top: 10%;
 	width: 100%;
@@ -423,9 +418,9 @@ tr:hover td{
 	box-shadow: 4px 2px 4px rgba(0, 0, 0, 0.7);
 }
 .tarjeta_base h2{
-	margin-top: 5%;
-	margin-left: 50%;
-	font-size: 100%;
+	text-align: center;
+	margin-left: 40%;
+	font-size: 30px;
 	color: white;
 }
 .tarjeta_base p{
