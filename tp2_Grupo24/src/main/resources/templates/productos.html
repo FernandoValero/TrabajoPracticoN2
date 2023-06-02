@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Productos</title>
 	<link th:href="@{/css/estilos.css}" rel="stylesheet">
-
+	<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 </head>
 <body>
 	<header>
@@ -13,10 +13,9 @@
 	
 	<a th:replace="~{layouts/logo :: logo}"></a>
 	<nav th:replace="~{layouts/nav :: nav}"></nav>
-	<div class="cuerpo">
-		<section th:if="!${#lists.isEmpty(productos)}" class="tarjetas">
-			<div th:each="producto : ${productos}"class="tarjeta">
-				
+	<div class="container-fluid cuerpo">
+		<section th:if="!${#lists.isEmpty(productos)}" class="row">
+			<div th:each="producto : ${productos}"class="col-xs-12 col-lg-6 col-xxl-4">
 				<div class="tarjeta_base">
 					<img class="img_tarjeta" th:src="@{/images/{imagen}(imagen=${producto.imagen})}">
 					<h2 th:text="${producto.nombre}"></h2><hr>
@@ -34,6 +33,7 @@
 		<a th:href="@{/producto/nuevo}" ><i class="agregar fa-solid fa-circle-plus"></i></a>
 	</div>
 	<footer th:replace="~{layouts/footer :: footer}"></footer>
-	<script src="https://kit.fontawesome.com/f80946207f.js" crossorigin="anonymous"></script>
+	<script type="text/javascrip" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+	<script src="https://kit.fontawesome.com/f80946207f.js"></script>
 </body>
 </html>
