@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,14 +9,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
 import ar.edu.unju.fi.lista.ListaServicio;
 import ar.edu.unju.fi.model.Servicio;
+
 
 @Controller
 @RequestMapping("/servicio")
 public class ServicioController {
-	ListaServicio listaServicios = new ListaServicio();
+	
+	@Autowired
+	ListaServicio listaServicios;
+	
+	@Autowired
+	private Servicio servicio;
 	
 	@GetMapping("/servicios")
 	public String getListaServiciosPage(Model model) {
@@ -25,7 +31,7 @@ public class ServicioController {
 	@GetMapping("/nuevo")
 	public String getNuevoServicioPage(Model model) {
 		boolean edicion=false;
-		model.addAttribute("servicio", new Servicio());
+		model.addAttribute("servicio", servicio);
 		model.addAttribute("edicion", edicion);
 		return "nuevo_servicio";
 	}
