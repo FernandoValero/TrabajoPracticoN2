@@ -18,7 +18,7 @@ import ar.edu.unju.fi.model.Producto;
 public class ProductosController {
 	
 	@Autowired
-	ListaProducto listaProducto;
+	private ListaProducto listaProducto;
 	
 	@Autowired
 	private Producto producto;
