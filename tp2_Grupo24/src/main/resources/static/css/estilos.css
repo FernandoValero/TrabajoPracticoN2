@@ -369,6 +369,17 @@ tr:hover td{
 	color: red;
 }
 /*SUCURSALES*/
+.cuerpo_sucursal{
+	position: absolute;
+	margin-left: 2%;
+	margin-right: 2%;
+	margin-top: 1%;
+	padding: 5%;
+	padding: 1%;
+	border: 2px solid #313131;
+	border-radius: 10px;
+  	background: white;
+}
 .sedes{
 	margin: 80px;
 	height: 900px;

@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Sucursales</title>
+	<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 	<link th:href="@{/css/estilos.css}" rel="stylesheet">
 </head>
 <body>
@@ -12,9 +13,9 @@
 	<a th:replace="~{layouts/logo :: logo}"></a>
 	<nav th:replace="~{layouts/nav :: nav}" ></nav>
 	
-	<div class="cuerpo">
+	<div class="conteiner cuerpo_sucursal">
 	
-	<section class="sedes">
+	<section class="conteiner sedes">
 		
 		<div class="sede" th:each="lista_sucursales: ${sucursales}">
 			<img th:src="@{/images/}+${lista_sucursales.imagen}" alt="Tienda de mascotas" >
@@ -30,6 +31,7 @@
 		<a th:href="@{/sucursal/nuevo}"><i class="agregar fa-solid fa-circle-plus"></i></a>
 	</div>
 	<footer th:replace="~{layouts/footer :: footer}"></footer>
-	 <script src="https://kit.fontawesome.com/f80946207f.js" crossorigin="anonymous"></script>
+	<script type="text/javascrip" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+	<script src="https://kit.fontawesome.com/f80946207f.js" crossorigin="anonymous"></script>
 </body>
 </html>
