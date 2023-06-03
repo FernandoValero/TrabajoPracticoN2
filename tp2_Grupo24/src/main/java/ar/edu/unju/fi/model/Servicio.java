@@ -1,10 +1,11 @@
 package ar.edu.unju.fi.model;
 
+import org.springframework.stereotype.Component;
+@Component
 public class Servicio {
 	private String dia;
 	private String paseador;
 	private String horario;
-
 
 	public Servicio() {
 		// TODO Auto-generated constructor stub
