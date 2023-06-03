@@ -370,26 +370,27 @@ tr:hover td{
 }
 /*SUCURSALES*/
 .cuerpo_sucursal{
-	position: absolute;
-	margin-left: 2%;
-	margin-right: 2%;
+	margin-left: 5%;
+	margin-right: 5%;
 	margin-top: 1%;
 	padding: 5%;
+	width: 90%;
 	padding: 1%;
 	border: 2px solid #313131;
 	border-radius: 10px;
   	background: white;
+	position:absolute;
 }
 .sedes{
-	margin: 80px;
-	height: 900px;
+	height: 100px;
+	margin-left: 2%;
 }
 .sede{
-	float: left;
+	float:left;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	width: 400px;
 	height: 550px;
-	margin: 50px;
+	margin: 30px;
 	text-align: center;
 	background-color: rgba(167, 167, 167, 0.692);
 }

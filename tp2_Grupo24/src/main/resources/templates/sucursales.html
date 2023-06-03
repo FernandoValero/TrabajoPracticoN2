@@ -13,9 +13,9 @@
 	<a th:replace="~{layouts/logo :: logo}"></a>
 	<nav th:replace="~{layouts/nav :: nav}" ></nav>
 	
-	<div class="conteiner cuerpo_sucursal">
+	<div class="container-fluid cuerpo_sucursal">
 	
-	<section class="conteiner sedes">
+	<div class="container-fluid sedes">
 		
 		<div class="sede" th:each="lista_sucursales: ${sucursales}">
 			<img th:src="@{/images/}+${lista_sucursales.imagen}" alt="Tienda de mascotas" >
@@ -25,7 +25,7 @@
 			<p><td th:text="${lista_sucursales.direccion}"></td><br><td th:text="${lista_sucursales.telefono}"></td><br><td th:text="${lista_sucursales.horario}"></td></p><br>
 		</div>
 		
-	</section>
+	</div>
 	</div>
 	<div class="guardar">
 		<a th:href="@{/sucursal/nuevo}"><i class="agregar fa-solid fa-circle-plus"></i></a>
