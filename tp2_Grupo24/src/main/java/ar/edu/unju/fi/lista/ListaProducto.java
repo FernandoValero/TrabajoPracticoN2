@@ -1,10 +1,11 @@
 package ar.edu.unju.fi.lista;
 
 import java.util.List;
+import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import ar.edu.unju.fi.model.Producto;
 
-
+@Component
 public class ListaProducto {
 	private List<Producto> productos;
 	public ListaProducto() {
