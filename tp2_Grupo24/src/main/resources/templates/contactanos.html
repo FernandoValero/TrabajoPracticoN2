@@ -2,16 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scaleble=no">
 		<title>Contáctanos</title>
 		<link th:href="@{/css/estilos.css}" rel="stylesheet">
+		<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"> 
 	</head>
 	<body>
+		<nav th:replace="~{layouts/nav :: nav}"></nav>
 		<header>
 			<h1>Contáctenos</h1>
 		</header>
-		<a th:replace="~{layouts/logo :: logo}"></a>
-		<nav th:replace="~{layouts/nav :: nav}"></nav>
-		<section class="formulario">
+		
+		<section class="container formulario">
 		<form th:action="@{/contacto/mensaje}" th:object="${contacto}" method="post">
 			<label>Nombre:<i class="fa-solid fa-user"></i></label><br>
 			<input type="text" id="name" name="name" placeholder="Ingresa tu nombre"><br>
@@ -26,6 +28,8 @@
 		  	<p>Estamos para servirte</p>
 		  </section>
 		<footer th:replace="~{layouts/footer :: footer}"></footer>
+		<script type="text/javascrip" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+		<script src="https://kit.fontawesome.com/f80946207f.js"></script>
 		<script src="https://kit.fontawesome.com/f80946207f.js" crossorigin="anonymous"></script>
 	</body>
 </html>
