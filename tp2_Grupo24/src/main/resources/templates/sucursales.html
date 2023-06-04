@@ -7,12 +7,10 @@
 	<link th:href="@{/css/estilos.css}" rel="stylesheet">
 </head>
 <body>
+	<nav th:replace="~{layouts/nav :: nav}" ></nav>
 	<header>
 		<h1>Sucursales</h1>
 	</header>
-	<a th:replace="~{layouts/logo :: logo}"></a>
-	<nav th:replace="~{layouts/nav :: nav}" ></nav>
-	
 	<div class="container-fluid cuerpo_sucursal">
 	
 	<div class="container-fluid sedes">
@@ -21,8 +19,8 @@
 			<img th:src="@{/images/}+${lista_sucursales.imagen}" alt="Tienda de mascotas" >
 			<a th:href="@{/sucursal/editar/}+${lista_sucursales.nombre}"><i class="editar-sucu fa-regular fa-pen-to-square"></i></a>
 			<a th:href="@{/sucursal/eliminar/}+${lista_sucursales.nombre}"><i class="eliminar-sucu fa-solid fa-trash-can"></i></a>
-			<h3><td th:text="${lista_sucursales.nombre}"></td> </h3>
-			<p><td th:text="${lista_sucursales.direccion}"></td><br><td th:text="${lista_sucursales.telefono}"></td><br><td th:text="${lista_sucursales.horario}"></td></p><br>
+			<h3 th:text="${lista_sucursales.nombre}"></h3>
+			<p th:text="${lista_sucursales.direccion}"><p th:text="${lista_sucursales.telefono}"><p th:text="${lista_sucursales.horario}">
 		</div>
 		
 	</div>
