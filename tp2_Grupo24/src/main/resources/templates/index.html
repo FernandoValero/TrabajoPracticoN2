@@ -2,39 +2,46 @@
 	<html xmlns:th="http://www.thymeleaf.org" lang="es">
 		<head>
 			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scaleble=no">
 			<title>Inicio</title>
 			<link th:href="@{/css/estilos.css}" rel="stylesheet">
+			<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"> 
 		</head>
 		<body>
-			<header>
-				<h1>PetShop</h1>
-			</header>
-			<a th:replace="~{layouts/logo :: logo}"></a>
 			<nav th:replace="~{layouts/nav :: nav}"></nav>
-			<div class="cuerpo">
+			<header>
+				<h1 class="fw-bolder">PetShop</h1>
+			</header>
+			<div class="fw-bold">
 				<div class="left">
 					<div class="content">
+					<div class="fw-medium">
 					<p class="welcome">¡Bienvenido a nuestra tienda de mascotas! </p>
+					</div>
+					<div class="fw-normal">
 					<p class="present">Nos dedicamos a ofrecer productos y servicios de alta calidad para el cuidado de tus amigos peludos. Además de nuestra amplia variedad de productos para perros, gatos, aves, peces y otros animales domésticos, ofrecemos servicios de paseo y cuidado para mascotas para asegurarnos de que tu mascota se vea y se sienta lo mejor posible.</p>
-					<img class= "cats_dogs" th:src="@{/images/cats_dogs.png}" alt="Foto de perros y gatos">
+					</div>
+					<img class="img-fluid" th:src="@{/images/cats_dogs.png}" alt="Foto de perros y gatos">
 				</div>
 			</div>
 				<div class="right">
 					<h4 class="inf">Nuestros Objetivos</h4>
-					<div class="obj1">
-						<h3>Ofrecer productos y servicios de alta calidad</h3>
-						<p>En nuestra tienda de mascotas, nos enorgullece ofrecer una amplia variedad de productos y servicios de alta calidad para el cuidado de tus mascotas. Desde alimentos y juguetes hasta servicios de peluquería y cuidado de mascotas, estamos comprometidos a brindar a nuestros clientes la mejor selección de productos y servicios para satisfacer las necesidades de sus mascotas.</p>
+					<div class="fw-bold">
+						<h3 class="text-dark">Ofrecer productos y servicios de alta calidad</h3>
+						<p class="fw-normal">En nuestra tienda de mascotas, nos enorgullece ofrecer una amplia variedad de productos y servicios de alta calidad para el cuidado de tus mascotas. Desde alimentos y juguetes hasta servicios de peluquería y cuidado de mascotas, estamos comprometidos a brindar a nuestros clientes la mejor selección de productos y servicios para satisfacer las necesidades de sus mascotas.</p>
 					</div>
-					<div class="obj2">
-						<h3>Promover el cuidado responsable de mascotas</h3>
-						<p>Creemos que el cuidado responsable de mascotas es crucial para asegurar la salud y felicidad de los animales domésticos. Por esta razón, ofrecemos recursos y consejos útiles sobre el cuidado de mascotas, y promovemos prácticas de tenencia responsable de mascotas en nuestra comunidad.</p>
+					<div class="fw-bold">
+						<h3 class="text-dark">Promover el cuidado responsable de mascotas</h3>
+						<p class="fw-normal">Creemos que el cuidado responsable de mascotas es crucial para asegurar la salud y felicidad de los animales domésticos. Por esta razón, ofrecemos recursos y consejos útiles sobre el cuidado de mascotas, y promovemos prácticas de tenencia responsable de mascotas en nuestra comunidad.</p>
 					</div>
-					<div class="obj3">
-						<h3>Brindar una experiencia de compra excepcional</h3>
-						<p>En nuestra tienda de mascotas, nos esforzamos por brindar una experiencia de compra excepcional para nuestros clientes. Desde el momento en que entras en nuestra tienda, te recibimos con una sonrisa y te brindamos atención personalizada para ayudarte a encontrar los productos y servicios adecuados para tus mascotas.</p>
+					<div class="fw-bold">
+						<h3 class="text-dark">Brindar una experiencia de compra excepcional</h3>
+						<p class="fw-normal">En nuestra tienda de mascotas, nos esforzamos por brindar una experiencia de compra excepcional para nuestros clientes. Desde el momento en que entras en nuestra tienda, te recibimos con una sonrisa y te brindamos atención personalizada para ayudarte a encontrar los productos y servicios adecuados para tus mascotas.</p>
 					</div>
 				</div>
-			</div>
+				</div>
 			<footer th:replace="~{layouts/footer :: footer}"></footer>
+			<script type="text/javascrip" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+	<script src="https://kit.fontawesome.com/f80946207f.js"></script>
 		</body>
 </html>
