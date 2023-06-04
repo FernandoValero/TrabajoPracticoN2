@@ -1,15 +1,28 @@
 package ar.edu.unju.fi.model;
 
 import org.springframework.stereotype.Component;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
+
 /**
  * Clase que representa un servicio.
  */
 @Component
 public class Servicio {
+	
+	@NotBlank(message="*Debe Seleccionar un Dia")
 	private String dia;
+	
+	@NotEmpty(message="*Debe de Agregar el Nombre del Paseador")
+	@Size(min=5, max=20,message="*Debe tener entre 5-20 caracteres")
 	private String paseador;
+	
+	@NotEmpty(message="*Debe de Agregar un Horario")
+	@Size(min=5, max=30,message="*Debe tener entre 5-30 caracteres")
 	private String horario;
-
+	
 	 /**
      * Constructor por defecto de la clase Servicio.
      */
@@ -24,7 +37,7 @@ public class Servicio {
      * @param horario      horario del paseador que presta servicio.
      */
 	public Servicio(String dia, String paseador, String horario) {
-		super();
+		
 		this.dia = dia;
 		this.paseador = paseador;
 		this.horario = horario;
