@@ -3,14 +3,14 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Nueva Sucursal</title>
+		<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 		<link th:href="@{/css/estilos.css}" rel="stylesheet">
 	</head>
 	<body>
+	<nav th:replace="~{layouts/nav :: nav}"></nav>
 	<header>
 		<h1 th:text="${edicion}?'Editar Sucursal':'Nueva Sucursal'"></h1>
 	</header>
-	<a th:replace="~{layouts/logo :: logo}"></a>
-	<nav th:replace="~{layouts/nav :: nav}"></nav>
 	<form class="formulario" th:action="${edicion}?@{/sucursal/editar}:@{/sucursal/guardar}" th:object="${sucursal}" method="post">
 		<label for="nombre">Nombre:<i class="fa-solid fa-house"></i></label>
 		<input th:if="${edicion}" type="text" id="nombre" name="nombre_sucursal" th:field="*{nombre}" readonly="readonly">
@@ -34,6 +34,7 @@
 		      <a  th:href="@{/sucursal/sucursales}">Cancelar</a>
 		</div>
 		<footer th:replace="~{layouts/footer :: footer}"></footer>
+		<script type="text/javascrip" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 		<script src="https://kit.fontawesome.com/f80946207f.js" crossorigin="anonymous"></script>
 	</form>
 	</body>
