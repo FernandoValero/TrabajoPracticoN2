@@ -93,7 +93,11 @@ public class ServicioController {
 		return "nuevo_servicio";
 	}
 	@PostMapping("/editar")
-	public String editarServicio(@ModelAttribute("servicio")Servicio servicio) {
+	public String editarServicio(@Valid @ModelAttribute("servicio")Servicio servicio,BindingResult result) {
+		if(result.hasErrors()){
+		
+			return "nuevo_servicio";
+		}
 		for(Servicio serv: listaServicios.getServicios()) {
 			if(serv.getPaseador().equals(servicio.getPaseador())) {
 				serv.setDia(servicio.getDia());
