@@ -3,6 +3,7 @@ package ar.edu.unju.fi.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.lista.ListaConsejo;
 import ar.edu.unju.fi.model.Consejo;
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/consejo")
@@ -56,12 +58,19 @@ public class ConsejosController {
 	 * @return un objeto ModelAndView que redirecciona a la página de lista de consejos.
 	 */
 	@PostMapping("/guardar")
-	public ModelAndView getGuardarConsejoPage(@ModelAttribute("consejos")Consejo consejo) {
+	public ModelAndView getGuardarConsejoPage(@Valid @ModelAttribute("consejo")Consejo consejo, BindingResult result) {
 		ModelAndView modelView = new ModelAndView("consejos");
+		if(result.hasErrors()){
+			
+			modelView.setViewName("nuevo_consejo");
+			modelView.addObject("consejo", consejo);
+			return modelView;
+		}
 		listaConsejos.getConsejos().add(consejo);
 		modelView.addObject("consejos", listaConsejos.getConsejos());
 		return modelView;
 	}
+	
 	
 	/**
 	 * Método que maneja la solicitud GET "/consejo/editar/{nombre}" y muestra la página para editar un consejo existente.
@@ -86,7 +95,10 @@ public class ConsejosController {
 	}
 		
 	@PostMapping("/editar")
-	public String editarConsejo(@ModelAttribute("consejo")Consejo consejo) {
+	public String editarConsejo(@Valid @ModelAttribute("consejo")Consejo consejo, BindingResult result) {
+		if(result.hasErrors()){
+			return "nuevo_consejo";
+		}
 		for(Consejo conse:listaConsejos.getConsejos()) {
 			if(conse.getTitulo().equals(consejo.getTitulo())) {
 				conse.setDescripcion(consejo.getDescripcion());

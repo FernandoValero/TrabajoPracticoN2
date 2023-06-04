@@ -16,9 +16,11 @@
 	<form class="formulario" th:action="${edicion}?@{/consejo/editar}:@{/consejo/guardar}" th:object="${consejo}" method="post">
 		<label for="titulo">Titulo:<i class="fa-solid fa-house"></i></label>
 		<input th:if="${edicion}" type="text" id="titulo" name="titulo_consejo" th:field="*{titulo}" readonly="readonly">
-		<input th:if="!${edicion}" type="text" id="titulo" name="titulo_consejo" th:field="*{titulo}" required="required" placeholder="Ingresa titulo del articulo." >
+		<input th:if="!${edicion}" type="text" id="titulo" name="titulo_consejo" th:field="*{titulo}" placeholder="Ingresa titulo del articulo." >
+		<div class="text-danger" th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></div>
 		<label for="descripcion">Descripción:<i class="fa-solid fa-street-view"></i></label>
-		<input type="text" id="descripcion" name="descripcion_consejo" th:field="*{descripcion}" required="required" placeholder="Ingrese una descripcion"><br><br>
+		<input type="text" id="descripcion" name="descripcion_consejo" th:field="*{descripcion}" placeholder="Ingrese una descripcion"><br><br>
+		<div class="text-danger" th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}"></div>
 		<label for="image">Imagen:<i class="fa-regular fa-image"></i></label>
 		<select th:field="*{imagen}" required="required">
 			    <option value="obesidad-perros.jpg">Imagen 1</option>
