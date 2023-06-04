@@ -7,8 +7,16 @@ import ar.edu.unju.fi.model.Sucursal;
 
  @Component
 public class ListaSucursal{
+	 /**
+	  * Declaración de lista sucursales
+	  */
 	private List<Sucursal> sucursales;
 	
+	/**
+	 * Respresenta una sucursal de la tienda
+	 * @author Grupo_24
+	 */
+
 	public ListaSucursal() {
 		sucursales = new ArrayList<Sucursal>();
 		sucursales.add(new Sucursal("SUCURSAL SALTA", "Av. Fuente Grande N°1088","387 154 8546","Lunes a Viernes de 9 a 22hs  - Sábado y domingo 9 a 12:30hs", "PetShop1.png"));
@@ -19,10 +27,18 @@ public class ListaSucursal{
 	}
 	
 
+	/**
+	 * Permite la salida de una sucursal
+	 * @return retorna las sucursales
+	 */
 	public List<Sucursal> getSucursales() {
 		return sucursales;
 	}
 
+	
+	/**
+	 * Permite la entrada de una sucursal
+	 */
 	public void setSucursales(List<Sucursal> sucursales) {
 		this.sucursales = sucursales;
 	}
