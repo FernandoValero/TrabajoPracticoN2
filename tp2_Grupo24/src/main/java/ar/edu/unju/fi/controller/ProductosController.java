@@ -14,7 +14,10 @@ import ar.edu.unju.fi.lista.ListaProducto;
 import ar.edu.unju.fi.model.Producto;
 import jakarta.validation.Valid;
 
-
+/**
+ * La clase ProductosController es un controlador que maneja las solicitudes relacionadas con los productos.
+ * @author Grupo_24
+ */
 @Controller
 @RequestMapping("/producto")
 public class ProductosController {
@@ -24,12 +27,19 @@ public class ProductosController {
 	
 	@Autowired
 	private Producto producto;
-	
+	/**
+	 * Método para obtener la lista de productos.
+	 * @return vista "productos".
+	 */
 	@GetMapping("/listado")
 	public String getListaProductoPage(Model model) {
 		model.addAttribute("productos", listaProducto.getProductos());
 		return "productos";
 	}
+	/**
+	 * Método para obtener la página formulario para la creación de un nuevo producto.
+	 * @return la vista "nuevo_producto".
+	 */
 	@GetMapping("/nuevo")
 	public String getNuevoiProductoPage(Model model) {
 		boolean edicion= false;
@@ -37,6 +47,10 @@ public class ProductosController {
 		model.addAttribute("edicion", edicion);
 		return "nuevo_producto";
 	}
+	/**
+	 * Método para guardar un producto.
+	 * @return Un objeto ModelAndView que representa la vista "producto" o "nuevo_producto".
+	 */
 	@PostMapping("/guardar")
 	public ModelAndView getGuardarProductoPage(@Valid @ModelAttribute("producto")Producto producto, BindingResult result) {
 		ModelAndView modelAndView = new ModelAndView("productos");
@@ -49,6 +63,10 @@ public class ProductosController {
 		modelAndView.addObject("productos",listaProducto.getProductos());
 		return modelAndView;
 	}
+	/**
+	 * Método para obtener la página de modificación de un producto.
+	 * @return La vista "nuevo_producto".
+	 */
 	@GetMapping("/modificar/{codigo}")
 	public String getModificarProductoPage(Model model, @PathVariable(value="codigo")int codigo) {
 		boolean edicion= true;
@@ -63,6 +81,10 @@ public class ProductosController {
 		model.addAttribute("edicion", edicion);
 		return "nuevo_producto";
 	}
+	/**
+	 * Método para modificar un producto existente.
+	 * @return vista "listado" mediante la redirección.
+	 */
 	@PostMapping("/modificar")
 	public String modificarProducto(@ModelAttribute("producto")Producto producto) {
 		for (Producto prod : listaProducto.getProductos()) {
@@ -76,6 +98,10 @@ public class ProductosController {
 		}
 		return "redirect:/producto/listado";
 	}
+	/**
+	 * Método para eliminar un producto.
+	 * @return vista "listado" mediante la redirección.
+	 */
 	@GetMapping("/eliminar/{codigo}")
 	public String elimanarProducto(@PathVariable(value="codigo")int codigo) {
 		for (Producto prod : listaProducto.getProductos()) {
