@@ -86,7 +86,11 @@ public class ProductosController {
 	 * @return vista "listado" mediante la redirección.
 	 */
 	@PostMapping("/modificar")
-	public String modificarProducto(@ModelAttribute("producto")Producto producto) {
+	public String modificarProducto(@Valid @ModelAttribute("producto")Producto producto, BindingResult result,Model model) {
+		if(result.hasErrors()) {
+			model.addAttribute("edicion", true);
+			return "nuevo_producto";
+		}
 		for (Producto prod : listaProducto.getProductos()) {
 			if(prod.getCodigo()==producto.getCodigo()) {
 				prod.setNombre(producto.getNombre());
