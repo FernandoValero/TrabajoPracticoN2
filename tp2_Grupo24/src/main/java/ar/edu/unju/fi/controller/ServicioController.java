@@ -3,6 +3,7 @@ package ar.edu.unju.fi.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import ar.edu.unju.fi.lista.ListaServicio;
 import ar.edu.unju.fi.model.Servicio;
+import jakarta.validation.Valid;
 
 
 @Controller
@@ -57,11 +59,17 @@ public class ServicioController {
 	 * @return un objeto ModelAndView que redirecciona a la página de lista de servicios.
 	 */
 	@PostMapping("/guardar")
-	public ModelAndView getGuardarServicioPage(@ModelAttribute("servicios")Servicio servicio) {
-		ModelAndView ModelView = new ModelAndView("servicios");
+	public ModelAndView getGuardarServicioPage(@Valid @ModelAttribute("servicio")Servicio servicio, BindingResult result) {
+		ModelAndView modelView = new ModelAndView("servicios");
+		if(result.hasErrors()){
+			
+			modelView.setViewName("nuevo_servicio");
+			return modelView;
+		}
+		
 		listaServicios.getServicios().add(servicio);
-		ModelView.addObject("servicios", listaServicios.getServicios());
-		return ModelView;
+		modelView.addObject("servicios", listaServicios.getServicios());
+		return modelView;
 	}
 	/**
 	 * Método que maneja la solicitud GET "/servicio/editar/{paseador}" y muestra la página para editar un servicio existente.
