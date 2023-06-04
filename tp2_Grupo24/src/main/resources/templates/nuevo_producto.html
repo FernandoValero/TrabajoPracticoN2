@@ -16,7 +16,7 @@
 			<div class="mb-3">
 				<label class="form-label">Código:<i class="fa-solid fa-file-code"></i></label>
 				<input class="form-control" th:if="${edicion}" type="text" th:field="*{codigo}" readonly="readonly">
-				<input class="form-control" th:if="!${edicion}" type="text" th:field="*{codigo}" required="required" placeholder="Ingrese Código Producto">
+				<input class="form-control" type="text" th:if="!${edicion}" th:field="*{codigo}" placeholder="">
 				<div class="text-danger" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></div>
 			</div>
 			<div class="mb-3">
