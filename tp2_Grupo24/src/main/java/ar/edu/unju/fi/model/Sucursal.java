@@ -1,12 +1,22 @@
 package ar.edu.unju.fi.model;
 
 import org.springframework.stereotype.Component;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
 @Component
 public class Sucursal {
+	@NotEmpty(message="*Nombre vacío")
+	@Size(min=4,message="*Nombre muy corto")
 	private String nombre;
+	@NotEmpty(message="*Direccion vacía")
+	@Size(min=5,message="*Dirección muy corta")
 	private String direccion;
+	@NotEmpty(message="*Teléfono vacío")
+	@Size(min=4,message="*Teléfono muy corto")
 	private String telefono;
+	@NotEmpty(message="*Horario vacío")
+	@Size(min=4,message="*Horario muy corto")
 	private String horario;
 	private String imagen;
 	
@@ -65,7 +75,7 @@ public class Sucursal {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
-	 
+
 	
 	/**
 	 * Permite la salida del telefono
@@ -81,10 +91,11 @@ public class Sucursal {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
+
 	
 	/**
-	 * Permite la salida del nombre
-	 @return retorna el Nombre de la sucursal
+	 * Permite la salida del horario
+	 @return retorna el Horario de la sucursal
 	 */
 	public String getHorario() {
 		return horario;
@@ -99,15 +110,15 @@ public class Sucursal {
 	
 	
 	/**
-	 * Permite la salida del nombre
-	 @return retorna el Nombre de la sucursal
+	 * Permite la salida de la imagen
+	 @return retorna la imagen de la sucursal
 	 */
 	public String getImagen() {
 		return imagen;
 	}
 	/**
-	 * Permite la entrada del atributo nombre
-	 * @param nombre, valor a asignar al  Nombre del objeto
+	 * Permite la entrada del atributo imagen
+	 * @param nombre, imagen a asignar a la sucursal
 	 */
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
