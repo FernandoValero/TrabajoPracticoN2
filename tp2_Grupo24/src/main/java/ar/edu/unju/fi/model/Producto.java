@@ -1,11 +1,11 @@
 package ar.edu.unju.fi.model;
 
 import org.springframework.stereotype.Component;
-
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
@@ -13,11 +13,11 @@ import jakarta.validation.constraints.Size;
 public class Producto {
 	
 	@NotEmpty(message="*Agregue Nombre")
+	@Size(min=4,message="*Debe tener almenos 4 caracteres")
 	private String nombre;
-	@NotEmpty(message="*Debe agregar un código")
+	@NotNull(message="Agregue un código")
 	@Positive(message="*Debe ser mayor a 0")
 	private int codigo;
-	@NotEmpty(message="*Debe agregar un precio")
 	@Positive(message="*Debe ser mayor a 0")
 	private double precio;
 	@NotEmpty(message="*Debe agregar categoría")
