@@ -329,6 +329,34 @@ tr:hover td{
 }
 
 /* CONSEJOS DE SALUD*/
+.consejos{
+	height: 100px;
+	margin-left: 2%;
+}
+.consejo{
+	float:left;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	width: 400px;
+	height: 550px;
+	margin: 30px;
+	text-align: center;
+	background-color: #a9a9a9;
+}
+.consejo h3 {
+	color: black;
+	font-size: 27px;
+	
+}
+.consejo p{
+  text-decoration: none;
+  font-size: 23px;
+  color: black;
+}
+.consejo img{
+	width:100%;
+	width:400px;
+	height:300px;
+}
 .editar-consejo{
 	
 	color: white;
