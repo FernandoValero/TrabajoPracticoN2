@@ -4,6 +4,7 @@
 		<meta charset="UTF-8">
 		<title>Formulario</title>
 		<link th:href="@{/css/estilos.css}" rel="stylesheet">
+		<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 	</head>
 	<body>
 		<header>
@@ -11,33 +12,55 @@
 		</header>
 		<a th:replace="~{layouts/logo :: logo}"></a>
 		<nav th:replace="~{layouts/nav :: nav}"></nav>
-		<form class="formulario" th:action="${edicion}?@{/producto/modificar}:@{/producto/guardar}" th:object="${producto}" method="post">
-			<label>Código:<i class="fa-solid fa-file-code"></i></label><br>
-			<input th:if="${edicion}" type="text" th:field="*{codigo}" readonly="readonly">
-			<input th:if="!${edicion}" type="text" th:field="*{codigo}" required="required" placeholder="Ingrese Código Producto"><br>
-			<label>Nombre:<i class="fa-brands fa-product-hunt"></i> </label><br>
-			<input type="text" name="producto_nombre" th:field="*{nombre}" required="required" placeholder="Ingrese Nombre del Producto"><br>
-			<label>Precio:<i class="fa-solid fa-money-bill"></i> </label><br>
-			<input type="text" th:field="*{precio}" required="required" placeholder="Ingrese Precio Producto"><br>
-			<label>Categoria:<i class="fa-regular fa-calendar"></i></label>
-			<input type="text" th:field="*{categoria}" required="required" placeholder="Ingrese Categoría del Producto"><br>
-			<label>Descuento:<i class="fa-solid fa-wallet"></i></label><br>
-			<input type="text" th:field="*{descuento}" required="required" placeholder="Ingrese Descuento del Producto"><br>
-			<label>Imagen:<i class="fa-regular fa-image"></i> </label><br>
-			<select th:field="*{imagen}" required="required">
-			    <option value="comedorbebedor.png">Bebedero-Comedero</option>
-			    <option value="peine.png">Cepillo</option>
-			    <option value="rascador.jpg">Rascador</option>
-			    <option value="transportador.jpg">Caja Transporte</option>
-			    <option value="mochila_transportadora.jpg">Mochila Transporte</option>
-			    <option value="kitsanitario.png">Kit sanitario</option>
-			</select><br>
-			<input class="boton-envio" type="submit" th:value="${boton}">
-			<div class="cancel">
-				<a  th:href="@{/producto/listado}">Cancelar</a>
+		<form class="container formulario" th:action="${edicion}?@{/producto/modificar}:@{/producto/guardar}" th:object="${producto}" method="post">
+			<br>
+			<div class="mb-3">
+				<label class="form-label">Código:<i class="fa-solid fa-file-code"></i></label>
+				<input class="form-control" th:if="${edicion}" type="text" th:field="*{codigo}" readonly="readonly">
+				<input class="form-control" th:if="!${edicion}" type="text" th:field="*{codigo}" required="required" placeholder="Ingrese Código Producto">
+				<div class="text-danger" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></div>
 			</div>
+			<div class="mb-3">
+				<label class="form-label">Nombre:<i class="fa-brands fa-product-hunt"></i> </label>
+				<input class="form-control" type="text" name="producto_nombre" th:field="*{nombre}" placeholder="Ingrese Nombre del Producto">
+				<div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+			</div>
+			<div class="mb-3">
+				<label class="form-label">Precio:<i class="fa-solid fa-money-bill"></i> </label>
+				<input class="form-control" type="text" th:field="*{precio}" placeholder="Ingrese Precio Producto">
+				<div class="text-danger" th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"></div>
+			</div>
+			<div class="mb-3">
+				<label class="form-label">Categoria:<i class="fa-regular fa-calendar"></i></label>
+				<input class="form-control" type="text" th:field="*{categoria}" placeholder="Ingrese Categoría del Producto">
+				<div class="text-danger" th:if="${#fields.hasErrors('categoria')}" th:errors="*{categoria}"></div>
+			</div>
+			<div class="mb-3">
+				<label class="form-label">Descuento:<i class="fa-solid fa-wallet"></i></label>
+				<input class="form-control"type="text" th:field="*{descuento}" placeholder="Ingrese Descuento del Producto">
+				<div class="text-danger" th:if="${#fields.hasErrors('descuento')}" th:errors="*{descuento}"></div>
+			</div>
+			<div class="mb-3">
+				<label class="form-label">Imagen:<i class="fa-regular fa-image"></i></label>
+				<select class="form-select" th:field="*{imagen}">
+				    <option value="comedorbebedor.png">Bebedero-Comedero</option>
+				    <option value="peine.png">Cepillo</option>
+				    <option value="rascador.jpg">Rascador</option>
+				    <option value="transportador.jpg">Caja Transporte</option>
+				    <option value="mochila_transportadora.jpg">Mochila Transporte</option>
+				    <option value="kitsanitario.png">Kit sanitario</option>
+				</select><br>
+				<div class="text-danger" th:if="${#fields.hasErrors('imagen')}" th:errors="*{imagen}"></div>
+			</div>
+			<input class="btn btn-success" type="submit" th:value="${edicion}?'Guardar Cambios':'Guardar'">
+			<br>
+			<br>
+			<a th:href="@{/producto/listado}" class="btn btn-secondary" role="button" aria-disabled="true">Cancelar</a>
+			<br>
+			<br>
 		</form>
 		<footer th:replace="~{layouts/footer :: footer}"></footer>
-		<script src="https://kit.fontawesome.com/f80946207f.js" crossorigin="anonymous"></script>
+		<script type="text/javascrip" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+		<script src="https://kit.fontawesome.com/f80946207f.js"></script>
 	</body>
 </html>
