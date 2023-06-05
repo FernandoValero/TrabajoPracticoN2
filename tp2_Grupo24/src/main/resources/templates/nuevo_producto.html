@@ -8,8 +8,12 @@
 	</head>
 	<body>
 		<nav th:replace="~{layouts/nav :: nav}"></nav>
-		<header class="container-sm">
-			<h1>Producto</h1>
+		<header class="encabezado container-sm">
+			<div class="row">
+				<div class="col-4"></div>
+				<h1 class="titulo col-4">Producto</h1>
+				<div class="col-4"></div>
+			</div>
 		</header>
 		<form class="container formulario" th:action="${edicion}?@{/producto/modificar}:@{/producto/guardar}" th:object="${producto}" method="post">
 			<br>
