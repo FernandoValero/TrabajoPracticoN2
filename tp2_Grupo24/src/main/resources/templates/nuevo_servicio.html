@@ -17,6 +17,7 @@
 		</div>
 	</header>
 	<form class="container formulario" th:action="${edicion}?@{/servicio/editar}:@{/servicio/guardar}" th:object="${servicio}" method="post">
+		<br>
 		<div class="mb-3">
 			<label class="form-label">Dia: <i class="fa-solid fa-calendar-days"></i></label>
 			<select id="dia" class="from-select" aria-label="Default select example" th:field="*{dia}">
@@ -44,6 +45,7 @@
 			
 		<input class="btn btn-success" type="submit" th:value="${editar}?'Guardar Cambios':'Guardar'">
 		<a  th:href="@{/servicio/servicios}" class="btn btn-secondary" role="button" aria-disabled="true">Cancelar</a>
+		<br>
 	</form>
 	<footer th:replace="~{layouts/footer :: footer}"></footer>
 	<script type="text/javascrip" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>

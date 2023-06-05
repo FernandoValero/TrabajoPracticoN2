@@ -8,9 +8,14 @@
 	</head>
 	<body>
 	<nav th:replace="~{layouts/nav :: nav}"></nav>
-	<header>
-		<h1 th:text="${edicion}?'Modificar':'Nuevo'"></h1>
+	<header class="encabezado container-sm">
+			<div class="row">
+				<div class="col-3"></div>
+				<h1 class="titulo col-6" th:text="${edicion}?'Modificar':'Nuevo'"></h1>
+				<div class="col-3"></div>
+			</div>
 	</header>
+	
 	<form class="container formulario" th:action="${edicion}?@{/sucursal/editar}:@{/sucursal/guardar}" th:object="${sucursal}" method="post">
 		<br>
 		<div class="mb-3">
@@ -21,17 +26,17 @@
 		</div>
 		<div class="mb-3">
 			<label class="form-label" for="direccion">Dirección:<i class="fa-solid fa-street-view"></i></label>
-			<input class="form-control" type="text" id="direccion" name="direccion_sucursal" th:field="*{direccion}" placeholder="Ingresa la direccion de la sucursal"><br><br>
+			<input class="form-control" type="text" id="direccion" name="direccion_sucursal" th:field="*{direccion}" placeholder="Ingresa la direccion de la sucursal">
 			<div class="text-danger" th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}"></div>
 		</div>
 		<div class="mb-3">
 			<label class="form-label" for="telefono">Teléfono:<i class="fa-solid fa-phone"></i></label>
-			<input class="form-control" type="text" id="telefono" name="telefono_sucursal" th:field="*{telefono}" placeholder="Ingresa el teléfono de la sucursal"><br><br>
+			<input class="form-control" type="text" id="telefono" name="telefono_sucursal" th:field="*{telefono}" placeholder="Ingresa el teléfono de la sucursal">
 			<div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
 		</div>
 		<div class="mb-3">
 			<label class="form-label" for="telefono">Horario:<i class="fa-regular fa-clock"></i></label>
-			<input class="form-control" type="text" id="horario" name="horario_sucursal" th:field="*{horario}" placeholder="Ingresa el horario de la sucursal  Formato: Lunes a Viernes de 00:00 a 00:00hs - Sábado y Domingo de 00:00 a 00:00hs"><br><br>
+			<input class="form-control" type="text" id="horario" name="horario_sucursal" th:field="*{horario}" placeholder="Ingresa el horario de la sucursal  Formato: Lunes a Viernes de 00:00 a 00:00hs - Sábado y Domingo de 00:00 a 00:00hs">
 			<div class="text-danger" th:if="${#fields.hasErrors('horario')}" th:errors="*{horario}"></div>
 		</div>
 		<div class="mb-3">
@@ -48,7 +53,7 @@
 		<a  th:href="@{/sucursal/sucursales}" class="btn btn-secondary" role="button" aria-disabled="true">Cancelar</a>
 		<footer th:replace="~{layouts/footer :: footer}"></footer>
 		<script type="text/javascrip" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
-		<script src="https://kit.fontawesome.com/f80946207f.js" crossorigin="anonymous"></script>
+		<script src="https://kit.fontawesome.com/f80946207f.js"></script>
 	</form>
 	</body>
 </html>

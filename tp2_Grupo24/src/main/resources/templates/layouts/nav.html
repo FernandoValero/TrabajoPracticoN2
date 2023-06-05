@@ -2,33 +2,26 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 	<head>
 		<meta charset="UTF-8">
-		<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"> 
 	</head>
 	<body > 
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<div class="container-fluid">
-				<a class="navbar-brand" th:href="@{/index}" >
+	
+	<nav class="navbar bg-body-tertiary ">
+				
+	 	<form class="container-fluid justify-content-start">
+	 		<a class="navbar-brand" th:href="@{/index}" >
 		          <i class="bi bi-flower1" ></i>
 		          <span class="text-warning"><img class="logo"  th:src="@{/images/petshop_logo.png}" alt="logo mascota" title="Logo tienda de mascotas"></span>
-		        </a>
-				
-				<button class="navbar-toggler"  th:href="@{/index}" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-			      <span class="navbar-toggler-icon"></span>
-			    </button>
-    			
-    			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    				<div class="navbar-nav ">	
-							<a class="nav-link active" th:href="@{/index}">Inicio</a>
-							<a class="nav-link" th:href="@{/producto/listado}">Productos</a>
-							<a class="nav-link" th:href="@{/consejo/consejos}">Consejos de Salud</a>
-							<a class="nav-link" th:href="@{/servicio/servicios}">Servicios de paseos</a>
-							<a class="nav-link" th:href="@{/sucursal/sucursales}">Sucursales</a>
-							<a class="nav-link" th:href="@{/contactanos}">Contáctanos</a>
-					</div>
-    			</div>
-			</div>
-			<div class="toggle"></div>
-		</nav>
+		    </a>
+			<a class="btn btn-outline-success me-2"  th:href="@{/index}">Inicio</a>
+			<a class="btn btn-sm btn-outline-secondary" th:href="@{/producto/listado}">Productos</a>
+			<a class="btn btn-sm btn-outline-secondary" th:href="@{/consejo/consejos}">Consejos de Salud</a>
+			<a class="btn btn-sm btn-outline-secondary" th:href="@{/servicio/servicios}">Servicios de paseos</a>
+			<a class="btn btn-sm btn-outline-secondary" th:href="@{/sucursal/sucursales}">Sucursales</a>
+			<a class="btn btn-sm btn-outline-secondary" th:href="@{/contactanos}">Contáctanos</a>
+	  	</form>
+	 </nav>
 	</body>
 </html>
  

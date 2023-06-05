@@ -8,8 +8,12 @@
 </head>
 <body>
 	<nav th:replace="~{layouts/nav :: nav}" ></nav>
-	<header>
-		<h1>Sucursales</h1>
+	<header class="encabezado container-sm">
+			<div class="row">
+				<div class="col-3"></div>
+				<h1 class="titulo col-6">Sucursales</h1>
+				<div class="col-3"></div>
+			</div>
 	</header>
 	<div class="container-fluid cuerpo_sucursal">
 	
@@ -30,6 +34,6 @@
 	</div>
 	<footer th:replace="~{layouts/footer :: footer}"></footer>
 	<script type="text/javascrip" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
-	<script src="https://kit.fontawesome.com/f80946207f.js" crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/f80946207f.js" ></script>
 </body>
 </html>
