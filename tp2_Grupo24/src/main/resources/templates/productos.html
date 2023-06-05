@@ -8,8 +8,12 @@
 </head>
 <body>
 	<nav th:replace="~{layouts/nav :: nav}"></nav>
-	<header>
-		<h1>Productos</h1>
+	<header class="encabezado container-sm">
+		<div class="row">
+			<div class="col-3"></div>
+			<h1 class="titulo display-4 col-6">Producto</h1>
+			<div class="col-3"></div>
+		</div>
 	</header>
 	<div class="container-fluid cuerpo">
 		<section th:if="!${#lists.isEmpty(productos)}" class="row">

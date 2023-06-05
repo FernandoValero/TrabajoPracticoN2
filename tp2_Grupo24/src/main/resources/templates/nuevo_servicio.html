@@ -9,8 +9,12 @@
 </head>
 <body>
 	<nav th:replace="~{layouts/nav :: nav}"></nav>
-	<header>
-		<h1 th:text="${edicion}?'Editar Servicio':'Nuevo Servicio'"></h1>
+	<header class="encabezado container-sm">
+		<div class="row">
+			<div class="col-3"></div>
+			<h1 class="titulo display-4 col-6">Nuevo</h1>
+			<div class="col-3"></div>
+		</div>
 	</header>
 	<form class="container formulario" th:action="${edicion}?@{/servicio/editar}:@{/servicio/guardar}" th:object="${servicio}" method="post">
 		<div class="mb-3">
