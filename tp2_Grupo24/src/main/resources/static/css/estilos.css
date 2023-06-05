@@ -38,17 +38,17 @@ body {
 .imagen img{	
 	width: 95px;
 }
-/*MENÚ*//*
-nav{
+/*MENÚ*/ 
+nav{/*     El codigo comentado se usara para futuras modificaciones
 	position: fixed;
 	top: -40px;
 	padding: 0px;
 	margin: 15px;
 	width: 1820px;
-	height: 100px;
+	height: 100px;*/
 	background-color: #313131;
 	z-index: 1;
-}
+}/*
 nav ul{
 	padding-left: 40px;
 	list-style: none;
