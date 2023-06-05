@@ -8,7 +8,7 @@
 	</head>
 	<body>
 		<nav th:replace="~{layouts/nav :: nav}"></nav>
-		<header>
+		<header class="container-sm">
 			<h1>Producto</h1>
 		</header>
 		<form class="container formulario" th:action="${edicion}?@{/producto/modificar}:@{/producto/guardar}" th:object="${producto}" method="post">
@@ -48,12 +48,10 @@
 				    <option value="transportador.jpg">Caja Transporte</option>
 				    <option value="mochila_transportadora.jpg">Mochila Transporte</option>
 				    <option value="kitsanitario.png">Kit sanitario</option>
-				</select><br>
+				</select>
 				<div class="text-danger" th:if="${#fields.hasErrors('imagen')}" th:errors="*{imagen}"></div>
 			</div>
 			<input class="btn btn-success" type="submit" th:value="${edicion}?'Guardar Cambios':'Guardar'">
-			<br>
-			<br>
 			<a th:href="@{/producto/listado}" class="btn btn-secondary" role="button" aria-disabled="true">Cancelar</a>
 			<br>
 			<br>

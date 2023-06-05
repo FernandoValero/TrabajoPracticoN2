@@ -13,24 +13,31 @@
 		<h1 th:text="${edicion}?'Editar Artículo':'Nuevo Artículo'"></h1>
 	</header>
 	
-	<form class="formulario" th:action="${edicion}?@{/consejo/editar}:@{/consejo/guardar}" th:object="${consejo}" method="post">
-		<label for="titulo">Titulo:<i class="fa-solid fa-house"></i></label>
-		<input th:if="${edicion}" type="text" id="titulo" name="titulo_consejo" th:field="*{titulo}" readonly="readonly">
-		<input th:if="!${edicion}" type="text" id="titulo" name="titulo_consejo" th:field="*{titulo}" placeholder="Ingresa titulo del articulo." >
-		<div class="text-danger" th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></div>
-		<label for="descripcion">Descripción:<i class="fa-solid fa-street-view"></i></label>
-		<input type="text" id="descripcion" name="descripcion_consejo" th:field="*{descripcion}" placeholder="Ingrese una descripcion"><br><br>
-		<div class="text-danger" th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}"></div>
-		<label for="image">Imagen:<i class="fa-regular fa-image"></i></label>
-		<select th:field="*{imagen}" required="required">
-			    <option value="obesidad-perros.jpg">Imagen 1</option>
-			    <option value="cat.jpg">Imagen 2</option>
-			    <option value="dog.png">Imagen 3</option>
-		</select><br>
-		<a><input type="submit" th:value="${edicion}?'Guardar Cambios':'Guardar'"></a>
-		<div class="cancel">
-		      <a  th:href="@{/consejo/consejos}">Cancelar</a>
+	<form class="container formulario" th:action="${edicion}?@{/consejo/editar}:@{/consejo/guardar}" th:object="${consejo}" method="post">
+		<br>
+		<div class="mb-3">
+			<label class="form-label" for="titulo">Título:<i class="fa-solid fa-house"></i></label>
+			<input class="form-control" th:if="${edicion}" type="text" id="titulo" name="titulo_consejo" th:field="*{titulo}" readonly="readonly">
+			<input class="form-control" th:if="!${edicion}" type="text" id="titulo" name="titulo_consejo" th:field="*{titulo}" placeholder="Ingresa titulo del articulo." >
+			<div class="text-danger" th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></div>
 		</div>
+		<div class="mb-3">
+			<label class="form-label" for="descripcion">Descripción:<i class="fa-solid fa-street-view"></i></label>
+			<input class="form-control" type="text" id="descripcion" name="descripcion_consejo" th:field="*{descripcion}" placeholder="Ingrese una descripcion">
+			<div class="text-danger" th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}"></div>
+		</div>
+		<div class="mb-3">
+			<label class="form-label" for="image">Imagen:<i class="fa-regular fa-image"></i></label>
+			<select class="form-select" th:field="*{imagen}">
+				    <option value="obesidad-perros.jpg">Imagen 1</option>
+				    <option value="cat.jpg">Imagen 2</option>
+				    <option value="dog.png">Imagen 3</option>
+			</select>
+		</div>
+		<a><input class="btn btn-success" type="submit" th:value="${edicion}?'Guardar Cambios':'Guardar'"></a>
+		<a th:href="@{/consejo/consejos}" class="btn btn-secondary">Cancelar</a>
+		<br>
+		<br>
 		<footer th:replace="~{layouts/footer :: footer}"></footer>
 		<script type="text/javascrip" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 		<script src="https://kit.fontawesome.com/f80946207f.js"></script>
