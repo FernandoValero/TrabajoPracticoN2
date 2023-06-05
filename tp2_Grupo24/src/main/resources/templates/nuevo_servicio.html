@@ -12,39 +12,34 @@
 	<header>
 		<h1 th:text="${edicion}?'Editar Servicio':'Nuevo Servicio'"></h1>
 	</header>
-	<form class="formulario" th:action="${edicion}?@{/servicio/editar}:@{/servicio/guardar}" th:object="${servicio}" method="post">
-		
+	<form class="container formulario" th:action="${edicion}?@{/servicio/editar}:@{/servicio/guardar}" th:object="${servicio}" method="post">
 		<div class="mb-3">
-		<label>Dia: <i class="fa-solid fa-calendar-days"></i></label>
-		
-		<select id="dia" class="from-select" aria-label="Default select example" th:field="*{dia}">
-		<option value="" selected>Seleccione un Dia...</option>
-		<option value="Lunes">Lunes</option>
-		<option value="Martes">Martes</option>
-		<option value="Miercoles">Miercoles</option>
-		<option value="Jueves">Jueves</option>
-		<option value="Viernes">Viernes</option>
-		<option value="Sabado">Sabado</option>
-		</select>
-		<div class="text-danger" th:if="${#fields.hasErrors('dia')}" th:errors="*{dia}"></div>
+			<label class="form-label">Dia: <i class="fa-solid fa-calendar-days"></i></label>
+			<select id="dia" class="from-select" aria-label="Default select example" th:field="*{dia}">
+				<option value="" selected>Seleccione un Dia...</option>
+				<option value="Lunes">Lunes</option>
+				<option value="Martes">Martes</option>
+				<option value="Miercoles">Miercoles</option>
+				<option value="Jueves">Jueves</option>
+				<option value="Viernes">Viernes</option>
+				<option value="Sabado">Sabado</option>
+			</select>
+			<div class="text-danger" th:if="${#fields.hasErrors('dia')}" th:errors="*{dia}"></div>
+		</div>
+		<div class="mb-3">
+			<label class="form-label">Paseador: <i class="fa-solid fa-dog"></i></label>
+			<input type="text" name="paseador" th:field="*{paseador}" class="form-control" placeholder="Ingrese Nombre del Paseador" >
+			<div class="text-danger" th:if="${#fields.hasErrors('paseador')}" th:errors="*{paseador}"></div>
 		</div>
 		
 		<div class="mb-3">
-		<label>Paseador: <i class="fa-solid fa-dog"></i></label>
-		<input type="text" name="paseador" th:field="*{paseador}" class="form-control" placeholder="Ingrese Nombre del Paseador" >
-		<div class="text-danger" th:if="${#fields.hasErrors('paseador')}" th:errors="*{paseador}"></div>
+			<label class="form-label">Horario: <i class="fa-solid fa-clock"></i></label>
+			<input type="text" name="horario" th:field="*{horario}" class="form-control" placeholder="Horario Laboral" >
+			<div class="text-danger" th:if="${#fields.hasErrors('horario')}" th:errors="*{horario}"></div>
 		</div>
-		
-		<div class="mb-3">
-		<label>Horario: <i class="fa-solid fa-clock"></i></label>
-		<div class="text-danger" th:if="${#fields.hasErrors('horario')}" th:errors="*{horario}"></div>
-		</div>
-		<input type="text" name="horario" th:field="*{horario}" class="form-control" placeholder="Horario Laboral" >
-		
-		<a><input type="submit" th:value="${editar}?'Guardar Cambios':'Guardar'"></a>
-		<div class="cancel">
-				<a  th:href="@{/servicio/servicios}">Cancelar</a>
-			</div>
+			
+		<input class="btn btn-success" type="submit" th:value="${editar}?'Guardar Cambios':'Guardar'">
+		<a  th:href="@{/servicio/servicios}" class="btn btn-secondary" role="button" aria-disabled="true">Cancelar</a>
 	</form>
 	<footer th:replace="~{layouts/footer :: footer}"></footer>
 	<script type="text/javascrip" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
