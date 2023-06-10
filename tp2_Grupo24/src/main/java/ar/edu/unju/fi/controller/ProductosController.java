@@ -21,7 +21,7 @@ import jakarta.validation.Valid;
 @Controller
 @RequestMapping("/producto")
 public class ProductosController {
-	
+	/**Inytección de una intancia de la intefaz IProductoService*/ 
 	@Autowired
 	private IProductoService productoService;
 	

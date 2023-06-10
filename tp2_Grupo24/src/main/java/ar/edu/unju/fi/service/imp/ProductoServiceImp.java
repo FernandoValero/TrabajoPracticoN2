@@ -8,6 +8,10 @@ import ar.edu.unju.fi.lista.ListaProducto;
 import ar.edu.unju.fi.model.Producto;
 import ar.edu.unju.fi.service.IProductoService;
 
+/**
+ * Implementación de la interfaz IProductoService que proporciona métodos para administrar los productos.
+ */
+
 @Service
 public class ProductoServiceImp implements IProductoService{
 	@Autowired
@@ -15,15 +19,26 @@ public class ProductoServiceImp implements IProductoService{
 	
 	@Autowired
 	private Producto producto;
-	
+	/**
+	* Obtiene la lista de todos los productos.
+	* @return una lista de productos
+	*/
 	@Override
 	public List<Producto> getLista() {
 		return listaProducto.getProductos();
 	}
+	/**
+	*  Guardo un nuevo producto.
+	*  @param producto, producto a guardar.
+	*/
 	@Override
 	public void guardar(Producto producto) {
 		listaProducto.getProductos().add(producto);
 	}
+	/**
+	*  Modifica un producto existente.
+	*  @param producto, producto a modificar.
+	*/
 	@Override
 	public void modificar(Producto producto) {
 		for (Producto prod : listaProducto.getProductos()) {
@@ -36,10 +51,19 @@ public class ProductoServiceImp implements IProductoService{
 			}
 		}
 	}
+	/**
+	*  Elimina un producto existente.
+	*  @param productoEncontrado, el producto a eliminar.
+	*/
 	@Override
 	public void eliminar(Producto productoEncontrado) {
 		listaProducto.getProductos().remove(productoEncontrado);		
 	}
+	/**
+    * Encuentra un producto de acuerdo a su código.
+    * @param codigo, el código del producto a buscar.
+    * @return el producto que tenga coincidencia.
+    */
 	@Override
 	public Producto getBy(int codigo) {
 		Producto productoEncontrado = new Producto();
@@ -51,6 +75,10 @@ public class ProductoServiceImp implements IProductoService{
 		}
 		return productoEncontrado;
 	}
+	/**
+    * Genera un nuevo producto.
+    * @return un objeto producto.
+    */
 	@Override
 	public Producto getProducto() {
 		return producto;
