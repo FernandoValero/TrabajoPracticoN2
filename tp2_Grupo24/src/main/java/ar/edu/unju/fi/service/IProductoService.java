@@ -9,6 +9,6 @@ public interface IProductoService {
 	void guardar(Producto producto);
 	void modificar(Producto producto);
 	void eliminar(Producto productoEncontrado);
-	Producto getBy(String codigo);
-	Producto getSucursal();
+	Producto getBy(int codigo);
+	Producto getProducto();
 }
