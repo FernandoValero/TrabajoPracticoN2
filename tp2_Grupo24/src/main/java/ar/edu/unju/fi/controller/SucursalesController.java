@@ -48,7 +48,7 @@ public class SucursalesController {
 	
 	/*
 	 * Método para guardar una nueva sucursal.
-	 * Agrega la nueva sucursal a la lista de sucursales.
+	 * Agrega la nueva sucursal a la lista de sucursales usando el método guardar.
 	 * Actualiza el modelo con la lista actualizada de sucursales.
 	 * Devuelve el objeto ModelAndView.
 	 */
@@ -67,7 +67,7 @@ public class SucursalesController {
 	
 	/*
 	 * Método para obtener la página de edición de una sucursal existente.
-	 * Busca la sucursal con el nombre proporcionado en la lista de sucursales.
+	 * Busca la sucursal con el nombre proporcionado en la lista de sucursales usando el método getBy.
 	 * Establece la sucursal encontrada y el indicador de "edicion" en el modelo.
 	 * Devuelve la página "nueva_sucursal".
 	 */
@@ -83,8 +83,8 @@ public class SucursalesController {
 	
 	/*
 	 * Método para editar una sucursal existente.
-	 * Busca la sucursal con el mismo nombre en la lista de sucursales.
-	 * Actualiza los atributos de la sucursal encontrada con los valores proporcionados.
+	 * Busca la sucursal con el mismo nombre en la lista de sucursales usando el método getBy.
+	 * Actualiza los atributos de la sucursal encontrada con los valores proporcionados usando el método editar.
 	 * Redirecciona a la página de sucural/sucursales.
 	 */		
 	@PostMapping("/editar")
@@ -99,8 +99,8 @@ public class SucursalesController {
 	
 	/*
 	 * Método para eliminar una sucursal.
-	 * Busca la sucursal con el nombre proporcionado en la lista de sucursales.
-	 * Remueve la sucursal de la lista de sucursales.
+	 * Busca la sucursal con el nombre proporcionado en la lista de sucursales usando el método getBy.
+	 * Remueve la sucursal de la lista de sucursales usando el método eliminar.
 	 * Redirecciona a la página de sucural/sucursales.
 	 */
 	@GetMapping("/eliminar/{nombre}")
