@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import ar.edu.unju.fi.lista.ListaProducto;
 import ar.edu.unju.fi.model.Producto;
+import ar.edu.unju.fi.service.IProductoService;
 import jakarta.validation.Valid;
 
 /**
@@ -23,17 +23,15 @@ import jakarta.validation.Valid;
 public class ProductosController {
 	
 	@Autowired
-	private ListaProducto listaProducto;
+	private IProductoService productoService;
 	
-	@Autowired
-	private Producto producto;
 	/**
 	 * Método para obtener la lista de productos.
 	 * @return vista "productos".
 	 */
 	@GetMapping("/listado")
 	public String getListaProductoPage(Model model) {
-		model.addAttribute("productos", listaProducto.getProductos());
+		model.addAttribute("productos", productoService.getLista());
 		return "productos";
 	}
 	/**
@@ -43,7 +41,7 @@ public class ProductosController {
 	@GetMapping("/nuevo")
 	public String getNuevoiProductoPage(Model model) {
 		boolean edicion= false;
-		model.addAttribute("producto", producto);
+		model.addAttribute("producto", productoService.getProducto());
 		model.addAttribute("edicion", edicion);
 		return "nuevo_producto";
 	}
@@ -59,8 +57,8 @@ public class ProductosController {
 			modelAndView.addObject("producto", producto);
 			return modelAndView;
 		}
-		listaProducto.getProductos().add(producto);
-		modelAndView.addObject("productos",listaProducto.getProductos());
+		productoService.guardar(producto);
+		modelAndView.addObject("productos",productoService.getLista());
 		return modelAndView;
 	}
 	/**
@@ -70,14 +68,7 @@ public class ProductosController {
 	@GetMapping("/modificar/{codigo}")
 	public String getModificarProductoPage(Model model, @PathVariable(value="codigo")int codigo) {
 		boolean edicion= true;
-		Producto productoEncontrado = new Producto();
-		for (Producto prod : listaProducto.getProductos()) {
-			if(prod.getCodigo()==codigo) {
-				productoEncontrado = prod;
-				break;
-			}
-		}
-		model.addAttribute("producto", productoEncontrado);
+		model.addAttribute("producto", productoService.getBy(codigo));
 		model.addAttribute("edicion", edicion);
 		return "nuevo_producto";
 	}
@@ -91,15 +82,7 @@ public class ProductosController {
 			model.addAttribute("edicion", true);
 			return "nuevo_producto";
 		}
-		for (Producto prod : listaProducto.getProductos()) {
-			if(prod.getCodigo()==producto.getCodigo()) {
-				prod.setNombre(producto.getNombre());
-				prod.setPrecio(producto.getPrecio());
-				prod.setCategoria(producto.getCategoria());
-				prod.setDescuento(producto.getDescuento());
-				break;
-			}
-		}
+		productoService.modificar(producto);
 		return "redirect:/producto/listado";
 	}
 	/**
@@ -108,9 +91,9 @@ public class ProductosController {
 	 */
 	@GetMapping("/eliminar/{codigo}")
 	public String elimanarProducto(@PathVariable(value="codigo")int codigo) {
-		for (Producto prod : listaProducto.getProductos()) {
+		for (Producto prod : productoService.getLista()) {
 			if(prod.getCodigo()==codigo) {
-				listaProducto.getProductos().remove(prod);
+				productoService.eliminar(prod);
 				break;
 			}
 		}
