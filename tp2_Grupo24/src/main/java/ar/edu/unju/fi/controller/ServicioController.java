@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import ar.edu.unju.fi.lista.ListaServicio;
 import ar.edu.unju.fi.model.Servicio;
+import ar.edu.unju.fi.service.IServicioService;
 import jakarta.validation.Valid;
 
 
@@ -21,9 +22,9 @@ public class ServicioController {
 	
 	@Autowired
 	ListaServicio listaServicios;
-	
+	/**Inytección de una intancia de la intefaz IServicioService*/ 
 	@Autowired
-	private Servicio servicio;
+	private IServicioService servicio;
 	
 	/**
 	 * Método que maneja la solicitud GET "/servicio/servicios" y muestra la página de lista de servicios.
@@ -92,6 +93,10 @@ public class ServicioController {
 		model.addAttribute("edicion", edicion);
 		return "nuevo_servicio";
 	}
+	/**
+	 * Método para modificar un servicio existente.
+	 * @return vista "servicios" mediante la redirección.
+	 */
 	@PostMapping("/editar")
 	public String editarServicio(@Valid @ModelAttribute("servicio")Servicio servicio,BindingResult result) {
 		if(result.hasErrors()){
@@ -108,6 +113,10 @@ public class ServicioController {
 		return "redirect:/servicio/servicios";
 	}
 	
+	/**
+	 * Método para eliminar un servicio.
+	 * @return vista "servicios" mediante la redirección.
+	 */
 	@GetMapping("/eliminar/{paseador}")
 	public String EliminarServicio(@PathVariable(value="paseador")String paseador) {
 		for(Servicio serv:listaServicios.getServicios()) {
