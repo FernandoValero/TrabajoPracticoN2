@@ -33,7 +33,8 @@
 		</div>
 		<div class="mb-3">
 			<label class="form-label">Paseador: <i class="fa-solid fa-dog"></i></label>
-			<input type="text" name="paseador" th:field="*{paseador}" class="form-control" placeholder="Ingrese Nombre del Paseador" >
+			<input class="form-control" th:if="${edicion}" type="text" id="paseador" name="paseador" th:field="*{paseador}" readonly="readonly">
+			<input class="form-control" th:if="!${edicion}" type="text" id="paseador" name="paseador" th:field="*{paseador}" placeholder="Ingrese Nombre del Paseador" >
 			<div class="text-danger" th:if="${#fields.hasErrors('paseador')}" th:errors="*{paseador}"></div>
 		</div>
 		
