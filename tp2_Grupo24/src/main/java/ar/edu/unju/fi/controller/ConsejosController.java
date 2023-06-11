@@ -84,7 +84,13 @@ public class ConsejosController {
 		model.addAttribute("edicion", edicion);
 		return "nuevo_consejo";
 	}
-		
+	
+	/*
+	 * Método para editar un consejo existente.
+	 * Busca el consejo con el mismo nombre en la lista de consejos usando el método getBy.
+	 * Actualiza los atributos del consejo encontrado con los valores proporcionados usando el método editar.
+	 * Redirecciona a la página de consejo/consejos.
+	 */	
 	@PostMapping("/editar")
 	public String editarConsejo(@Valid @ModelAttribute("consejo")Consejo consejo, BindingResult result) {
 		if(result.hasErrors()){
@@ -94,6 +100,12 @@ public class ConsejosController {
 		return "redirect:/consejo/consejos";
 	}
 	
+	/*
+	 * Método para eliminar un consejo.
+	 * Busca el consejo con el nombre proporcionado en la lista de consejos usando el método getBy.
+	 * Remueve el consejo de la lista de consejos usando el método eliminar.
+	 * Redirecciona a la página de consejo/consejos.
+	 */
 	@GetMapping("/eliminar/{nombre}")
 	public String EliminarConsejo(@PathVariable(value = "nombre") String nombre) {
 		Consejo consejoEncontrada = consejoService.getBy(nombre);
