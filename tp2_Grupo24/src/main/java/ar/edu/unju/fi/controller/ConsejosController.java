@@ -22,10 +22,10 @@ public class ConsejosController {
 	private IConsejoService consejoService;
 	
 	/**
-	 * Método que maneja la solicitud GET "/consejo/consejos" y muestra la página de lista de consejos.
+	 * Método para obtener la lista de consejos y lo agrega al modelo.
 	 * 
 	 * @param model el objeto Model que se utilizará para pasar datos a la vista.
-	 * @return el nombre de la vista "consejos" que se mostrará al usuario.
+	 * @return el nombre de la vista "consejos".
 	 */
 	@GetMapping("/consejos")
 	public String getListaConsejosPage(Model model) {
@@ -34,10 +34,10 @@ public class ConsejosController {
 	}
 	
 	/**
-	 * Método que maneja la solicitud GET "/consejo/nuevo" y muestra la página para crear un nuevo consejo.
+	 * Método para obtener la página de creación de un nuevo consejo.
 	 * 
 	 * @param model el objeto Model que se utilizará para pasar datos a la vista.
-	 * @return el nombre de la vista "nuevo_consejo" que se mostrará al usuario.
+	 * @return el nombre de la vista "nuevo_consejo".
 	 */
 	@GetMapping("/nuevo")
 	public String getNuevoConsejoPage(Model model) {
@@ -48,10 +48,12 @@ public class ConsejosController {
 	}
 	
 	/**
-	 * Método que maneja la solicitud POST "/consejo/guardar" y guarda un nuevo consejo en la lista de consejos.
+	 * Método para guardar un nuevo consejo.
+	 * Lo agrega a la lista de consejos usando el método guardar.
+	 * Actualiza el modelo con la lista actualizada de consejos.
 	 * 
-	 * @param consejo el objeto Consejo que se va a guardar.
-	 * @return un objeto ModelAndView que redirecciona a la página de lista de consejos.
+	 * @param consejo el objeto "consejo" que se va a guardar.
+	 * @return el objeto ModelAndView, que redirecciona a la página de lista de consejos.
 	 */
 	@PostMapping("/guardar")
 	public ModelAndView getGuardarConsejoPage(@Valid @ModelAttribute("consejo")Consejo consejo, BindingResult result) {
@@ -68,11 +70,11 @@ public class ConsejosController {
 	
 	
 	/**
-	 * Método que maneja la solicitud GET "/consejo/editar/{nombre}" y muestra la página para editar un consejo existente.
+	 * Muestra la página para editar un consejo existente.
 	 * 
 	 * @param model el objeto Model que se utilizará para pasar datos a la vista.
 	 * @param nombre el nombre del consejo que se va a editar.
-	 * @return el nombre de la vista "nuevo_consejo" que se mostrará al usuario.
+	 * @return el nombre de la vista "nuevo_consejo".
 	 */
 	@GetMapping("/editar/{nombre}")
 	public String getEditarConsejoPage(Model model, @PathVariable(value = "nombre") String nombre) {
