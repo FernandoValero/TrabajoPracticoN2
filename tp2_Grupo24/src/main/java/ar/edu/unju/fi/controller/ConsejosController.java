@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
-import ar.edu.unju.fi.lista.ListaConsejo;
 import ar.edu.unju.fi.model.Consejo;
+import ar.edu.unju.fi.service.IConsejoService;
 import jakarta.validation.Valid;
 
 @Controller
@@ -20,10 +19,7 @@ import jakarta.validation.Valid;
 public class ConsejosController {
 	
 	@Autowired
-	ListaConsejo listaConsejos;
-
-	@Autowired
-	private Consejo consejo;
+	private IConsejoService consejoService;
 	
 	/**
 	 * Método que maneja la solicitud GET "/consejo/consejos" y muestra la página de lista de consejos.
@@ -33,7 +29,7 @@ public class ConsejosController {
 	 */
 	@GetMapping("/consejos")
 	public String getListaConsejosPage(Model model) {
-		model.addAttribute("consejos",listaConsejos.getConsejos());
+		model.addAttribute("consejos",consejoService.getListaConsejo());
 		return "consejos";
 	}
 	
@@ -46,7 +42,7 @@ public class ConsejosController {
 	@GetMapping("/nuevo")
 	public String getNuevoConsejoPage(Model model) {
 		boolean edicion=false;
-		model.addAttribute("consejo", consejo);
+		model.addAttribute("consejo", consejoService.getConsejo());
 		model.addAttribute("edicion", edicion);
 		return "nuevo_consejo";
 	}
@@ -61,13 +57,12 @@ public class ConsejosController {
 	public ModelAndView getGuardarConsejoPage(@Valid @ModelAttribute("consejo")Consejo consejo, BindingResult result) {
 		ModelAndView modelView = new ModelAndView("consejos");
 		if(result.hasErrors()){
-			
 			modelView.setViewName("nuevo_consejo");
 			modelView.addObject("consejo", consejo);
 			return modelView;
 		}
-		listaConsejos.getConsejos().add(consejo);
-		modelView.addObject("consejos", listaConsejos.getConsejos());
+		consejoService.guardar(consejo);
+		modelView.addObject("consejos", consejoService.getListaConsejo());
 		return modelView;
 	}
 	
@@ -82,13 +77,7 @@ public class ConsejosController {
 	@GetMapping("/editar/{nombre}")
 	public String getEditarConsejoPage(Model model, @PathVariable(value = "nombre") String nombre) {
 		boolean edicion=true;
-		Consejo consejoEncontrada = new Consejo();
-		for(Consejo consejo:listaConsejos.getConsejos()) {
-			if(consejo.getTitulo().equals(nombre)) {
-				consejoEncontrada=consejo;
-				break;
-			}	
-		}
+		Consejo consejoEncontrada = consejoService.getBy(nombre);
 		model.addAttribute("consejo", consejoEncontrada);
 		model.addAttribute("edicion", edicion);
 		return "nuevo_consejo";
@@ -99,22 +88,14 @@ public class ConsejosController {
 		if(result.hasErrors()){
 			return "nuevo_consejo";
 		}
-		for(Consejo conse:listaConsejos.getConsejos()) {
-			if(conse.getTitulo().equals(consejo.getTitulo())) {
-				conse.setDescripcion(consejo.getDescripcion());
-			}
-		}
+		consejoService.editar(consejo);
 		return "redirect:/consejo/consejos";
 	}
 	
 	@GetMapping("/eliminar/{nombre}")
 	public String EliminarConsejo(@PathVariable(value = "nombre") String nombre) {
-		for(Consejo consejo:listaConsejos.getConsejos()) {
-			if(consejo.getTitulo().equals(nombre)) {
-				listaConsejos.getConsejos().remove(consejo);
-				break;
-			}	
-		}
+		Consejo consejoEncontrada = consejoService.getBy(nombre);
+		consejoService.eliminar(consejoEncontrada);
 		return "redirect:/consejo/consejos";
 	}
 }
