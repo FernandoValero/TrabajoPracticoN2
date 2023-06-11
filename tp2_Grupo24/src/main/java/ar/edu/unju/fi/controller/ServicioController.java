@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import ar.edu.unju.fi.lista.ListaServicio;
 import ar.edu.unju.fi.model.Servicio;
 import ar.edu.unju.fi.service.IServicioService;
 import jakarta.validation.Valid;
@@ -20,12 +19,9 @@ import jakarta.validation.Valid;
 @RequestMapping("/servicio")
 public class ServicioController {
 	
-	@Autowired
-	ListaServicio listaServicios;
 	/**Inytección de una intancia de la intefaz IServicioService*/ 
 	@Autowired
-	private IServicioService servicio;
-	
+	private IServicioService servicioService;
 	/**
 	 * Método que maneja la solicitud GET "/servicio/servicios" y muestra la página de lista de servicios.
 	 * 
@@ -35,7 +31,7 @@ public class ServicioController {
 
 	@GetMapping("/servicios")
 	public String getListaServiciosPage(Model model) {
-		model.addAttribute("servicios", listaServicios.getServicios());
+		model.addAttribute("servicios", servicioService.getListaServicio());
 		return "servicios";
 	}
 	
@@ -48,7 +44,7 @@ public class ServicioController {
 	@GetMapping("/nuevo")
 	public String getNuevoServicioPage(Model model) {
 		boolean edicion=false;
-		model.addAttribute("servicio", servicio);
+		model.addAttribute("servicio", servicioService.getServicio());
 		model.addAttribute("edicion", edicion);
 		return "nuevo_servicio";
 	}
@@ -63,13 +59,13 @@ public class ServicioController {
 	public ModelAndView getGuardarServicioPage(@Valid @ModelAttribute("servicio")Servicio servicio, BindingResult result) {
 		ModelAndView modelView = new ModelAndView("servicios");
 		if(result.hasErrors()){
-			
 			modelView.setViewName("nuevo_servicio");
+			modelView.addObject("servicio", servicio);
 			return modelView;
 		}
 		
-		listaServicios.getServicios().add(servicio);
-		modelView.addObject("servicios", listaServicios.getServicios());
+		servicioService.guardar(servicio);
+		modelView.addObject("servicios", servicioService.getListaServicio());
 		return modelView;
 	}
 	/**
@@ -80,15 +76,9 @@ public class ServicioController {
 	 * @return el nombre de la vista "nuevo_servicio" que se mostrará al usuario.
 	 */
 	@GetMapping("/editar/{paseador}")
-	public String getEditarServicioPage1(Model model, @PathVariable(value="paseador")String paseador) {
-		Servicio servicioEncontrada = new Servicio();
+	public String getEditarServicioPage(Model model, @PathVariable(value="paseador")String paseador) {
 		boolean edicion = true;
-		for(Servicio serv : listaServicios.getServicios()) {
-			if(serv.getPaseador().equals(paseador)) {
-				servicioEncontrada = serv;
-				break;
-			}	
-		}
+		Servicio servicioEncontrada = servicioService.getBy(paseador);
 		model.addAttribute("servicio", servicioEncontrada);
 		model.addAttribute("edicion", edicion);
 		return "nuevo_servicio";
@@ -100,16 +90,9 @@ public class ServicioController {
 	@PostMapping("/editar")
 	public String editarServicio(@Valid @ModelAttribute("servicio")Servicio servicio,BindingResult result) {
 		if(result.hasErrors()){
-		
-			return "nuevo_servicio";
+		return "nuevo_servicio";
 		}
-		for(Servicio serv: listaServicios.getServicios()) {
-			if(serv.getPaseador().equals(servicio.getPaseador())) {
-				serv.setDia(servicio.getDia());
-				serv.setPaseador(servicio.getPaseador());
-				serv.setHorario(servicio.getHorario());
-			}
-		}
+		servicioService.editar(servicio);
 		return "redirect:/servicio/servicios";
 	}
 	
@@ -118,10 +101,10 @@ public class ServicioController {
 	 * @return vista "servicios" mediante la redirección.
 	 */
 	@GetMapping("/eliminar/{paseador}")
-	public String EliminarServicio(@PathVariable(value="paseador")String paseador) {
-		for(Servicio serv:listaServicios.getServicios()) {
+	public String eliminarServicio(@PathVariable(value="paseador")String paseador) {
+		for (Servicio serv : servicioService.getListaServicio()) {
 			if(serv.getPaseador().equals(paseador)) {
-				listaServicios.getServicios().remove(serv);
+				servicioService.eliminar(serv);
 				break;
 			}
 		}
