@@ -11,7 +11,7 @@ public interface IServicioService {
 	/**
 	 *Devuelve la lista de Servicio
 	 */
-	List<Servicio> getLista();
+	List<Servicio> getListaServicio();
 	
 	/**
 	 *Metodo que permite guardar un servicio
@@ -19,6 +19,11 @@ public interface IServicioService {
 	 */
 	void guardar (@Valid Servicio servicio);
 	
+	/**
+	 *Metodo para buscar un servicio que coincida con el paseador por paramtero
+	 *@param paseador, servicio a buscar
+	 */
+	Servicio getBy(String paseador);
 	/**
 	 *Metodo que permite editar los datos de un servicio
 	 *@param servicio, servicio a editar
@@ -30,16 +35,8 @@ public interface IServicioService {
 	 * *@param servicioEncontrada, servicio a eliminar
 	 */
 	
-	void eliminar(Servicio servicio);
+	void eliminar(Servicio servicioEncontrada);
 
-	/**
-	 *Metodo para buscar un servicio que coincida con el paseador por paramtero
-	 *@param paseador, servicio a buscar
-	 */
-	Servicio getBy(String paseador);
-	/**
-	 *Devuelve la instancia de un servicio
-	 */
 	
 	Servicio getServicio();
 }
