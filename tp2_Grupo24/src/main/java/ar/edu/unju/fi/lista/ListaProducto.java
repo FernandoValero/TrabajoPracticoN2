@@ -2,8 +2,10 @@ package ar.edu.unju.fi.lista;
 
 import java.util.List;
 import org.springframework.stereotype.Component;
+
+import ar.edu.unju.fi.entity.Producto;
+
 import java.util.ArrayList;
-import ar.edu.unju.fi.model.Producto;
 /**
  * La clase ListaProducto representa una lista de productos.
  * @author Grupo_24

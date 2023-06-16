@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import ar.edu.unju.fi.model.Servicio;
+
+import ar.edu.unju.fi.entity.Servicio;
 import ar.edu.unju.fi.service.IServicioService;
 import jakarta.validation.Valid;
 
