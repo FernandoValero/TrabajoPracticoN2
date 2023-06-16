@@ -1,7 +1,8 @@
 package ar.edu.unju.fi.service;
 
 import java.util.List;
-import ar.edu.unju.fi.model.Producto;
+
+import ar.edu.unju.fi.entity.Producto;
 
 /**
 * Esta interfaz define los métodos para administrar los productos.

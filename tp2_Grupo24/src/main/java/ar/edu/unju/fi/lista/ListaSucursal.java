@@ -3,7 +3,8 @@ package ar.edu.unju.fi.lista;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Component;
-import ar.edu.unju.fi.model.Sucursal;
+
+import ar.edu.unju.fi.entity.Sucursal;
 
  @Component
 public class ListaSucursal{
