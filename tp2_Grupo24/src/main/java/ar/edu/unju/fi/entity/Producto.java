@@ -1,6 +1,13 @@
 package ar.edu.unju.fi.entity;
 
 import org.springframework.stereotype.Component;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -13,42 +20,45 @@ import jakarta.validation.constraints.Size;
  * @author Grupo_24
  */
 @Component
+@Entity
+@Table(name="productos")
 public class Producto {
-	/**
-	 * Es el nombre del Producto.
-	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="prod_id")
+	private Long id;
+	
 	@NotEmpty(message="*Agregue Nombre")
 	@Size(min=4,message="*Debe tener almenos 4 caracteres")
+	@Column(name="prod_nombre")
 	private String nombre;
+	
 	@NotNull(message="Agregue un código")
 	@Positive(message="*Debe ser mayor a 0")
-	/**
-	 * Es el cóodigo del Producto.
-	 */
+	@Column(name="prod_codigo",nullable = false)
 	private int codigo;
+	
 	@Positive(message="*Debe ser mayor a 0")
-	/**
-	 * Es el precio del Producto.
-	 */
+	@Column(name="prod_precio")
 	private double precio;
+	
 	@NotEmpty(message="*Debe agregar categoría")
 	@Size(min=4, max=30,message="*Debe tener entre 4-30 caracteres")
-	/**
-	 * Es la categoría a la pertenece el Producto.
-	 */
+	@Column(name="prod_categoria")
 	private String categoria;
+	
 	@Positive(message="*Debe ser mayor positivo")
 	@Min(value=0,message="Debe ser mayor a 0")
 	@Max(value=50,message="Debe ser menor o igual 50")
-	/**
-	 * Es el descuento en caso de que tuviera el Producto.
-	 */
+	@Column(name="prod_descuento")
 	private int descuento;
+	
 	@NotBlank(message="Debe seleccionar una imagen")
-	/**
-	 * Es el ruta de la imagen del Producto.
-	 */
+	@Column(name="prod_imagen")
 	private String imagen;
+	
+	@Column(name="prod_estado")
+	private boolean estado;
 	/**
 	 * Constructor vacío de la clase Producto.
 	 */
