@@ -167,6 +167,34 @@ public class Producto {
 		this.imagen = imagen;
 	}
 	/**
+	 * Retorna el estado del producto útil al momento de eliminar.
+	 * @return estado del producto.
+	 */
+	public boolean isEstado() {
+		return estado;
+	}
+	/**
+	 * Establece el estado del producto.
+	 * @param estado del producto.
+	 */
+	public void setEstado(boolean estado) {
+		this.estado = estado;
+	}
+	/**
+	 * Retorna el id del producto.
+	 * @return id del producto.
+	 */
+	public Long getId() {
+		return id;
+	}
+	/**
+	 * Establece el id del producto.
+	 * @param id del producto.
+	 */
+	public void setId(Long id) {
+		this.id = id;
+	}
+	/**
 	 * Calcula el precio final con descuento aplicado.
 	 * El descuento se calcula mediante la resta del precio original con el descuento del producto.
 	 * @return El precio después de aplicar el descuento.
