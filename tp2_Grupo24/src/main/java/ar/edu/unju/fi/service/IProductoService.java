@@ -33,7 +33,7 @@ public interface IProductoService {
     * @param codigo, el código del producto a buscar.
     * @return el producto que tenga coincidencia.
     */
-	Producto getBy(int codigo);
+	Producto getBy(Long id);
 	/**
     * Obtiene un nuevo producto.
     * @return un objeto producto.

@@ -43,7 +43,7 @@ public class ProductoServiceImp implements IProductoService{
 	@Override
 	public void modificar(Producto producto) {
 		for (Producto prod : listaProducto.getProductos()) {
-			if(prod.getCodigo()==producto.getCodigo()) {
+			if(prod.getId()==producto.getId()) {
 				prod.setNombre(producto.getNombre());
 				prod.setPrecio(producto.getPrecio());
 				prod.setCategoria(producto.getCategoria());
@@ -66,10 +66,10 @@ public class ProductoServiceImp implements IProductoService{
     * @return el producto que tenga coincidencia.
     */
 	@Override
-	public Producto getBy(int codigo) {
+	public Producto getBy(Long id) {
 		Producto productoEncontrado = new Producto();
 		for (Producto prod : listaProducto.getProductos()) {
-			if(prod.getCodigo()==codigo) {
+			if(prod.getId()==id){
 				productoEncontrado = prod;
 				break;
 			}
