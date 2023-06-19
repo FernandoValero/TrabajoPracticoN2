@@ -18,10 +18,12 @@
 		<form class="container formulario" th:action="${edicion}?@{/producto/modificar}:@{/producto/guardar}" th:object="${producto}" method="post">
 			<br>
 			<div class="mb-3" th:if="${edicion}">
-				<label class="form-label">ID: <span th:field="*{id}" th:text="*{id}"></span> </label>
+				<label class="form-label">ID:<i class="fa-solid fa-file-code"></i></label>
+				<input class="form-control" type="text" th:field="*{id}" readonly="readonly">
 			</div>
 			<div class="mb-3" th:if="${edicion}">
-				<label class="form-label" th:field="*{estado}">Estado: Activo </label>
+				<label class="form-label">Estado:<i class="fa-solid fa-file-code"></i></label>
+				<input class="form-control" type="text" th:field="*{estado}" readonly="readonly">
 			</div>
 			<div class="mb-3">
 				<label class="form-label">Código:<i class="fa-solid fa-file-code"></i></label>
