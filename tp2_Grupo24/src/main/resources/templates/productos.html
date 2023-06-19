@@ -15,7 +15,7 @@
 			<div class="col-3"></div>
 		</div>
 	</header>
-	<div class="container-fluid cuerpo">
+	<div class="container-fluid cuerpo" th:if="!${#lists.isEmpty(productos)}">
 		<section th:if="!${#lists.isEmpty(productos)}" class="row">
 			<div th:each="producto : ${productos}"class="col-xs-12 col-lg-6 col-xxl-4">
 				<div class="tarjeta_base">
@@ -25,8 +25,8 @@
 					<p>$<span th:text="${producto.precio}"></span></p>
 					<p><span th:text="${producto.descuento}"></span>%</p>
 					<p>$<span th:text="${producto.calcularDescuento}"></span></p><br>
-					<a th:href="@{/producto/modificar/}+${producto.codigo}"><i class="editar-prod fa-regular fa-pen-to-square"></i></a>
-					<a th:href="@{/producto/eliminar/}+${producto.codigo}"><i class="eliminar-prod fa-solid fa-trash-can"></i></a>
+					<a th:href="@{/producto/modificar/}+${producto.id}"><i class="editar-prod fa-regular fa-pen-to-square"></i></a>
+					<a th:href="@{/producto/eliminar/}+${producto.id}"><i class="eliminar-prod fa-solid fa-trash-can"></i></a>
 				</div>
 			</div>
 		</section>

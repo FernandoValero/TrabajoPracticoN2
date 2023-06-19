@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,6 +25,7 @@ import jakarta.validation.Valid;
 public class ProductosController {
 	/**Inytección de una intancia de la intefaz IProductoService*/ 
 	@Autowired
+	@Qualifier("productoServiceMysql")
 	private IProductoService productoService;
 	
 	/**
@@ -58,18 +60,20 @@ public class ProductosController {
 			modelAndView.addObject("producto", producto);
 			return modelAndView;
 		}
+		producto.setEstado(true);
 		productoService.guardar(producto);
 		modelAndView.addObject("productos",productoService.getLista());
+		
 		return modelAndView;
 	}
 	/**
 	 * Método para obtener la página de modificación de un producto.
 	 * @return La vista "nuevo_producto".
 	 */
-	@GetMapping("/modificar/{codigo}")
-	public String getModificarProductoPage(Model model, @PathVariable(value="codigo")int codigo) {
+	@GetMapping("/modificar/{id}")
+	public String getModificarProductoPage(Model model, @PathVariable(value="id")Long id) {
 		boolean edicion= true;
-		model.addAttribute("producto", productoService.getBy(codigo));
+		model.addAttribute("producto", productoService.getBy(id));
 		model.addAttribute("edicion", edicion);
 		return "nuevo_producto";
 	}
@@ -90,10 +94,10 @@ public class ProductosController {
 	 * Método para eliminar un producto.
 	 * @return vista "listado" mediante la redirección.
 	 */
-	@GetMapping("/eliminar/{codigo}")
-	public String elimanarProducto(@PathVariable(value="codigo")int codigo) {
+	@GetMapping("/eliminar/{id}")
+	public String elimanarProducto(@PathVariable(value="id")Long id) {
 		for (Producto prod : productoService.getLista()) {
-			if(prod.getCodigo()==codigo) {
+			if(prod.getId()==id) {
 				productoService.eliminar(prod);
 				break;
 			}

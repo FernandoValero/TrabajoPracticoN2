@@ -13,7 +13,7 @@ import ar.edu.unju.fi.service.IProductoService;
  * Implementación de la interfaz IProductoService que proporciona métodos para administrar los productos.
  */
 
-@Service
+@Service("productoServiceImp")
 public class ProductoServiceImp implements IProductoService{
 	@Autowired
 	private ListaProducto listaProducto;
