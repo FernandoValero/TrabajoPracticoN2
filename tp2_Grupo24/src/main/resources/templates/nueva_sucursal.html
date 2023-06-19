@@ -25,6 +25,11 @@
 			<div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
 		</div>
 		<div class="mb-3">
+			<label class="form-label" for="provincia">Provincia:<i class="fa-solid fa-street-view"></i></label>
+			<input class="form-control" type="text" id="provincia" name="provincia_sucursal" th:field="*{provincia}" placeholder="Ingresa la provincia de la sucursal">
+			<div class="text-danger" th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}"></div>
+		</div>
+		<div class="mb-3">
 			<label class="form-label" for="direccion">Dirección:<i class="fa-solid fa-street-view"></i></label>
 			<input class="form-control" type="text" id="direccion" name="direccion_sucursal" th:field="*{direccion}" placeholder="Ingresa la direccion de la sucursal">
 			<div class="text-danger" th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}"></div>
@@ -51,6 +56,7 @@
 		</div>
 		<input class="btn btn-success" type="submit" th:value="${edicion}?'Guardar Cambios':'Guardar'">
 		<a  th:href="@{/sucursal/sucursales}" class="btn btn-secondary" role="button" aria-disabled="true">Cancelar</a>
+		
 		<footer th:replace="~{layouts/footer :: footer}"></footer>
 		<script type="text/javascrip" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 		<script src="https://kit.fontawesome.com/f80946207f.js"></script>

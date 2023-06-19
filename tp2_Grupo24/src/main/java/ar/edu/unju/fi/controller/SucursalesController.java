@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,6 +21,7 @@ import jakarta.validation.Valid;
 public class SucursalesController {
 	
 	@Autowired
+	@Qualifier("sucursalServiceMysql")
 	private ISucursalService sucursalService;
 	
 	
@@ -31,6 +33,11 @@ public class SucursalesController {
 	public String getListaSucursalesPage(Model model) {
 		model.addAttribute("sucursales",sucursalService.getListaSucursal());
 		return "sucursales";
+		/*
+		ModelAndView getPageAutores() {
+			ModelAndView mav= new ModelAndView("listaAutores");
+			mav.addObject("autores", autorServiceImp.getAllAutores());
+			return mav;*/
 	}
 	
 	
@@ -72,10 +79,10 @@ public class SucursalesController {
 	 * Establece la sucursal encontrada y el indicador de "edicion" en el modelo.
 	 * Devuelve la página "nueva_sucursal".
 	 */
-	@GetMapping("/editar/{nombre}")
-	public String getEditarSucursalPage(Model model, @PathVariable(value="nombre") String nombre) {
+	@GetMapping("/editar/{id}")
+	public String getEditarSucursalPage(Model model, @PathVariable(value="id") Long id) {
 		boolean edicion=true;
-		Sucursal sucursalEncontrada = sucursalService.getBy(nombre);
+		Sucursal sucursalEncontrada = sucursalService.getBy(id);
 		model.addAttribute("sucursal", sucursalEncontrada);
 		model.addAttribute("edicion", edicion);
 		return "nueva_sucursal";
@@ -89,8 +96,9 @@ public class SucursalesController {
 	 * Redirecciona a la página de sucural/sucursales.
 	 */		
 	@PostMapping("/editar")
-	public String editarSucursal(@Valid @ModelAttribute("sucursal")Sucursal sucursal, BindingResult result) {
+	public String editarSucursal(@Valid @ModelAttribute("sucursal")Sucursal sucursal, BindingResult result,Model model) {
 		if(result.hasErrors()) {
+			model.addAttribute("edicion", true);
 			return "nueva_sucursal";
 		}
 		sucursalService.editar(sucursal);
@@ -104,9 +112,9 @@ public class SucursalesController {
 	 * Remueve la sucursal de la lista de sucursales usando el método eliminar.
 	 * Redirecciona a la página de sucural/sucursales.
 	 */
-	@GetMapping("/eliminar/{nombre}")
-	public String EliminarSucursal(@PathVariable(value="nombre") String nombre) {
-		Sucursal sucursalEncontrada= sucursalService.getBy(nombre);
+	@GetMapping("/eliminar/{id}")
+	public String EliminarSucursal(@PathVariable(value="id") Long id) {
+		Sucursal sucursalEncontrada= sucursalService.getBy(id);
 		sucursalService.eliminar(sucursalEncontrada);
 		return "redirect:/sucursal/sucursales";
 	}
