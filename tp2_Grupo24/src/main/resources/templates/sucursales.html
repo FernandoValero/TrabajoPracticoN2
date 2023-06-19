@@ -21,10 +21,10 @@
 		
 		<div class="sede" th:each="lista_sucursales: ${sucursales}">
 			<img th:src="@{/images/}+${lista_sucursales.imagen}" alt="Tienda de mascotas" >
-			<a th:href="@{/sucursal/editar/}+${lista_sucursales.nombre}"><i class="editar-sucu fa-regular fa-pen-to-square"></i></a>
-			<a th:href="@{/sucursal/eliminar/}+${lista_sucursales.nombre}"><i class="eliminar-sucu fa-solid fa-trash-can"></i></a>
+			<a th:href="@{/sucursal/editar/}+${lista_sucursales.id}"><i class="editar-sucu fa-regular fa-pen-to-square"></i></a>
+			<a th:href="@{/sucursal/eliminar/}+${lista_sucursales.id}"><i class="eliminar-sucu fa-solid fa-trash-can"></i></a>
 			<h3 th:text="${lista_sucursales.nombre}"></h3>
-			<p th:text="${lista_sucursales.direccion}"><p th:text="${lista_sucursales.telefono}"><p th:text="${lista_sucursales.horario}">
+			<p th:text="${lista_sucursales.provincia}"><p th:text="${lista_sucursales.direccion}"><p th:text="${lista_sucursales.telefono}"><p th:text="${lista_sucursales.horario}">
 		</div>
 		
 	</div>

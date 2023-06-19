@@ -19,10 +19,10 @@ public interface ISucursalService {
 	void guardar (@Valid Sucursal sucursal);
 	
 	/**
-	 *Metodo para buscar una sucursal que coincida con el nombre por paramtero
-	 *@param nombre, sucursal a buscar
+	 *Metodo para buscar una sucursal que coincida con el id por paramtero
+	 *@param id, sucursal a buscar
 	 */
-	Sucursal getBy(String nombre);
+	Sucursal getBy(Long id);
 	
 	/**
 	 *Metodo que permite modificar los datos de una sucursal
@@ -40,4 +40,9 @@ public interface ISucursalService {
 	 *Devuelve la instancia de una sucursal
 	 */
 	Sucursal getSucursal();
+
+	/**
+	 *Método para obtener la lista de Sucursales.
+	 *Devuelve las sucursales.
+	 */
 }

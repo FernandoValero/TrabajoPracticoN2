@@ -10,7 +10,7 @@ import ar.edu.unju.fi.service.ISucursalService;
 import jakarta.validation.Valid;
 
 
-@Service
+@Service("sucursalServiceImp")
 public class SucursalServiceImp implements ISucursalService{
 
 	@Autowired
@@ -48,10 +48,10 @@ public class SucursalServiceImp implements ISucursalService{
 	 * Devuelve la sucursal encontrada.
 	 */
 	@Override
-	public Sucursal getBy(String nombre) {
+	public Sucursal getBy(Long id) {
 		Sucursal sucursalEncontrada=null;
 		for(Sucursal sucu : listaSucursal.getSucursales()) {
-			if(sucu.getNombre().equals(nombre)) {
+			if(sucu.getId().equals(id)) {
 				sucursalEncontrada=sucu;
 				break;
 			}
@@ -97,4 +97,11 @@ public class SucursalServiceImp implements ISucursalService{
 	public Sucursal getSucursal() {
 		return sucursal;
 	}
+
+
+	/*@Override
+	public List<Sucursal> getLista() {
+		// TODO Auto-generated method stub
+		return null;
+	}*/
 }

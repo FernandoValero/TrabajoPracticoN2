@@ -1,24 +1,55 @@
 package ar.edu.unju.fi.entity;
 
 import org.springframework.stereotype.Component;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
 @Component
+@Entity
+@Table(name="sucursales")
 public class Sucursal {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_sucursal")
+	private Long id;
+	
+	@Column(name="nombre_sucursal")
 	@NotEmpty(message="*Nombre vacío")
 	@Size(min=4,message="*Nombre muy corto")
 	private String nombre;
-	@NotEmpty(message="*Direccion vacía")
+	
+	@Column(name="provincia_sucursal")
+	@NotEmpty(message="*Provincia vacía")
+	@Size(min=3,message="*Nombre de Provincia muy corto")
+	private String provincia;
+	
+	@Column(name="direccion_sucursal")
+	@NotEmpty(message="*Dirección vacía")
 	@Size(min=5,message="*Dirección muy corta")
 	private String direccion;
+	
+	@Column(name="telefono_sucursal")
 	@NotEmpty(message="*Teléfono vacío")
 	@Size(min=4,message="*Teléfono muy corto")
 	private String telefono;
+	
+	@Column(name="horario_sucursal")
 	@NotEmpty(message="*Horario vacío")
 	@Size(min=4,message="*Horario muy corto")
 	private String horario;
+	
+	@Column(name="imagen_sucursal")
 	private String imagen;
+	
+	@Column(name="estado_sucursal")
+	private boolean estado;
 	
 	/**
 	 * Constructor de la clase Sucursal
@@ -35,13 +66,32 @@ public class Sucursal {
 	 *@param horario, valor a asignar al Horario del objeto Sucursal
 	 *@param imagen, imagen a asignar para la sucursal
 	 */
-	public Sucursal(String nombre, String direccion, String telefono, String horario,String imagen) {
+	public Sucursal(Long id, String nombre, String provincia, String direccion, String telefono, String horario,String imagen, boolean estado) {
 		super();
+		this.id = id;
 		this.nombre = nombre;
+		this.provincia = provincia;
 		this.direccion = direccion;
 		this.telefono = telefono;
 		this.horario = horario;
 		this.imagen = imagen;
+		this.estado = estado;
+	}
+	
+	
+	/**
+	 * Permite la salida del ID 
+	 * @return retorna el ID de la sucursal
+	 */
+	public Long getId() {
+		return id;
+	}
+	/**
+	 * Permite la entrada del atributo ID
+	 * @param id, valor a asignar al ID del objeto
+	 */
+	public void setid(Long id) {
+		this.id = id;
 	}
 	
 	
@@ -60,6 +110,21 @@ public class Sucursal {
 		this.nombre = nombre;
 	}
 	
+	
+	/**
+	 * Permite la salida de la provincia
+	 * @return retorna la provincia de la sucursal
+	 */
+	public String getProvincia() {
+		return provincia;
+	}
+	/**
+	 * Permite la entrada del atributo provincia
+	 * @param provincia, valor a asignar a la provincia del objeto
+	 */
+	public void setProvincia(String provincia) {
+		this.provincia = provincia;
+	}
 	
 	/**
 	 * Permite la salida de la direccion
@@ -125,5 +190,18 @@ public class Sucursal {
 	}
 
 	
-	
+	/**
+	 * Permite la salida del estado
+	 * @return retorna el estado de la sucursal
+	 */
+	public boolean getEstado() {
+		return estado;
+	}
+	/**
+	 * Permite la entrada del atributo estado
+	 * @param estado, valor a asignar al  estado del objeto
+	 */
+	public void setEstado(boolean estado) {
+		this.estado = estado;
+	}
 }
