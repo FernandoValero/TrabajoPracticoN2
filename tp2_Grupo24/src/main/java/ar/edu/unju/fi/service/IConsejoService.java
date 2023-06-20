@@ -21,10 +21,10 @@ public interface IConsejoService {
 	void guardar (@Valid Consejo consejo);
 	
 	/**
-	 *Metodo para buscar un consejo que coincida con el nombre por parametro
+	 *Metodo para buscar un consejo que coincida con el id por parametro
 	 *@param nombre, consejo a buscar.
 	 */
-	Consejo getBy(String nombre);
+	Consejo getBy(Long id);
 	
 	/**
 	 *Metodo que permite modificar los datos de un consejo
