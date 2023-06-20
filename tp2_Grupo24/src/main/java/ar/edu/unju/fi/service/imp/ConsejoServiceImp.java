@@ -10,7 +10,7 @@ import ar.edu.unju.fi.lista.ListaConsejo;
 import ar.edu.unju.fi.service.IConsejoService;
 import jakarta.validation.Valid;
 
-@Service
+@Service("consejoServiceImp")
 public class ConsejoServiceImp implements IConsejoService{
 	
 	@Autowired
@@ -45,11 +45,11 @@ public class ConsejoServiceImp implements IConsejoService{
 	 * Devuelve el consejo encontrado.
 	 */
 	@Override
-	public Consejo getBy(String nombre) {
+	public Consejo getBy(Long id) {
 		Consejo consejoEncontrada=null;
-		for(Consejo consejo : listaConsejo.getConsejos()) {
-			if(consejo.getTitulo().equals(nombre)) {
-				consejoEncontrada=consejo;
+		for(Consejo conse : listaConsejo.getConsejos()) {
+			if(conse.getId().equals(id)) {
+				consejoEncontrada=conse;
 				break;
 			}
 		}
@@ -91,4 +91,10 @@ public class ConsejoServiceImp implements IConsejoService{
 	public Consejo getConsejo() {
 		return consejo;
 	}
+
+	/*@Override
+	public Consejo getBy(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}*/
 }

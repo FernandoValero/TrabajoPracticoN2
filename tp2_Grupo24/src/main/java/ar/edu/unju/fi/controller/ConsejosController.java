@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,6 +21,7 @@ import jakarta.validation.Valid;
 public class ConsejosController {
 	
 	@Autowired
+	@Qualifier("consejoServiceMysql")
 	private IConsejoService consejoService;
 	
 	/**
@@ -77,10 +79,10 @@ public class ConsejosController {
 	 * @param nombre el nombre del consejo que se va a editar.
 	 * @return el nombre de la vista "nuevo_consejo".
 	 */
-	@GetMapping("/editar/{nombre}")
-	public String getEditarConsejoPage(Model model, @PathVariable(value = "nombre") String nombre) {
+	@GetMapping("/editar/{id}")
+	public String getEditarConsejoPage(Model model, @PathVariable(value = "id") Long id) {
 		boolean edicion=true;
-		Consejo consejoEncontrada = consejoService.getBy(nombre);
+		Consejo consejoEncontrada = consejoService.getBy(id);
 		model.addAttribute("consejo", consejoEncontrada);
 		model.addAttribute("edicion", edicion);
 		return "nuevo_consejo";
@@ -107,9 +109,9 @@ public class ConsejosController {
 	 * Remueve el consejo de la lista de consejos usando el método eliminar.
 	 * Redirecciona a la página de consejo/consejos.
 	 */
-	@GetMapping("/eliminar/{nombre}")
-	public String EliminarConsejo(@PathVariable(value = "nombre") String nombre) {
-		Consejo consejoEncontrada = consejoService.getBy(nombre);
+	@GetMapping("/eliminar/{id}")
+	public String EliminarConsejo(@PathVariable(value = "id") Long id) {
+		Consejo consejoEncontrada = consejoService.getBy(id);
 		consejoService.eliminar(consejoEncontrada);
 		return "redirect:/consejo/consejos";
 	}
