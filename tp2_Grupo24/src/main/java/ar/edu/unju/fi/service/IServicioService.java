@@ -24,7 +24,7 @@ public interface IServicioService {
 	 *Metodo para buscar un servicio que coincida con el paseador por paramtero
 	 *@param paseador, servicio a buscar
 	 */
-	Servicio getBy(String paseador);
+	Servicio getBy(Long id);
 	/**
 	 *Metodo que permite editar los datos de un servicio
 	 *@param servicio, servicio a editar

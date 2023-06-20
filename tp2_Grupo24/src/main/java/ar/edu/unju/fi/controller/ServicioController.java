@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,6 +23,7 @@ public class ServicioController {
 	
 	/**Inytección de una intancia de la intefaz IServicioService*/ 
 	@Autowired
+	@Qualifier("servicioServiceMysql")
 	private IServicioService servicioService;
 	/**
 	 * Método que maneja la solicitud GET "/servicio/servicios" y muestra la página de lista de servicios.
@@ -76,10 +78,10 @@ public class ServicioController {
 	 * @param paseador de servicio que se va a editar.
 	 * @return el nombre de la vista "nuevo_servicio" que se mostrará al usuario.
 	 */
-	@GetMapping("/editar/{paseador}")
-	public String getEditarServicioPage(Model model, @PathVariable(value="paseador")String paseador) {
+	@GetMapping("/editar/{id}")
+	public String getEditarServicioPage(Model model, @PathVariable(value="id")Long id) {
 		boolean edicion = true;
-		Servicio servicioEncontrada = servicioService.getBy(paseador);
+		Servicio servicioEncontrada = servicioService.getBy(id);
 		model.addAttribute("servicio", servicioEncontrada);
 		model.addAttribute("edicion", edicion);
 		return "nuevo_servicio";
@@ -101,14 +103,10 @@ public class ServicioController {
 	 * Método para eliminar un servicio.
 	 * @return vista "servicios" mediante la redirección.
 	 */
-	@GetMapping("/eliminar/{paseador}")
-	public String eliminarServicio(@PathVariable(value="paseador")String paseador) {
-		for (Servicio serv : servicioService.getListaServicio()) {
-			if(serv.getPaseador().equals(paseador)) {
-				servicioService.eliminar(serv);
-				break;
-			}
-		}
+	@GetMapping("/eliminar/{id}")
+	public String eliminarServicio(@PathVariable(value="paseador")Long id) {
+		Servicio servicioEncontrada= servicioService.getBy(id);
+		servicioService.eliminar(servicioEncontrada);
 		return "redirect:/servicio/servicios";
 	}
 
