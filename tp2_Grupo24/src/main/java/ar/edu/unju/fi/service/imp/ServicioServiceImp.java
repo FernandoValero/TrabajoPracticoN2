@@ -43,10 +43,10 @@ public class ServicioServiceImp implements IServicioService{
 	    * @return el servicio que tenga coincidencia.
 	    */
 	@Override
-	public Servicio getBy(String paseador) {
+	public Servicio getBy(Long id) {
 		Servicio servicioEncontrada=new Servicio();
 		for(Servicio serv : listaServicio.getServicios()) {
-			if(serv.getPaseador().equals(paseador)) {
+			if(serv.getPaseador().equals(id)) {
 				servicioEncontrada=serv;
 				break;
 			}
