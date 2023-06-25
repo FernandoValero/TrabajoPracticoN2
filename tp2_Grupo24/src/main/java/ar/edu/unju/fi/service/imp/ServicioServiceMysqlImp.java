@@ -50,7 +50,7 @@ public class ServicioServiceMysqlImp implements IServicioService {
 
 	}
 	/*
-	 * Método para eliminar un servicio.
+	 * Método para eliminar un servicio..
 	 * Remueve el servicio de la lista de servicios.
 	 */
 	@Override

@@ -31,15 +31,15 @@ public class Servicio {
 	private String dia;
 	
 	/*
-	 * Indica la clave principal de la entidad
+	 * Indica la clave principal de la entidad.
 	 */
 	@Id
 	/*
-	 * Genera el ID automaticamente
+	 * Genera el ID automaticamente.
 	 */
 	@GeneratedValue (strategy=GenerationType.IDENTITY)
 	/*
-	 * La anotacion @Column se usa para asignar un nombre a la columna de la BD
+	 * La anotacion @Column se usa para asignar un nombre a la columna de la Base de Datos.
 	 */
 	@Column(name="id_serv")
 	private Long id;
