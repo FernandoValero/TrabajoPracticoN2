@@ -46,7 +46,7 @@ public class ServicioServiceImp implements IServicioService{
 	public Servicio getBy(Long id) {
 		Servicio servicioEncontrada=new Servicio();
 		for(Servicio serv : listaServicio.getServicios()) {
-			if(serv.getPaseador().equals(id)) {
+			if(serv.getId().equals(id)) {
 				servicioEncontrada=serv;
 				break;
 			}

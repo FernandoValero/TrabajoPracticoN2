@@ -91,7 +91,7 @@ public class ServicioController {
 	 * @return vista "servicios" mediante la redirección.
 	 */
 	@PostMapping("/editar")
-	public String editarServicio(@Valid @ModelAttribute("servicio")Servicio servicio,BindingResult result) {
+	public String editarServicio(@Valid @ModelAttribute("servicio")Servicio servicio,BindingResult result, Model model) {
 		if(result.hasErrors()){
 		return "nuevo_servicio";
 		}
@@ -104,7 +104,7 @@ public class ServicioController {
 	 * @return vista "servicios" mediante la redirección.
 	 */
 	@GetMapping("/eliminar/{id}")
-	public String eliminarServicio(@PathVariable(value="paseador")Long id) {
+	public String EliminarServicio(@PathVariable(value="id")Long id) {
 		Servicio servicioEncontrada= servicioService.getBy(id);
 		servicioService.eliminar(servicioEncontrada);
 		return "redirect:/servicio/servicios";

@@ -17,15 +17,30 @@ import jakarta.validation.constraints.Size;
  */
 @Component
 @Entity
+/*
+ * Define a la clase Servicio como una entidad
+ */
 @Table (name="servicios")
+/*
+ * Asigna el nombre "servicios" a una tabla
+ */
 public class Servicio {
 	
 	@Column (name="serv_dia",length = 20,nullable =false)
 	@NotBlank(message="*Debe Seleccionar un Dia")
 	private String dia;
 	
+	/*
+	 * Indica la clave principal de la entidad
+	 */
 	@Id
+	/*
+	 * Genera el ID automaticamente
+	 */
 	@GeneratedValue (strategy=GenerationType.IDENTITY)
+	/*
+	 * La anotacion @Column se usa para asignar un nombre a la columna de la BD
+	 */
 	@Column(name="id_serv")
 	private Long id;
 	
@@ -48,17 +63,33 @@ public class Servicio {
 		// TODO Auto-generated constructor stub
 	}
 	 /**
-     * Constructor de la clase Servicio que recibe el dia, el paseador y el horario.
-     *
-     * @param dia     el dia de servicio.
-     * @param paseador nombre del paseador que presta servicio.
-     * @param horario      horario del paseador que presta servicio.
+     * Constructor de la clase Servicio que recibe el id, el dia, el paseador y el horario.
+     * @param id, el id del servicio
+     * @param dia, el dia de servicio.
+     * @param paseador, nombre del paseador que presta servicio.
+     * @param horario, horario del paseador que presta servicio.
      */
-	public Servicio(String dia, String paseador, String horario) {
-		
+	public Servicio(Long id, String dia, String paseador, String horario) {
+		super ();
+		this.id = id;
 		this.dia = dia;
 		this.paseador = paseador;
 		this.horario = horario;
+	}
+	
+	/**
+	 * Permite la salida del ID 
+	 * @return retorna el ID del servicio
+	 */
+	public Long getId() {
+		return id;
+	}
+	/**
+	 * Permite la entrada del atributo ID
+	 * @param id, valor a asignar al ID del objeto
+	 */
+	public void setid(Long id) {
+		this.id = id;
 	}
 	 /**
      * Obtiene el dia de servicio.

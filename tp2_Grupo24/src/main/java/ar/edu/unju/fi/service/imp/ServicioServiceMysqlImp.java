@@ -22,29 +22,37 @@ public class ServicioServiceMysqlImp implements IServicioService {
 
 		return servicioRepository.findByEstado(true);
 	}
-
+	/*
+	 * Método para guardar un nuevo servicio.
+	 * Agrega el nuevo servicio a la lista de servicio.
+	 */
 	@Override
 	public void guardar(@Valid Servicio servicio) {
 		servicio.setEstado(true);
 		servicioRepository.save(servicio);
 	}
-
+	/*
+	 * Método para buscar un servicio.
+	 * Busca del servicio con el nombre proporcionado en la lista de servicios.
+	 * Devuelve el servicio encontrado.
+	 */
 	@Override
 	public Servicio getBy(Long id) {
 		return servicioRepository.findById(id).get();
 	}
-
+	/*
+	 * Método para editar un servicio existente.
+	 * Actualiza los atributos del servicio encontrado con los valores proporcionados.
+	 */
 	@Override
 	public void editar(Servicio servicio) {
-		/*servicio.setid(servicio.getId());
-		servicio.setDia(servicio.getDia());
-		servicio.setPaseador(servicio.getPaseador());
-		servicio.setHorario(servicio.getHorario());
-		sucursal.setEstado(true);*/
 		servicioRepository.save(servicio);
 
 	}
-
+	/*
+	 * Método para eliminar un servicio.
+	 * Remueve el servicio de la lista de servicios.
+	 */
 	@Override
 	public void eliminar(Servicio servicioEncontrada) {
 		//eliminacion logica
@@ -53,7 +61,10 @@ public class ServicioServiceMysqlImp implements IServicioService {
 		
 
 	}
-
+	/*
+	 * Método para devolver un servicio.
+	 * Devuelve un servicio.
+	 */
 	@Override
 	public Servicio getServicio() {
 		
