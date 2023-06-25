@@ -37,7 +37,7 @@ public class ServicioServiceImp implements IServicioService{
 	public void guardar(Servicio servicio) {
 		listaServicio.getServicios().add(servicio);
 	}
-	/**
+		/**
 	    * Encuentra un servicio de acuerdo a su paseador.
 	    * @param paseador, el paseador de servicio a buscar.
 	    * @return el servicio que tenga coincidencia.
@@ -46,7 +46,7 @@ public class ServicioServiceImp implements IServicioService{
 	public Servicio getBy(Long id) {
 		Servicio servicioEncontrada=new Servicio();
 		for(Servicio serv : listaServicio.getServicios()) {
-			if(serv.getPaseador().equals(id)) {
+			if(serv.getId().equals(id)) {
 				servicioEncontrada=serv;
 				break;
 			}

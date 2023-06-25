@@ -10,30 +10,30 @@ import jakarta.validation.Valid;
 */
 public interface IServicioService {
 	/**
-	 *Devuelve la lista de Servicio
+	 *Devuelve la lista de Servicio.
 	 */
 	List<Servicio> getListaServicio();
 	
 	/**
-	 *Metodo que permite guardar un servicio
-	 *@param servicio, valor a guardar
+	 *Metodo que permite guardar un servicio.
+	 *@param servicio, valor a guardar.
 	 */
 	void guardar (@Valid Servicio servicio);
 	
 	/**
-	 *Metodo para buscar un servicio que coincida con el paseador por paramtero
-	 *@param paseador, servicio a buscar
+	 *Metodo para buscar un servicio que coincida con el paseador por paramtero.
+	 *@param paseador, servicio a buscar.
 	 */
 	Servicio getBy(Long id);
 	/**
-	 *Metodo que permite editar los datos de un servicio
-	 *@param servicio, servicio a editar
+	 *Metodo que permite editar los datos de un servicio.
+	 *@param servicio, servicio a editar.
 	 */
 	void editar (Servicio servicio);
 	
 	/**
-	 *Metodo que permite eliminar un servicio
-	 * *@param servicioEncontrada, servicio a eliminar
+	 *Metodo que permite eliminar un servicio.
+	 * *@param servicioEncontrada, servicio a eliminar.
 	 */
 	
 	void eliminar(Servicio servicioEncontrada);

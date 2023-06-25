@@ -7,5 +7,8 @@ import java.util.List;
 
 @Repository
 public interface IServicioRepository extends CrudRepository<Servicio,Long>{
+	/*
+	 * Método para devolver servicios de acuerdo a su estado.
+	 */
 	public List<Servicio> findByEstado(boolean estado);
 }

@@ -16,9 +16,9 @@ public class ListaServicio {
 	     */
 		public ListaServicio() {
 			servicios = new ArrayList<Servicio>();
-			servicios.add(new Servicio("Lunes", "Juan Perez", "9 a 12 - 16 a 18"));
-			servicios.add(new Servicio("Martes","Lucas Diaz", "9 a 12 - 16 a 18"));
-			servicios.add(new Servicio("Jueves","Maria Gomez", "9 a 12 - 16 a 18"));
+			servicios.add(new Servicio(null,"Lunes", "Juan Perez", "9 a 12 - 16 a 18"));
+			servicios.add(new Servicio(null,"Martes","Lucas Diaz", "9 a 12 - 16 a 18"));
+			servicios.add(new Servicio(null,"Jueves","Maria Gomez", "9 a 12 - 16 a 18"));
 		}
 		/**
 	     * Obtiene la lista de servicios.
