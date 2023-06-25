@@ -98,10 +98,4 @@ public class SucursalServiceImp implements ISucursalService{
 		return sucursal;
 	}
 
-
-	/*@Override
-	public List<Sucursal> getLista() {
-		// TODO Auto-generated method stub
-		return null;
-	}*/
 }

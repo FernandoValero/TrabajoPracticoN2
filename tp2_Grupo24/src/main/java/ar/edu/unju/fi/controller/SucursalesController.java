@@ -33,11 +33,6 @@ public class SucursalesController {
 	public String getListaSucursalesPage(Model model) {
 		model.addAttribute("sucursales",sucursalService.getListaSucursal());
 		return "sucursales";
-		/*
-		ModelAndView getPageAutores() {
-			ModelAndView mav= new ModelAndView("listaAutores");
-			mav.addObject("autores", autorServiceImp.getAllAutores());
-			return mav;*/
 	}
 	
 	
@@ -55,7 +50,8 @@ public class SucursalesController {
 	
 	
 	/*
-	 * Método para guardar una nueva sucursal.
+	 * Método para guardar una nueva sucursal. 
+	 * Verifica si se hay un error, en caso afirmativo se retorna a la página "nueva_sucursal" y muestra los errores
 	 * Agrega la nueva sucursal a la lista de sucursales usando el método guardar.
 	 * Actualiza el modelo con la lista actualizada de sucursales.
 	 * Devuelve el objeto ModelAndView.
@@ -91,7 +87,7 @@ public class SucursalesController {
 	
 	/*
 	 * Método para editar una sucursal existente.
-	 * Busca la sucursal con el mismo nombre en la lista de sucursales usando el método getBy.
+	 * Verifica si se hay un error, en caso afirmativo se retorna a la página "nueva_sucursal" y muestra los errores
 	 * Actualiza los atributos de la sucursal encontrada con los valores proporcionados usando el método editar.
 	 * Redirecciona a la página de sucural/sucursales.
 	 */		

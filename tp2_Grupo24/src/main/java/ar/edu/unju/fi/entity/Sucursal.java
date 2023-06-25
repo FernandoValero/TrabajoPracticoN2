@@ -12,12 +12,31 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
 @Component
+
 @Entity
+/*
+ * Define a la clase Sucursal como una entidad
+ */
+
 @Table(name="sucursales")
+/*
+ * Asigna el nombre "sucursales" a una tabla
+ */
 public class Sucursal {
 	@Id
+	/*
+	 * Indica la clave principal de la entidad
+	 */
+	
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	/*
+	 * Genera el ID automaticamente
+	 */
+	
 	@Column(name="id_sucursal")
+	/*
+	 * La anotacion @Column se usa para asignar un nombre a la columna de la BD
+	 */
 	private Long id;
 	
 	@Column(name="nombre_sucursal")
@@ -125,6 +144,7 @@ public class Sucursal {
 	public void setProvincia(String provincia) {
 		this.provincia = provincia;
 	}
+	
 	
 	/**
 	 * Permite la salida de la direccion

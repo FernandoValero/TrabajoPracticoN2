@@ -7,59 +7,66 @@
 		<link th:href="@{/css/estilos.css}" rel="stylesheet">
 	</head>
 	<body>
-	<nav th:replace="~{layouts/nav :: nav}"></nav>
-	<header class="encabezado container-sm">
-			<div class="row">
-				<div class="col-3"></div>
-				<h1 class="titulo col-6" th:text="${edicion}?'Modificar':'Nuevo'"></h1>
-				<div class="col-3"></div>
-			</div>
-	</header>
-	
-	<form class="container formulario" th:action="${edicion}?@{/sucursal/editar}:@{/sucursal/guardar}" th:object="${sucursal}" method="post">
-		<br>
-		<div class="mb-3">
-			<label class="form-label" for="nombre">Nombre:<i class="fa-solid fa-house"></i></label>
-			<input class="form-control" th:if="${edicion}" type="text" id="nombre" name="nombre_sucursal" th:field="*{nombre}" readonly="readonly">
-			<input class="form-control" th:if="!${edicion}" type="text" id="nombre" name="nombre_sucursal" th:field="*{nombre}" placeholder="Ingresa el nombre de la sucursal" >
-			<div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
-		</div>
-		<div class="mb-3">
-			<label class="form-label" for="provincia">Provincia:<i class="fa-solid fa-street-view"></i></label>
-			<input class="form-control" type="text" id="provincia" name="provincia_sucursal" th:field="*{provincia}" placeholder="Ingresa la provincia de la sucursal">
-			<div class="text-danger" th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}"></div>
-		</div>
-		<div class="mb-3">
-			<label class="form-label" for="direccion">Dirección:<i class="fa-solid fa-street-view"></i></label>
-			<input class="form-control" type="text" id="direccion" name="direccion_sucursal" th:field="*{direccion}" placeholder="Ingresa la direccion de la sucursal">
-			<div class="text-danger" th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}"></div>
-		</div>
-		<div class="mb-3">
-			<label class="form-label" for="telefono">Teléfono:<i class="fa-solid fa-phone"></i></label>
-			<input class="form-control" type="text" id="telefono" name="telefono_sucursal" th:field="*{telefono}" placeholder="Ingresa el teléfono de la sucursal">
-			<div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
-		</div>
-		<div class="mb-3">
-			<label class="form-label" for="telefono">Horario:<i class="fa-regular fa-clock"></i></label>
-			<input class="form-control" type="text" id="horario" name="horario_sucursal" th:field="*{horario}" placeholder="Ingresa el horario de la sucursal  Formato: Lunes a Viernes de 00:00 a 00:00hs - Sábado y Domingo de 00:00 a 00:00hs">
-			<div class="text-danger" th:if="${#fields.hasErrors('horario')}" th:errors="*{horario}"></div>
-		</div>
-		<div class="mb-3">
-			<label class="form-label" for="image">Imagen:<i class="fa-regular fa-image"></i></label>
-			<select class="form-select" th:field="*{imagen}" required="required">
-				    <option value="PetShop1.png">Sucursal 1</option>
-				    <option value="PetShop2.jpg">Sucursal 2</option>
-				    <option value="PetShop3.jpeg">Sucursal 3</option>
-				    <option value="PetShops.jpeg">Sucursal 4</option>
-				    <option value="PetShop5.png">Sucursal 5</option>
-			</select><br>
-		</div>
-		<input class="btn btn-success" type="submit" th:value="${edicion}?'Guardar Cambios':'Guardar'">
-		<a  th:href="@{/sucursal/sucursales}" class="btn btn-secondary" role="button" aria-disabled="true">Cancelar</a>
+		<nav th:replace="~{layouts/nav :: nav}"></nav>
 		
+		<header class="encabezado container-sm">
+				<div class="row">
+					<div class="col-3"></div>
+					<h1 class="titulo col-6" th:text="${edicion}?'Modificar':'Nuevo'"></h1>
+					<div class="col-3"></div>
+				</div>
+		</header>
+		
+		<form class="container formulario" th:action="${edicion}?@{/sucursal/editar}:@{/sucursal/guardar}" th:object="${sucursal}" method="post">
+			<br>
+			<div class="mb-3" th:if="${edicion}">
+				<input class="form-control" type="hidden" th:field="*{id}" readonly="readonly">
+			</div>
+			<div class="mb-3" th:if="${edicion}">
+				<input class="form-control" type="hidden" th:field="*{estado}" readonly="readonly">
+			</div>
+			<div class="mb-3">
+				<label class="form-label" for="nombre">Nombre:<i class="fa-solid fa-house"></i></label>
+				<input class="form-control" th:if="${edicion}" type="text" id="nombre" name="nombre_sucursal" th:field="*{nombre}" readonly="readonly">
+				<input class="form-control" th:if="!${edicion}" type="text" id="nombre" name="nombre_sucursal" th:field="*{nombre}" placeholder="Ingresa el nombre de la sucursal" >
+				<div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+			</div>
+			<div class="mb-3">
+				<label class="form-label" for="provincia">Provincia:<i class="fa-solid fa-street-view"></i></label>
+				<input class="form-control" type="text" id="provincia" name="provincia_sucursal" th:field="*{provincia}" placeholder="Ingresa la provincia de la sucursal">
+				<div class="text-danger" th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}"></div>
+			</div>
+			<div class="mb-3">
+				<label class="form-label" for="direccion">Dirección:<i class="fa-solid fa-street-view"></i></label>
+				<input class="form-control" type="text" id="direccion" name="direccion_sucursal" th:field="*{direccion}" placeholder="Ingresa la direccion de la sucursal">
+				<div class="text-danger" th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}"></div>
+			</div>
+			<div class="mb-3">
+				<label class="form-label" for="telefono">Teléfono:<i class="fa-solid fa-phone"></i></label>
+				<input class="form-control" type="text" id="telefono" name="telefono_sucursal" th:field="*{telefono}" placeholder="Ingresa el teléfono de la sucursal">
+				<div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
+			</div>
+			<div class="mb-3">
+				<label class="form-label" for="telefono">Horario:<i class="fa-regular fa-clock"></i></label>
+				<input class="form-control" type="text" id="horario" name="horario_sucursal" th:field="*{horario}" placeholder="Ingresa el horario de la sucursal  Formato: Lunes a Viernes de 00:00 a 00:00hs - Sábado y Domingo de 00:00 a 00:00hs">
+				<div class="text-danger" th:if="${#fields.hasErrors('horario')}" th:errors="*{horario}"></div>
+			</div>
+			<div class="mb-3">
+				<label class="form-label" for="image">Imagen:<i class="fa-regular fa-image"></i></label>
+				<select class="form-select" th:field="*{imagen}" required="required">
+					    <option value="PetShop1.png">Sucursal 1</option>
+					    <option value="PetShop2.jpg">Sucursal 2</option>
+					    <option value="PetShop3.jpeg">Sucursal 3</option>
+					    <option value="PetShops.jpeg">Sucursal 4</option>
+					    <option value="PetShop5.png">Sucursal 5</option>
+				</select><br>
+			</div>
+			<input class="btn btn-success" type="submit" th:value="${edicion}?'Guardar Cambios':'Guardar'">
+			<a  th:href="@{/sucursal/sucursales}" class="btn btn-secondary" role="button" aria-disabled="true">Cancelar</a>
+
+			<script type="text/javascrip" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+			<script src="https://kit.fontawesome.com/f80946207f.js"></script>
+		</form>
 		<footer th:replace="~{layouts/footer :: footer}"></footer>
-		<script type="text/javascrip" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
-		<script src="https://kit.fontawesome.com/f80946207f.js"></script>
-	</form>
 	</body>
 </html>

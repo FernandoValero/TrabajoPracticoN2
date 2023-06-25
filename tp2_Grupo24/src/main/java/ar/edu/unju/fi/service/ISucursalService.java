@@ -41,8 +41,4 @@ public interface ISucursalService {
 	 */
 	Sucursal getSucursal();
 
-	/**
-	 *Método para obtener la lista de Sucursales.
-	 *Devuelve las sucursales.
-	 */
 }
