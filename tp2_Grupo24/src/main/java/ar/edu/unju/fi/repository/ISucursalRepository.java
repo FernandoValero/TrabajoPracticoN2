@@ -9,6 +9,10 @@ import ar.edu.unju.fi.entity.Sucursal;
 @Repository
 public interface ISucursalRepository extends CrudRepository<Sucursal,Long>{
 
+	
+	/*
+	 * Método para devolver sucursales de acuerdo a su estado.
+	 */
 	public List<Sucursal> findByEstado(boolean estado);
 	
 }

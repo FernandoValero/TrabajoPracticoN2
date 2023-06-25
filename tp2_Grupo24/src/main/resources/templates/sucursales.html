@@ -3,8 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Sucursales</title>
-	<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 	<link th:href="@{/css/estilos.css}" rel="stylesheet">
+	<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 </head>
 <body>
 	<nav th:replace="~{layouts/nav :: nav}" ></nav>
@@ -15,23 +15,25 @@
 				<div class="col-3"></div>
 			</div>
 	</header>
-	<div class="container-fluid cuerpo_sucursal">
 	
-	<div class="container-fluid sedes">
-		
-		<div class="sede" th:each="lista_sucursales: ${sucursales}">
-			<img th:src="@{/images/}+${lista_sucursales.imagen}" alt="Tienda de mascotas" >
-			<a th:href="@{/sucursal/editar/}+${lista_sucursales.id}"><i class="editar-sucu fa-regular fa-pen-to-square"></i></a>
-			<a th:href="@{/sucursal/eliminar/}+${lista_sucursales.id}"><i class="eliminar-sucu fa-solid fa-trash-can"></i></a>
-			<h3 th:text="${lista_sucursales.nombre}"></h3>
-			<p th:text="${lista_sucursales.provincia}"><p th:text="${lista_sucursales.direccion}"><p th:text="${lista_sucursales.telefono}"><p th:text="${lista_sucursales.horario}">
+	<div class="container-fluid cuerpo_sucursal" th:if="!${#lists.isEmpty(sucursales)}" >
+		<div class="container-fluid sedes">
+			
+			<div class="sede" th:each="lista_sucursales: ${sucursales}">
+				<img th:src="@{/images/}+${lista_sucursales.imagen}" alt="Tienda de mascotas" >
+				<a th:href="@{/sucursal/editar/}+${lista_sucursales.id}"><i class="editar-sucu fa-regular fa-pen-to-square"></i></a>
+				<a th:href="@{/sucursal/eliminar/}+${lista_sucursales.id}"><i class="eliminar-sucu fa-solid fa-trash-can"></i></a>
+				<h3 th:text="${lista_sucursales.nombre}"></h3>
+				<p th:text="${lista_sucursales.provincia}"><p th:text="${lista_sucursales.direccion}"><p th:text="${lista_sucursales.telefono}"><p th:text="${lista_sucursales.horario}">
+			</div>
+			
 		</div>
-		
 	</div>
-	</div>
+	
 	<div class="guardar">
 		<a th:href="@{/sucursal/nuevo}"><i class="agregar fa-solid fa-circle-plus"></i></a>
 	</div>
+	
 	<footer th:replace="~{layouts/footer :: footer}"></footer>
 	<script type="text/javascrip" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 	<script src="https://kit.fontawesome.com/f80946207f.js" ></script>

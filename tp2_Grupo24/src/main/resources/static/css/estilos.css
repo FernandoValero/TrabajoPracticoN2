@@ -83,7 +83,7 @@ nav ul li a:active{
 .footer{
 	background: #313131;
 	position: fixed;
-  	bottom: 0;
+  	bottom: 0px;
  	width: 100%;
 }
 
@@ -313,27 +313,22 @@ tr:hover td{
 }
 /*SUCURSALES*/
 .cuerpo_sucursal{
-	margin-left: 5%;
-	margin-right: 5%;
-	margin-top: 1%;
-	padding: 5%;
+	position:absolute;
+	padding: 3%;
 	width: 90%;
-	padding: 1%;
 	border: 2px solid #313131;
 	border-radius: 10px;
   	background: white;
-	position:absolute;
 }
-.sedes{
-	height: 100px;
-	margin-left: 2%;
-}
+
 .sede{
 	float:left;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	width: 400px;
 	height: 600px;
-	margin: 30px;
+	margin-right: 20px;
+	margin-left: 20px;
+	margin-bottom: 20px;
 	text-align: center;
 	background-color: rgba(167, 167, 167, 0.692);
 }
@@ -408,9 +403,11 @@ tr:hover td{
 	color: red;
 	font-size: 37px;
 }
+
 .guardar{
 	position: fixed;
-	top: 83%;
+	margin-right: -150px;
+	top: 82%;
 	right: 10%;
 }
 .agregar{
