@@ -8,6 +8,9 @@ import ar.edu.unju.fi.entity.Consejo;
 
 @Component
 public class ListaConsejo {
+	/**
+	  * Declaración de lista consejos
+	  */
     private List<Consejo> consejos;
 
     /**
@@ -22,7 +25,7 @@ public class ListaConsejo {
     }
 
     /**
-     * Obtiene la lista de consejos.
+     * Permite la salida de un consejo.
      *
      * @return la lista de consejos.
      */
@@ -31,9 +34,7 @@ public class ListaConsejo {
     }
 
     /**
-     * Establece la lista de consejos.
-     *
-     * @param consejos la lista de consejos a establecer.
+     * Permite la entrada de un consejo
      */
     public void setConsejos(List<Consejo> consejos) {
         this.consejos = consejos;
