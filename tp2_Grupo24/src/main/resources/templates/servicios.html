@@ -30,8 +30,8 @@
 			<td th:text="${serv.dia}"></td>
 			<td th:text="${serv.paseador}"></td>
 			<td th:text="${serv.horario}"></td>
-			<td><a th:href="@{/servicio/editar/}+${serv.paseador}"><i class="editar-servicio fa-regular fa-pen-to-square"></i></a>
-				<a th:href="@{/servicio/eliminar/}+${serv.paseador}"><i class="eliminar-servicio fa-solid fa-trash-can"></i></a></td>
+			<td><a th:href="@{/servicio/editar/}+${serv.id}"><i class="editar-servicio fa-regular fa-pen-to-square"></i></a>
+				<a th:href="@{/servicio/eliminar/}+${serv.id}"><i class="eliminar-servicio fa-solid fa-trash-can"></i></a></td>
 		</tr>
 		</table>
 	</div>

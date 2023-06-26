@@ -17,6 +17,12 @@
 		</div>
 	</header>
 	<form class="container formulario" th:action="${edicion}?@{/servicio/editar}:@{/servicio/guardar}" th:object="${servicio}" method="post">
+	<div class="mb-3" th:if="${edicion}">
+				<input class="form-control" type="hidden" th:field="*{id}" readonly="readonly">
+			</div>
+			<div class="mb-3" th:if="${edicion}">
+				<input class="form-control" type="hidden" th:field="*{estado}" readonly="readonly">
+			</div>
 		<br>
 		<div class="mb-3">
 			<label class="form-label">Dia: <i class="fa-solid fa-calendar-days"></i></label>
