@@ -19,6 +19,12 @@
 	
 	<form class="container formulario" th:action="${edicion}?@{/consejo/editar}:@{/consejo/guardar}" th:object="${consejo}" method="post">
 		<br>
+		<div class="mb-3" th:if="${edicion}">
+				<input class="form-control" type="hidden" th:field="*{id}" readonly="readonly">
+			</div>
+			<div class="mb-3" th:if="${edicion}">
+				<input class="form-control" type="hidden" th:field="*{estado}" readonly="readonly">
+			</div>
 		<div class="mb-3">
 			<label class="form-label" for="titulo">Título:<i class="fa-solid fa-house"></i></label>
 			<input class="form-control" th:if="${edicion}" type="text" id="titulo" name="titulo_consejo" th:field="*{titulo}" readonly="readonly">
