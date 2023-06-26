@@ -83,7 +83,5 @@ public class SucursalServiceMysqlImp implements ISucursalService {
 	public Sucursal getSucursal() {
 		return sucursal;
 	}
-
 	
-
 }

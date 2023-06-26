@@ -92,9 +92,4 @@ public class ConsejoServiceImp implements IConsejoService{
 		return consejo;
 	}
 
-	/*@Override
-	public Consejo getBy(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}*/
 }

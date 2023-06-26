@@ -13,7 +13,6 @@ public interface IConsejoService {
 	 */
 	List<Consejo> getListaConsejo();
 	
-	
 	/**
 	 *Metodo que permite guardar un consejo
 	 *@param consejo, valor a guardar.
@@ -22,7 +21,7 @@ public interface IConsejoService {
 	
 	/**
 	 *Metodo para buscar un consejo que coincida con el id por parametro
-	 *@param nombre, consejo a buscar.
+	 *@param id, consejo a buscar.
 	 */
 	Consejo getBy(Long id);
 	

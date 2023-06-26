@@ -1,7 +1,6 @@
 package ar.edu.unju.fi.entity;
 
 import org.springframework.stereotype.Component;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,18 +9,30 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
-
-/**
- * Clase que representa un consejo.
- */
 @Component
+
 @Entity
+/*
+ * Define a la clase Consejo como una entidad
+ */
+
 @Table(name="consejos")
+/*
+ * Asigna el nombre "consejos" a una tabla
+ */
 public class Consejo {
-	
 	@Id
+	/*
+	 * Indica la clave principal de la entidad
+	 */
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	/*
+	 * Genera el ID automaticamente
+	 */
 	@Column(name="id_consejo")
+	/*
+	 * La anotacion @Column se usa para asignar un nombre a la columna de la BD
+	 */
 	private Long id;
 	
 	@Column(name="titulo_consejo")
